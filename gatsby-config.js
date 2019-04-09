@@ -7,17 +7,6 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
-      resolve: 'gatsby-source-sanity',
-      options: {
-        projectId: 'hqo6asqu',
-        dataset: 'production',
-        watchMode: true,
-        // a token with read permissions is required
-        // if you have a private dataset
-        // token: process.env.MY_SANITY_TOKEN,
-      },
-    },
-    {
       resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {

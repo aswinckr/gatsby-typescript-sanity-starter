@@ -257,18 +257,10 @@ class Header extends Component<HeaderProps, HeaderState> {
             <Link to="/" activeStyle={{ opacity: 1 }}>
               Home
             </Link>
-            <Link to="/100X" activeStyle={{ opacity: 1 }}>
-              100X
+            <Link to="/about/" activeStyle={{ opacity: 1 }}>
+              About
             </Link>
-            <Link to="/donate" activeStyle={{ opacity: 1 }}>
-              Donate
-            </Link>
-            <Link to="/signup" activeStyle={{ opacity: 1 }}>
-              Signup
-            </Link>
-            <Link to="/login" activeStyle={{ opacity: 1 }}>
-              Login
-            </Link>
+
             <form onSubmit={this.handleSubmit}>
               <input
                 type="text"
