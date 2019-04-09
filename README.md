@@ -1,6 +1,8 @@
 # gatsby-typescript-starter
 Extended Gatsby Starter repo with Typescript
 
+See [Demo here](https://gatsby-typescript-starter.aswinckr.now.sh/)
+
 
 ## Features
 This repo adds the following features in addition to `gatsby-typescript-starter` repo
