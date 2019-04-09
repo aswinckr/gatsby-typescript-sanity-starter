@@ -1,5 +1,5 @@
 # gatsby-typescript-starter
-Starter repo with for Gatsby Blog with Sanity CMS and Typescript 
+Extended Gatsby Starter repo with Typescript 
 
 
 ## Features 
