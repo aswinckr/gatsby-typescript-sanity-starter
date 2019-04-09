@@ -15,7 +15,9 @@ export default class ContextProvider extends Component<ContextProviderState> {
 
   componentDidMount() {
     // Persist state on first load
-    const localStorageRef = localStorage.getItem('designerxio-color-mode');
+    const localStorageRef = localStorage.getItem(
+      'gatsby-typescript-starter-colormode'
+    );
     if (localStorageRef) {
       this.setState({
         darkMode: localStorageRef === 'true',
@@ -25,7 +27,7 @@ export default class ContextProvider extends Component<ContextProviderState> {
 
   componentDidUpdate() {
     localStorage.setItem(
-      'designerxio-color-mode',
+      'gatsby-typescript-starter-colormode',
       JSON.stringify(this.state.darkMode)
     );
   }

@@ -4,11 +4,12 @@ Extended Gatsby Starter repo with Typescript
 
 ## Features
 This repo adds the following features in addition to `gatsby-typescript-starter` repo
-- **Dark Mode** Pre-installed with Dark Mode theme switching with `react-toggle`
+- **Dark Mode** Pre-installed with Dark Mode theme switching with `react-toggle` that persists on local storage
 - **Theming** Theming with `styled-components`, `typography.js` and color variables
 - **Custom Linting** Custom TSLint with recommended options and personal minor preferences
 - **SVG Compatibliity** Added type support for SVGs
 - **Prettier Confir** Pretter Config according to preferences
+- **Deploy to Now** Deploy config to `now`
 
 ## Install
 ```
