@@ -9,7 +9,8 @@
     "member-access": [false],
     "ordered-imports": [false],
     "no-console": [false],
-    "no-var-requires": false
+    "no-var-requires": false,
+    "array-type": false
   },
   "rulesDirectory": []
 }

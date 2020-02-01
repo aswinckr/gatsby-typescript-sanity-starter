@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `.env`,
+});
+
 module.exports = {
   siteMetadata: {
     title: `Designerxio`,
@@ -52,8 +56,8 @@ module.exports = {
     {
       resolve: `gatsby-source-sanity`,
       options: {
-        projectId: 'm82f9jf7',
-        dataset: 'production',
+        projectId: process.env.SANITY_PROJECT_ID,
+        dataset: process.env.SANITY_PROJECT_DATASET,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
