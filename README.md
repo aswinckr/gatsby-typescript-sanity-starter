@@ -1,7 +1,5 @@
 # Notes
 
----
-
 - You need to `yarn start` both sanity and gatsby on different ports
 - By default Sanity runs on `localhost:3333`
 - By default Gatsby runs of `localhost:8000`
@@ -9,8 +7,6 @@
 - After you deploy you can access sanity's version of graphql playground after you do `sanity graphql deploy`. In this project the URL created was https://m82f9jf7.api.sanity.io/v1/graphql/production/default
 
 ## Bugs encountered
-
----
 
 - `gatsby-source-sanity` plugin in `gatsby-config.js` should be added **after** `gatsby-transformer-sharp`, else build will fail
 - Sanity's graphql api needs to be deployed first for gatsby to deploy correctly, else you'll see this error
@@ -20,8 +16,6 @@ Error: GraphQL API not deployed - see https://github.com/sanity-io/gatsby-source
 ```
 
 # If you want to modify your own project
-
----
 
 ## Sanity
 
@@ -44,7 +38,3 @@ Error: GraphQL API not deployed - see https://github.com/sanity-io/gatsby-source
 ```
 
 - Update your google fonts in `typography.js`
-
-```
-
-```
