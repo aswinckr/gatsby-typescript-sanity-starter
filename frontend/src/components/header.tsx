@@ -2,7 +2,7 @@ import { Link } from 'gatsby';
 import React, { Component } from 'react';
 import { darkBackgroundColor, headerLinkColor, primaryColor } from './colors';
 import styled from 'styled-components';
-import Logo from '../images/logo.svg';
+import Logo from './logo';
 import OverflowMenu from '../images/overflow-menu.svg';
 import Toggle from 'react-toggle';
 import { device } from '../utils';
@@ -16,6 +16,14 @@ const HeaderStyles = styled.header`
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+    .logo {
+      vertical-align: middle;
+      opacity: 1;
+      display: inline-block;
+      width: 100px;
+      position: relative;
+      top: 4px;
+    }
   }
   svg {
     position: relative;
@@ -248,7 +256,7 @@ class Header extends Component<HeaderProps, HeaderState> {
           </div>
 
           <div>
-            <Link to="/" style={{ opacity: 1 }}>
+            <Link to="/" style={{ opacity: 1 }} className="logo">
               <Logo />
             </Link>
           </div>

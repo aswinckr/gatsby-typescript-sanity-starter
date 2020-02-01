@@ -5,6 +5,7 @@
 - By default Gatsby runs of `localhost:8000`
 - You can access graphql playground from gatsby on http://localhost:8000/___graphql. This representation will be used inside gatsby for running graphql queries and fetching data
 - After you deploy you can access sanity's version of graphql playground after you do `sanity graphql deploy`. In this project the URL created was https://m82f9jf7.api.sanity.io/v1/graphql/production/default
+- Note : Everytime you change the schema in Sanity, you have to run `sanity deploy` in `studio/` to update changes to server & `yarn generate` in `frontend/` to generate types for those graphql type updates in your project
 
 ## Bugs encountered
 
