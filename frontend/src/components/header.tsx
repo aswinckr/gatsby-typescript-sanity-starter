@@ -255,7 +255,7 @@ class Header extends Component<HeaderProps, HeaderState> {
             </a>
           </div>
 
-          <div>
+          <div className="grow">
             <Link to="/" style={{ opacity: 1 }} className="logo">
               <Logo />
             </Link>

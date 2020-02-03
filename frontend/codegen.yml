@@ -3,7 +3,7 @@ documents:
   - ./src/**/*.{ts,tsx}
   - ./node_modules/gatsby*/!(node_modules)/**/*.js
 generates:
-  ./src/graphqlTypes.ts:
+  ./graphqlTypes.ts:
     plugins:
       - typescript
       - typescript-operations

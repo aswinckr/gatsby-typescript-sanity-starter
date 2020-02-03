@@ -58,6 +58,8 @@ module.exports = {
       options: {
         projectId: process.env.SANITY_PROJECT_ID,
         dataset: process.env.SANITY_PROJECT_DATASET,
+        token: process.env.SANITY_API_TOKEN,
+        watchMode: true,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

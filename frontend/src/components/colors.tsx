@@ -5,7 +5,7 @@ import { LightenDarkenColor } from '../utils';
 
 export const primaryColor: string = '#FF6767';
 export const primaryHoverColor: string = LightenDarkenColor(primaryColor, -30);
-export const darkBackgroundColor: string = '#111217';
+export const darkBackgroundColor: string = '#1c1d25';
 export const lightBackgroundColor: string = '#FFF';
 export const linkColor: string = primaryColor;
 export const headerLinkColor: string = '#FFF';
@@ -23,7 +23,7 @@ export const backgroundColor = theme('mode', {
 });
 
 export const themeBackgroundColor = theme('mode', {
-  dark: '#000',
+  dark: '#1c1d25',
   light: '#F5f5f5',
 });
 

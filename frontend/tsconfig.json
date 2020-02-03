@@ -18,5 +18,6 @@
     "preserveConstEnums": true
   },
   "include": ["./src/**/*"],
+  "exclude": ["./graphqlTypes.ts"],
   "files": ["custom.d.ts"]
 }

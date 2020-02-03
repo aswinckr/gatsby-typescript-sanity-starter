@@ -9,6 +9,7 @@ import React, { ReactNode } from 'react';
 import { GlobalStyles } from './global';
 import { ThemeProvider } from 'styled-components';
 import { ContextConsumer } from './theme';
+import '../styles/base.css';
 
 import Header from './header';
 

@@ -1,21 +1,81 @@
 import React from 'react';
-import { Link } from 'gatsby';
-import Image from '../components/image';
+import { graphql, Link } from 'gatsby';
 
 import Layout from '../components/layout';
-// import ThemedLayout from '../components/theme';
+import styled from 'styled-components';
+import { WorksDataQuery } from '../../graphqlTypes';
 
 import SEO from '../components/seo';
 
-const IndexPage = () => (
+const IndexPageStyles = styled.div`
+  display: flex;
+  .work-summary {
+    flex: 1;
+  }
+  .work-preview {
+    flex: 2;
+  }
+  .work-preview-image {
+    width: 100%;
+    overflow: hidden;
+  }
+`;
+
+type Props = {
+  data: WorksDataQuery;
+};
+
+const Index = ({
+  data: {
+    allSanityWork: { nodes: works },
+  },
+}: Props) => (
   <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <h1>Welcome to the homepage</h1>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/about/">Go to page 2</Link>
+    <SEO title="Work" keywords={[`work`, `portfolio`, `react`]} />
+    <IndexPageStyles>
+      <div className="work-summary">
+        <p>Summary goes here</p>
+      </div>
+      <div className="work-preview">
+        {works.map((work, index) => (
+          <Link to={`/${work.slug?.current}`}>
+            <div className="work-preview-image">
+              <img
+                src={
+                  work.mainImage?.asset?.fluid?.src !== null
+                    ? work.mainImage?.asset?.fluid?.src
+                    : 'https://via.placeholder.com/300x200'
+                }
+                alt="work-image"
+                className="grow"
+              />
+            </div>
+            <h4 key={index}>{work.title}</h4>
+          </Link>
+        ))}
+      </div>
+    </IndexPageStyles>
   </Layout>
 );
 
-export default IndexPage;
+export const query = graphql`
+  query WorksData {
+    allSanityWork(sort: { fields: _updatedAt }) {
+      nodes {
+        mainImage {
+          asset {
+            fluid {
+              src
+            }
+          }
+        }
+        title
+        slug {
+          current
+        }
+      }
+    }
+  }
+`;
+
+export default Index;

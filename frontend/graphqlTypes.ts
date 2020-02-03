@@ -1,5 +1,3 @@
-// @ts-nocheck
-
 export type Maybe<T> = T | null;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
@@ -1488,6 +1486,7 @@ export type QuerySitePageArgs = {
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>,
+  context?: Maybe<SitePageContextFilterInput>,
   pluginCreator?: Maybe<SitePluginFilterInput>,
   pluginCreatorId?: Maybe<StringQueryOperatorInput>,
   componentPath?: Maybe<StringQueryOperatorInput>
@@ -3811,6 +3810,7 @@ export type SitePage = Node & {
   children: Array<Node>,
   internal: Internal,
   isCreatedByStatefulCreatePages?: Maybe<Scalars['Boolean']>,
+  context?: Maybe<SitePageContext>,
   pluginCreator?: Maybe<SitePlugin>,
   pluginCreatorId?: Maybe<Scalars['String']>,
   componentPath?: Maybe<Scalars['String']>,
@@ -3836,6 +3836,15 @@ export type SitePageConnectionGroupArgs = {
   skip?: Maybe<Scalars['Int']>,
   limit?: Maybe<Scalars['Int']>,
   field: SitePageFieldsEnum
+};
+
+export type SitePageContext = {
+   __typename?: 'SitePageContext',
+  slug?: Maybe<Scalars['String']>,
+};
+
+export type SitePageContextFilterInput = {
+  slug?: Maybe<StringQueryOperatorInput>,
 };
 
 export type SitePageEdge = {
@@ -3938,6 +3947,7 @@ export enum SitePageFieldsEnum {
   InternalOwner = 'internal___owner',
   InternalType = 'internal___type',
   IsCreatedByStatefulCreatePages = 'isCreatedByStatefulCreatePages',
+  ContextSlug = 'context___slug',
   PluginCreatorId = 'pluginCreator___id',
   PluginCreatorParentId = 'pluginCreator___parent___id',
   PluginCreatorParentParentId = 'pluginCreator___parent___parent___id',
@@ -3992,6 +4002,8 @@ export enum SitePageFieldsEnum {
   PluginCreatorPluginOptionsIcon = 'pluginCreator___pluginOptions___icon',
   PluginCreatorPluginOptionsProjectId = 'pluginCreator___pluginOptions___projectId',
   PluginCreatorPluginOptionsDataset = 'pluginCreator___pluginOptions___dataset',
+  PluginCreatorPluginOptionsToken = 'pluginCreator___pluginOptions___token',
+  PluginCreatorPluginOptionsWatchMode = 'pluginCreator___pluginOptions___watchMode',
   PluginCreatorPluginOptionsPathCheck = 'pluginCreator___pluginOptions___pathCheck',
   PluginCreatorNodeApIs = 'pluginCreator___nodeAPIs',
   PluginCreatorBrowserApIs = 'pluginCreator___browserAPIs',
@@ -4028,6 +4040,7 @@ export type SitePageFilterInput = {
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>,
+  context?: Maybe<SitePageContextFilterInput>,
   pluginCreator?: Maybe<SitePluginFilterInput>,
   pluginCreatorId?: Maybe<StringQueryOperatorInput>,
   componentPath?: Maybe<StringQueryOperatorInput>,
@@ -4197,6 +4210,8 @@ export enum SitePluginFieldsEnum {
   PluginOptionsIcon = 'pluginOptions___icon',
   PluginOptionsProjectId = 'pluginOptions___projectId',
   PluginOptionsDataset = 'pluginOptions___dataset',
+  PluginOptionsToken = 'pluginOptions___token',
+  PluginOptionsWatchMode = 'pluginOptions___watchMode',
   PluginOptionsPathCheck = 'pluginOptions___pathCheck',
   NodeApIs = 'nodeAPIs',
   BrowserApIs = 'browserAPIs',
@@ -4333,6 +4348,8 @@ export type SitePluginPluginOptions = {
   icon?: Maybe<Scalars['String']>,
   projectId?: Maybe<Scalars['String']>,
   dataset?: Maybe<Scalars['String']>,
+  token?: Maybe<Scalars['String']>,
+  watchMode?: Maybe<Scalars['Boolean']>,
   pathCheck?: Maybe<Scalars['Boolean']>,
 };
 
@@ -4350,6 +4367,8 @@ export type SitePluginPluginOptionsFilterInput = {
   icon?: Maybe<StringQueryOperatorInput>,
   projectId?: Maybe<StringQueryOperatorInput>,
   dataset?: Maybe<StringQueryOperatorInput>,
+  token?: Maybe<StringQueryOperatorInput>,
+  watchMode?: Maybe<BooleanQueryOperatorInput>,
   pathCheck?: Maybe<BooleanQueryOperatorInput>,
 };
 
@@ -4586,6 +4605,23 @@ export type Unnamed_2_QueryVariables = {};
 
 export type Unnamed_2_Query = (
   { __typename?: 'Query' }
+  & { placeholderImage: Maybe<(
+    { __typename?: 'File' }
+    & { childImageSharp: Maybe<(
+      { __typename?: 'ImageSharp' }
+      & { fluid: Maybe<(
+        { __typename?: 'ImageSharpFluid' }
+        & GatsbyImageSharpFluidFragment
+      )> }
+    )> }
+  )> }
+);
+
+export type Unnamed_3_QueryVariables = {};
+
+
+export type Unnamed_3_Query = (
+  { __typename?: 'Query' }
   & { site: Maybe<(
     { __typename?: 'Site' }
     & { siteMetadata: Maybe<(
@@ -4605,6 +4641,49 @@ export type WorksDataQuery = (
     & { nodes: Array<(
       { __typename?: 'SanityWork' }
       & Pick<SanityWork, 'title'>
+      & { mainImage: Maybe<(
+        { __typename?: 'SanityImage' }
+        & { asset: Maybe<(
+          { __typename?: 'SanityImageAsset' }
+          & { fluid: Maybe<(
+            { __typename?: 'SanityImageFluid' }
+            & Pick<SanityImageFluid, 'src'>
+          )> }
+        )> }
+      )>, slug: Maybe<(
+        { __typename?: 'SanitySlug' }
+        & Pick<SanitySlug, 'current'>
+      )> }
     )> }
   ) }
+);
+
+export type SanityBlogsQueryQueryVariables = {
+  slug?: Maybe<Scalars['String']>
+};
+
+
+export type SanityBlogsQueryQuery = (
+  { __typename?: 'Query' }
+  & { sanityBlog: Maybe<(
+    { __typename?: 'SanityBlog' }
+    & Pick<SanityBlog, 'title'>
+    & { slug: Maybe<(
+      { __typename?: 'SanitySlug' }
+      & Pick<SanitySlug, 'current'>
+    )> }
+  )> }
+);
+
+export type SanityWorksQueryQueryVariables = {
+  slug?: Maybe<Scalars['String']>
+};
+
+
+export type SanityWorksQueryQuery = (
+  { __typename?: 'Query' }
+  & { sanityWork: Maybe<(
+    { __typename?: 'SanityWork' }
+    & Pick<SanityWork, 'title'>
+  )> }
 );
