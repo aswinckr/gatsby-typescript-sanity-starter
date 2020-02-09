@@ -37,7 +37,7 @@ const HeaderStyles = styled.header`
     a {
       color: ${headerLinkColor};
       opacity: 0.6;
-      margin: 0 16px;
+      margin: 0 24px;
       font-size: 0.9rem;
       -webkit-transition: opacity 0.25s;
       transition: opacity 0.25s;
@@ -269,14 +269,14 @@ class Header extends Component<HeaderProps, HeaderState> {
               About
             </Link>
 
-            <form onSubmit={this.handleSubmit}>
+            {/* <form onSubmit={this.handleSubmit}>
               <input
                 type="text"
                 value={this.state.query}
                 onChange={this.handleChange}
                 placeholder="Search"
               />
-            </form>
+            </form> */}
 
             <Toggle
               checked={this.props.darkMode}

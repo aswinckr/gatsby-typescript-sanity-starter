@@ -6,9 +6,24 @@ export type Scalars = {
   Boolean: boolean,
   Int: number,
   Float: number,
+  /** 
+ * A date string, such as 2007-12-03, compliant with the ISO 8601 standard for
+   * representation of dates and times using the Gregorian calendar.
+ */
   Date: any,
+  /** The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
   JSON: any,
 };
+
+
+
+
+
+
+
+
+
+
 
 export type BooleanQueryOperatorInput = {
   eq?: Maybe<Scalars['Boolean']>,
@@ -30,7 +45,6 @@ export type DateQueryOperatorInput = {
 };
 
 export type Directory = Node & {
-   __typename?: 'Directory',
   sourceInstanceName: Scalars['String'],
   absolutePath: Scalars['String'],
   relativePath: Scalars['String'],
@@ -127,7 +141,6 @@ export type DirectoryCtimeArgs = {
 };
 
 export type DirectoryConnection = {
-   __typename?: 'DirectoryConnection',
   totalCount: Scalars['Int'],
   edges: Array<DirectoryEdge>,
   nodes: Array<Directory>,
@@ -149,133 +162,131 @@ export type DirectoryConnectionGroupArgs = {
 };
 
 export type DirectoryEdge = {
-   __typename?: 'DirectoryEdge',
   next?: Maybe<Directory>,
   node: Directory,
   previous?: Maybe<Directory>,
 };
 
-export enum DirectoryFieldsEnum {
-  SourceInstanceName = 'sourceInstanceName',
-  AbsolutePath = 'absolutePath',
-  RelativePath = 'relativePath',
-  Extension = 'extension',
-  Size = 'size',
-  PrettySize = 'prettySize',
-  ModifiedTime = 'modifiedTime',
-  AccessTime = 'accessTime',
-  ChangeTime = 'changeTime',
-  BirthTime = 'birthTime',
-  Root = 'root',
-  Dir = 'dir',
-  Base = 'base',
-  Ext = 'ext',
-  Name = 'name',
-  RelativeDirectory = 'relativeDirectory',
-  Dev = 'dev',
-  Mode = 'mode',
-  Nlink = 'nlink',
-  Uid = 'uid',
-  Gid = 'gid',
-  Rdev = 'rdev',
-  Ino = 'ino',
-  AtimeMs = 'atimeMs',
-  MtimeMs = 'mtimeMs',
-  CtimeMs = 'ctimeMs',
-  Atime = 'atime',
-  Mtime = 'mtime',
-  Ctime = 'ctime',
-  Birthtime = 'birthtime',
-  BirthtimeMs = 'birthtimeMs',
-  Blksize = 'blksize',
-  Blocks = 'blocks',
-  Id = 'id',
-  ParentId = 'parent___id',
-  ParentParentId = 'parent___parent___id',
-  ParentParentParentId = 'parent___parent___parent___id',
-  ParentParentParentChildren = 'parent___parent___parent___children',
-  ParentParentChildren = 'parent___parent___children',
-  ParentParentChildrenId = 'parent___parent___children___id',
-  ParentParentChildrenChildren = 'parent___parent___children___children',
-  ParentParentInternalContent = 'parent___parent___internal___content',
-  ParentParentInternalContentDigest = 'parent___parent___internal___contentDigest',
-  ParentParentInternalDescription = 'parent___parent___internal___description',
-  ParentParentInternalFieldOwners = 'parent___parent___internal___fieldOwners',
-  ParentParentInternalIgnoreType = 'parent___parent___internal___ignoreType',
-  ParentParentInternalMediaType = 'parent___parent___internal___mediaType',
-  ParentParentInternalOwner = 'parent___parent___internal___owner',
-  ParentParentInternalType = 'parent___parent___internal___type',
-  ParentChildren = 'parent___children',
-  ParentChildrenId = 'parent___children___id',
-  ParentChildrenParentId = 'parent___children___parent___id',
-  ParentChildrenParentChildren = 'parent___children___parent___children',
-  ParentChildrenChildren = 'parent___children___children',
-  ParentChildrenChildrenId = 'parent___children___children___id',
-  ParentChildrenChildrenChildren = 'parent___children___children___children',
-  ParentChildrenInternalContent = 'parent___children___internal___content',
-  ParentChildrenInternalContentDigest = 'parent___children___internal___contentDigest',
-  ParentChildrenInternalDescription = 'parent___children___internal___description',
-  ParentChildrenInternalFieldOwners = 'parent___children___internal___fieldOwners',
-  ParentChildrenInternalIgnoreType = 'parent___children___internal___ignoreType',
-  ParentChildrenInternalMediaType = 'parent___children___internal___mediaType',
-  ParentChildrenInternalOwner = 'parent___children___internal___owner',
-  ParentChildrenInternalType = 'parent___children___internal___type',
-  ParentInternalContent = 'parent___internal___content',
-  ParentInternalContentDigest = 'parent___internal___contentDigest',
-  ParentInternalDescription = 'parent___internal___description',
-  ParentInternalFieldOwners = 'parent___internal___fieldOwners',
-  ParentInternalIgnoreType = 'parent___internal___ignoreType',
-  ParentInternalMediaType = 'parent___internal___mediaType',
-  ParentInternalOwner = 'parent___internal___owner',
-  ParentInternalType = 'parent___internal___type',
-  Children = 'children',
-  ChildrenId = 'children___id',
-  ChildrenParentId = 'children___parent___id',
-  ChildrenParentParentId = 'children___parent___parent___id',
-  ChildrenParentParentChildren = 'children___parent___parent___children',
-  ChildrenParentChildren = 'children___parent___children',
-  ChildrenParentChildrenId = 'children___parent___children___id',
-  ChildrenParentChildrenChildren = 'children___parent___children___children',
-  ChildrenParentInternalContent = 'children___parent___internal___content',
-  ChildrenParentInternalContentDigest = 'children___parent___internal___contentDigest',
-  ChildrenParentInternalDescription = 'children___parent___internal___description',
-  ChildrenParentInternalFieldOwners = 'children___parent___internal___fieldOwners',
-  ChildrenParentInternalIgnoreType = 'children___parent___internal___ignoreType',
-  ChildrenParentInternalMediaType = 'children___parent___internal___mediaType',
-  ChildrenParentInternalOwner = 'children___parent___internal___owner',
-  ChildrenParentInternalType = 'children___parent___internal___type',
-  ChildrenChildren = 'children___children',
-  ChildrenChildrenId = 'children___children___id',
-  ChildrenChildrenParentId = 'children___children___parent___id',
-  ChildrenChildrenParentChildren = 'children___children___parent___children',
-  ChildrenChildrenChildren = 'children___children___children',
-  ChildrenChildrenChildrenId = 'children___children___children___id',
-  ChildrenChildrenChildrenChildren = 'children___children___children___children',
-  ChildrenChildrenInternalContent = 'children___children___internal___content',
-  ChildrenChildrenInternalContentDigest = 'children___children___internal___contentDigest',
-  ChildrenChildrenInternalDescription = 'children___children___internal___description',
-  ChildrenChildrenInternalFieldOwners = 'children___children___internal___fieldOwners',
-  ChildrenChildrenInternalIgnoreType = 'children___children___internal___ignoreType',
-  ChildrenChildrenInternalMediaType = 'children___children___internal___mediaType',
-  ChildrenChildrenInternalOwner = 'children___children___internal___owner',
-  ChildrenChildrenInternalType = 'children___children___internal___type',
-  ChildrenInternalContent = 'children___internal___content',
-  ChildrenInternalContentDigest = 'children___internal___contentDigest',
-  ChildrenInternalDescription = 'children___internal___description',
-  ChildrenInternalFieldOwners = 'children___internal___fieldOwners',
-  ChildrenInternalIgnoreType = 'children___internal___ignoreType',
-  ChildrenInternalMediaType = 'children___internal___mediaType',
-  ChildrenInternalOwner = 'children___internal___owner',
-  ChildrenInternalType = 'children___internal___type',
-  InternalContent = 'internal___content',
-  InternalContentDigest = 'internal___contentDigest',
-  InternalDescription = 'internal___description',
-  InternalFieldOwners = 'internal___fieldOwners',
-  InternalIgnoreType = 'internal___ignoreType',
-  InternalMediaType = 'internal___mediaType',
-  InternalOwner = 'internal___owner',
-  InternalType = 'internal___type'
-}
+export type DirectoryFieldsEnum = 
+  'sourceInstanceName' |
+  'absolutePath' |
+  'relativePath' |
+  'extension' |
+  'size' |
+  'prettySize' |
+  'modifiedTime' |
+  'accessTime' |
+  'changeTime' |
+  'birthTime' |
+  'root' |
+  'dir' |
+  'base' |
+  'ext' |
+  'name' |
+  'relativeDirectory' |
+  'dev' |
+  'mode' |
+  'nlink' |
+  'uid' |
+  'gid' |
+  'rdev' |
+  'ino' |
+  'atimeMs' |
+  'mtimeMs' |
+  'ctimeMs' |
+  'atime' |
+  'mtime' |
+  'ctime' |
+  'birthtime' |
+  'birthtimeMs' |
+  'blksize' |
+  'blocks' |
+  'id' |
+  'parent___id' |
+  'parent___parent___id' |
+  'parent___parent___parent___id' |
+  'parent___parent___parent___children' |
+  'parent___parent___children' |
+  'parent___parent___children___id' |
+  'parent___parent___children___children' |
+  'parent___parent___internal___content' |
+  'parent___parent___internal___contentDigest' |
+  'parent___parent___internal___description' |
+  'parent___parent___internal___fieldOwners' |
+  'parent___parent___internal___ignoreType' |
+  'parent___parent___internal___mediaType' |
+  'parent___parent___internal___owner' |
+  'parent___parent___internal___type' |
+  'parent___children' |
+  'parent___children___id' |
+  'parent___children___parent___id' |
+  'parent___children___parent___children' |
+  'parent___children___children' |
+  'parent___children___children___id' |
+  'parent___children___children___children' |
+  'parent___children___internal___content' |
+  'parent___children___internal___contentDigest' |
+  'parent___children___internal___description' |
+  'parent___children___internal___fieldOwners' |
+  'parent___children___internal___ignoreType' |
+  'parent___children___internal___mediaType' |
+  'parent___children___internal___owner' |
+  'parent___children___internal___type' |
+  'parent___internal___content' |
+  'parent___internal___contentDigest' |
+  'parent___internal___description' |
+  'parent___internal___fieldOwners' |
+  'parent___internal___ignoreType' |
+  'parent___internal___mediaType' |
+  'parent___internal___owner' |
+  'parent___internal___type' |
+  'children' |
+  'children___id' |
+  'children___parent___id' |
+  'children___parent___parent___id' |
+  'children___parent___parent___children' |
+  'children___parent___children' |
+  'children___parent___children___id' |
+  'children___parent___children___children' |
+  'children___parent___internal___content' |
+  'children___parent___internal___contentDigest' |
+  'children___parent___internal___description' |
+  'children___parent___internal___fieldOwners' |
+  'children___parent___internal___ignoreType' |
+  'children___parent___internal___mediaType' |
+  'children___parent___internal___owner' |
+  'children___parent___internal___type' |
+  'children___children' |
+  'children___children___id' |
+  'children___children___parent___id' |
+  'children___children___parent___children' |
+  'children___children___children' |
+  'children___children___children___id' |
+  'children___children___children___children' |
+  'children___children___internal___content' |
+  'children___children___internal___contentDigest' |
+  'children___children___internal___description' |
+  'children___children___internal___fieldOwners' |
+  'children___children___internal___ignoreType' |
+  'children___children___internal___mediaType' |
+  'children___children___internal___owner' |
+  'children___children___internal___type' |
+  'children___internal___content' |
+  'children___internal___contentDigest' |
+  'children___internal___description' |
+  'children___internal___fieldOwners' |
+  'children___internal___ignoreType' |
+  'children___internal___mediaType' |
+  'children___internal___owner' |
+  'children___internal___type' |
+  'internal___content' |
+  'internal___contentDigest' |
+  'internal___description' |
+  'internal___fieldOwners' |
+  'internal___ignoreType' |
+  'internal___mediaType' |
+  'internal___owner' |
+  'internal___type';
 
 export type DirectoryFilterInput = {
   sourceInstanceName?: Maybe<StringQueryOperatorInput>,
@@ -318,7 +329,6 @@ export type DirectoryFilterInput = {
 };
 
 export type DirectoryGroupConnection = {
-   __typename?: 'DirectoryGroupConnection',
   totalCount: Scalars['Int'],
   edges: Array<DirectoryEdge>,
   nodes: Array<Directory>,
@@ -339,7 +349,6 @@ export type DuotoneGradient = {
 };
 
 export type File = Node & {
-   __typename?: 'File',
   sourceInstanceName: Scalars['String'],
   absolutePath: Scalars['String'],
   relativePath: Scalars['String'],
@@ -373,6 +382,7 @@ export type File = Node & {
   birthtimeMs?: Maybe<Scalars['Float']>,
   blksize?: Maybe<Scalars['Int']>,
   blocks?: Maybe<Scalars['Int']>,
+  /** Copy file to static directory and return public url to it */
   publicURL?: Maybe<Scalars['String']>,
   childImageSharp?: Maybe<ImageSharp>,
   id: Scalars['ID'],
@@ -438,7 +448,6 @@ export type FileCtimeArgs = {
 };
 
 export type FileConnection = {
-   __typename?: 'FileConnection',
   totalCount: Scalars['Int'],
   edges: Array<FileEdge>,
   nodes: Array<File>,
@@ -460,225 +469,223 @@ export type FileConnectionGroupArgs = {
 };
 
 export type FileEdge = {
-   __typename?: 'FileEdge',
   next?: Maybe<File>,
   node: File,
   previous?: Maybe<File>,
 };
 
-export enum FileFieldsEnum {
-  SourceInstanceName = 'sourceInstanceName',
-  AbsolutePath = 'absolutePath',
-  RelativePath = 'relativePath',
-  Extension = 'extension',
-  Size = 'size',
-  PrettySize = 'prettySize',
-  ModifiedTime = 'modifiedTime',
-  AccessTime = 'accessTime',
-  ChangeTime = 'changeTime',
-  BirthTime = 'birthTime',
-  Root = 'root',
-  Dir = 'dir',
-  Base = 'base',
-  Ext = 'ext',
-  Name = 'name',
-  RelativeDirectory = 'relativeDirectory',
-  Dev = 'dev',
-  Mode = 'mode',
-  Nlink = 'nlink',
-  Uid = 'uid',
-  Gid = 'gid',
-  Rdev = 'rdev',
-  Ino = 'ino',
-  AtimeMs = 'atimeMs',
-  MtimeMs = 'mtimeMs',
-  CtimeMs = 'ctimeMs',
-  Atime = 'atime',
-  Mtime = 'mtime',
-  Ctime = 'ctime',
-  Birthtime = 'birthtime',
-  BirthtimeMs = 'birthtimeMs',
-  Blksize = 'blksize',
-  Blocks = 'blocks',
-  PublicUrl = 'publicURL',
-  ChildImageSharpFixedBase64 = 'childImageSharp___fixed___base64',
-  ChildImageSharpFixedTracedSvg = 'childImageSharp___fixed___tracedSVG',
-  ChildImageSharpFixedAspectRatio = 'childImageSharp___fixed___aspectRatio',
-  ChildImageSharpFixedWidth = 'childImageSharp___fixed___width',
-  ChildImageSharpFixedHeight = 'childImageSharp___fixed___height',
-  ChildImageSharpFixedSrc = 'childImageSharp___fixed___src',
-  ChildImageSharpFixedSrcSet = 'childImageSharp___fixed___srcSet',
-  ChildImageSharpFixedSrcWebp = 'childImageSharp___fixed___srcWebp',
-  ChildImageSharpFixedSrcSetWebp = 'childImageSharp___fixed___srcSetWebp',
-  ChildImageSharpFixedOriginalName = 'childImageSharp___fixed___originalName',
-  ChildImageSharpResolutionsBase64 = 'childImageSharp___resolutions___base64',
-  ChildImageSharpResolutionsTracedSvg = 'childImageSharp___resolutions___tracedSVG',
-  ChildImageSharpResolutionsAspectRatio = 'childImageSharp___resolutions___aspectRatio',
-  ChildImageSharpResolutionsWidth = 'childImageSharp___resolutions___width',
-  ChildImageSharpResolutionsHeight = 'childImageSharp___resolutions___height',
-  ChildImageSharpResolutionsSrc = 'childImageSharp___resolutions___src',
-  ChildImageSharpResolutionsSrcSet = 'childImageSharp___resolutions___srcSet',
-  ChildImageSharpResolutionsSrcWebp = 'childImageSharp___resolutions___srcWebp',
-  ChildImageSharpResolutionsSrcSetWebp = 'childImageSharp___resolutions___srcSetWebp',
-  ChildImageSharpResolutionsOriginalName = 'childImageSharp___resolutions___originalName',
-  ChildImageSharpFluidBase64 = 'childImageSharp___fluid___base64',
-  ChildImageSharpFluidTracedSvg = 'childImageSharp___fluid___tracedSVG',
-  ChildImageSharpFluidAspectRatio = 'childImageSharp___fluid___aspectRatio',
-  ChildImageSharpFluidSrc = 'childImageSharp___fluid___src',
-  ChildImageSharpFluidSrcSet = 'childImageSharp___fluid___srcSet',
-  ChildImageSharpFluidSrcWebp = 'childImageSharp___fluid___srcWebp',
-  ChildImageSharpFluidSrcSetWebp = 'childImageSharp___fluid___srcSetWebp',
-  ChildImageSharpFluidSizes = 'childImageSharp___fluid___sizes',
-  ChildImageSharpFluidOriginalImg = 'childImageSharp___fluid___originalImg',
-  ChildImageSharpFluidOriginalName = 'childImageSharp___fluid___originalName',
-  ChildImageSharpFluidPresentationWidth = 'childImageSharp___fluid___presentationWidth',
-  ChildImageSharpFluidPresentationHeight = 'childImageSharp___fluid___presentationHeight',
-  ChildImageSharpSizesBase64 = 'childImageSharp___sizes___base64',
-  ChildImageSharpSizesTracedSvg = 'childImageSharp___sizes___tracedSVG',
-  ChildImageSharpSizesAspectRatio = 'childImageSharp___sizes___aspectRatio',
-  ChildImageSharpSizesSrc = 'childImageSharp___sizes___src',
-  ChildImageSharpSizesSrcSet = 'childImageSharp___sizes___srcSet',
-  ChildImageSharpSizesSrcWebp = 'childImageSharp___sizes___srcWebp',
-  ChildImageSharpSizesSrcSetWebp = 'childImageSharp___sizes___srcSetWebp',
-  ChildImageSharpSizesSizes = 'childImageSharp___sizes___sizes',
-  ChildImageSharpSizesOriginalImg = 'childImageSharp___sizes___originalImg',
-  ChildImageSharpSizesOriginalName = 'childImageSharp___sizes___originalName',
-  ChildImageSharpSizesPresentationWidth = 'childImageSharp___sizes___presentationWidth',
-  ChildImageSharpSizesPresentationHeight = 'childImageSharp___sizes___presentationHeight',
-  ChildImageSharpOriginalWidth = 'childImageSharp___original___width',
-  ChildImageSharpOriginalHeight = 'childImageSharp___original___height',
-  ChildImageSharpOriginalSrc = 'childImageSharp___original___src',
-  ChildImageSharpResizeSrc = 'childImageSharp___resize___src',
-  ChildImageSharpResizeTracedSvg = 'childImageSharp___resize___tracedSVG',
-  ChildImageSharpResizeWidth = 'childImageSharp___resize___width',
-  ChildImageSharpResizeHeight = 'childImageSharp___resize___height',
-  ChildImageSharpResizeAspectRatio = 'childImageSharp___resize___aspectRatio',
-  ChildImageSharpResizeOriginalName = 'childImageSharp___resize___originalName',
-  ChildImageSharpId = 'childImageSharp___id',
-  ChildImageSharpParentId = 'childImageSharp___parent___id',
-  ChildImageSharpParentParentId = 'childImageSharp___parent___parent___id',
-  ChildImageSharpParentParentChildren = 'childImageSharp___parent___parent___children',
-  ChildImageSharpParentChildren = 'childImageSharp___parent___children',
-  ChildImageSharpParentChildrenId = 'childImageSharp___parent___children___id',
-  ChildImageSharpParentChildrenChildren = 'childImageSharp___parent___children___children',
-  ChildImageSharpParentInternalContent = 'childImageSharp___parent___internal___content',
-  ChildImageSharpParentInternalContentDigest = 'childImageSharp___parent___internal___contentDigest',
-  ChildImageSharpParentInternalDescription = 'childImageSharp___parent___internal___description',
-  ChildImageSharpParentInternalFieldOwners = 'childImageSharp___parent___internal___fieldOwners',
-  ChildImageSharpParentInternalIgnoreType = 'childImageSharp___parent___internal___ignoreType',
-  ChildImageSharpParentInternalMediaType = 'childImageSharp___parent___internal___mediaType',
-  ChildImageSharpParentInternalOwner = 'childImageSharp___parent___internal___owner',
-  ChildImageSharpParentInternalType = 'childImageSharp___parent___internal___type',
-  ChildImageSharpChildren = 'childImageSharp___children',
-  ChildImageSharpChildrenId = 'childImageSharp___children___id',
-  ChildImageSharpChildrenParentId = 'childImageSharp___children___parent___id',
-  ChildImageSharpChildrenParentChildren = 'childImageSharp___children___parent___children',
-  ChildImageSharpChildrenChildren = 'childImageSharp___children___children',
-  ChildImageSharpChildrenChildrenId = 'childImageSharp___children___children___id',
-  ChildImageSharpChildrenChildrenChildren = 'childImageSharp___children___children___children',
-  ChildImageSharpChildrenInternalContent = 'childImageSharp___children___internal___content',
-  ChildImageSharpChildrenInternalContentDigest = 'childImageSharp___children___internal___contentDigest',
-  ChildImageSharpChildrenInternalDescription = 'childImageSharp___children___internal___description',
-  ChildImageSharpChildrenInternalFieldOwners = 'childImageSharp___children___internal___fieldOwners',
-  ChildImageSharpChildrenInternalIgnoreType = 'childImageSharp___children___internal___ignoreType',
-  ChildImageSharpChildrenInternalMediaType = 'childImageSharp___children___internal___mediaType',
-  ChildImageSharpChildrenInternalOwner = 'childImageSharp___children___internal___owner',
-  ChildImageSharpChildrenInternalType = 'childImageSharp___children___internal___type',
-  ChildImageSharpInternalContent = 'childImageSharp___internal___content',
-  ChildImageSharpInternalContentDigest = 'childImageSharp___internal___contentDigest',
-  ChildImageSharpInternalDescription = 'childImageSharp___internal___description',
-  ChildImageSharpInternalFieldOwners = 'childImageSharp___internal___fieldOwners',
-  ChildImageSharpInternalIgnoreType = 'childImageSharp___internal___ignoreType',
-  ChildImageSharpInternalMediaType = 'childImageSharp___internal___mediaType',
-  ChildImageSharpInternalOwner = 'childImageSharp___internal___owner',
-  ChildImageSharpInternalType = 'childImageSharp___internal___type',
-  Id = 'id',
-  ParentId = 'parent___id',
-  ParentParentId = 'parent___parent___id',
-  ParentParentParentId = 'parent___parent___parent___id',
-  ParentParentParentChildren = 'parent___parent___parent___children',
-  ParentParentChildren = 'parent___parent___children',
-  ParentParentChildrenId = 'parent___parent___children___id',
-  ParentParentChildrenChildren = 'parent___parent___children___children',
-  ParentParentInternalContent = 'parent___parent___internal___content',
-  ParentParentInternalContentDigest = 'parent___parent___internal___contentDigest',
-  ParentParentInternalDescription = 'parent___parent___internal___description',
-  ParentParentInternalFieldOwners = 'parent___parent___internal___fieldOwners',
-  ParentParentInternalIgnoreType = 'parent___parent___internal___ignoreType',
-  ParentParentInternalMediaType = 'parent___parent___internal___mediaType',
-  ParentParentInternalOwner = 'parent___parent___internal___owner',
-  ParentParentInternalType = 'parent___parent___internal___type',
-  ParentChildren = 'parent___children',
-  ParentChildrenId = 'parent___children___id',
-  ParentChildrenParentId = 'parent___children___parent___id',
-  ParentChildrenParentChildren = 'parent___children___parent___children',
-  ParentChildrenChildren = 'parent___children___children',
-  ParentChildrenChildrenId = 'parent___children___children___id',
-  ParentChildrenChildrenChildren = 'parent___children___children___children',
-  ParentChildrenInternalContent = 'parent___children___internal___content',
-  ParentChildrenInternalContentDigest = 'parent___children___internal___contentDigest',
-  ParentChildrenInternalDescription = 'parent___children___internal___description',
-  ParentChildrenInternalFieldOwners = 'parent___children___internal___fieldOwners',
-  ParentChildrenInternalIgnoreType = 'parent___children___internal___ignoreType',
-  ParentChildrenInternalMediaType = 'parent___children___internal___mediaType',
-  ParentChildrenInternalOwner = 'parent___children___internal___owner',
-  ParentChildrenInternalType = 'parent___children___internal___type',
-  ParentInternalContent = 'parent___internal___content',
-  ParentInternalContentDigest = 'parent___internal___contentDigest',
-  ParentInternalDescription = 'parent___internal___description',
-  ParentInternalFieldOwners = 'parent___internal___fieldOwners',
-  ParentInternalIgnoreType = 'parent___internal___ignoreType',
-  ParentInternalMediaType = 'parent___internal___mediaType',
-  ParentInternalOwner = 'parent___internal___owner',
-  ParentInternalType = 'parent___internal___type',
-  Children = 'children',
-  ChildrenId = 'children___id',
-  ChildrenParentId = 'children___parent___id',
-  ChildrenParentParentId = 'children___parent___parent___id',
-  ChildrenParentParentChildren = 'children___parent___parent___children',
-  ChildrenParentChildren = 'children___parent___children',
-  ChildrenParentChildrenId = 'children___parent___children___id',
-  ChildrenParentChildrenChildren = 'children___parent___children___children',
-  ChildrenParentInternalContent = 'children___parent___internal___content',
-  ChildrenParentInternalContentDigest = 'children___parent___internal___contentDigest',
-  ChildrenParentInternalDescription = 'children___parent___internal___description',
-  ChildrenParentInternalFieldOwners = 'children___parent___internal___fieldOwners',
-  ChildrenParentInternalIgnoreType = 'children___parent___internal___ignoreType',
-  ChildrenParentInternalMediaType = 'children___parent___internal___mediaType',
-  ChildrenParentInternalOwner = 'children___parent___internal___owner',
-  ChildrenParentInternalType = 'children___parent___internal___type',
-  ChildrenChildren = 'children___children',
-  ChildrenChildrenId = 'children___children___id',
-  ChildrenChildrenParentId = 'children___children___parent___id',
-  ChildrenChildrenParentChildren = 'children___children___parent___children',
-  ChildrenChildrenChildren = 'children___children___children',
-  ChildrenChildrenChildrenId = 'children___children___children___id',
-  ChildrenChildrenChildrenChildren = 'children___children___children___children',
-  ChildrenChildrenInternalContent = 'children___children___internal___content',
-  ChildrenChildrenInternalContentDigest = 'children___children___internal___contentDigest',
-  ChildrenChildrenInternalDescription = 'children___children___internal___description',
-  ChildrenChildrenInternalFieldOwners = 'children___children___internal___fieldOwners',
-  ChildrenChildrenInternalIgnoreType = 'children___children___internal___ignoreType',
-  ChildrenChildrenInternalMediaType = 'children___children___internal___mediaType',
-  ChildrenChildrenInternalOwner = 'children___children___internal___owner',
-  ChildrenChildrenInternalType = 'children___children___internal___type',
-  ChildrenInternalContent = 'children___internal___content',
-  ChildrenInternalContentDigest = 'children___internal___contentDigest',
-  ChildrenInternalDescription = 'children___internal___description',
-  ChildrenInternalFieldOwners = 'children___internal___fieldOwners',
-  ChildrenInternalIgnoreType = 'children___internal___ignoreType',
-  ChildrenInternalMediaType = 'children___internal___mediaType',
-  ChildrenInternalOwner = 'children___internal___owner',
-  ChildrenInternalType = 'children___internal___type',
-  InternalContent = 'internal___content',
-  InternalContentDigest = 'internal___contentDigest',
-  InternalDescription = 'internal___description',
-  InternalFieldOwners = 'internal___fieldOwners',
-  InternalIgnoreType = 'internal___ignoreType',
-  InternalMediaType = 'internal___mediaType',
-  InternalOwner = 'internal___owner',
-  InternalType = 'internal___type'
-}
+export type FileFieldsEnum = 
+  'sourceInstanceName' |
+  'absolutePath' |
+  'relativePath' |
+  'extension' |
+  'size' |
+  'prettySize' |
+  'modifiedTime' |
+  'accessTime' |
+  'changeTime' |
+  'birthTime' |
+  'root' |
+  'dir' |
+  'base' |
+  'ext' |
+  'name' |
+  'relativeDirectory' |
+  'dev' |
+  'mode' |
+  'nlink' |
+  'uid' |
+  'gid' |
+  'rdev' |
+  'ino' |
+  'atimeMs' |
+  'mtimeMs' |
+  'ctimeMs' |
+  'atime' |
+  'mtime' |
+  'ctime' |
+  'birthtime' |
+  'birthtimeMs' |
+  'blksize' |
+  'blocks' |
+  'publicURL' |
+  'childImageSharp___fixed___base64' |
+  'childImageSharp___fixed___tracedSVG' |
+  'childImageSharp___fixed___aspectRatio' |
+  'childImageSharp___fixed___width' |
+  'childImageSharp___fixed___height' |
+  'childImageSharp___fixed___src' |
+  'childImageSharp___fixed___srcSet' |
+  'childImageSharp___fixed___srcWebp' |
+  'childImageSharp___fixed___srcSetWebp' |
+  'childImageSharp___fixed___originalName' |
+  'childImageSharp___resolutions___base64' |
+  'childImageSharp___resolutions___tracedSVG' |
+  'childImageSharp___resolutions___aspectRatio' |
+  'childImageSharp___resolutions___width' |
+  'childImageSharp___resolutions___height' |
+  'childImageSharp___resolutions___src' |
+  'childImageSharp___resolutions___srcSet' |
+  'childImageSharp___resolutions___srcWebp' |
+  'childImageSharp___resolutions___srcSetWebp' |
+  'childImageSharp___resolutions___originalName' |
+  'childImageSharp___fluid___base64' |
+  'childImageSharp___fluid___tracedSVG' |
+  'childImageSharp___fluid___aspectRatio' |
+  'childImageSharp___fluid___src' |
+  'childImageSharp___fluid___srcSet' |
+  'childImageSharp___fluid___srcWebp' |
+  'childImageSharp___fluid___srcSetWebp' |
+  'childImageSharp___fluid___sizes' |
+  'childImageSharp___fluid___originalImg' |
+  'childImageSharp___fluid___originalName' |
+  'childImageSharp___fluid___presentationWidth' |
+  'childImageSharp___fluid___presentationHeight' |
+  'childImageSharp___sizes___base64' |
+  'childImageSharp___sizes___tracedSVG' |
+  'childImageSharp___sizes___aspectRatio' |
+  'childImageSharp___sizes___src' |
+  'childImageSharp___sizes___srcSet' |
+  'childImageSharp___sizes___srcWebp' |
+  'childImageSharp___sizes___srcSetWebp' |
+  'childImageSharp___sizes___sizes' |
+  'childImageSharp___sizes___originalImg' |
+  'childImageSharp___sizes___originalName' |
+  'childImageSharp___sizes___presentationWidth' |
+  'childImageSharp___sizes___presentationHeight' |
+  'childImageSharp___original___width' |
+  'childImageSharp___original___height' |
+  'childImageSharp___original___src' |
+  'childImageSharp___resize___src' |
+  'childImageSharp___resize___tracedSVG' |
+  'childImageSharp___resize___width' |
+  'childImageSharp___resize___height' |
+  'childImageSharp___resize___aspectRatio' |
+  'childImageSharp___resize___originalName' |
+  'childImageSharp___id' |
+  'childImageSharp___parent___id' |
+  'childImageSharp___parent___parent___id' |
+  'childImageSharp___parent___parent___children' |
+  'childImageSharp___parent___children' |
+  'childImageSharp___parent___children___id' |
+  'childImageSharp___parent___children___children' |
+  'childImageSharp___parent___internal___content' |
+  'childImageSharp___parent___internal___contentDigest' |
+  'childImageSharp___parent___internal___description' |
+  'childImageSharp___parent___internal___fieldOwners' |
+  'childImageSharp___parent___internal___ignoreType' |
+  'childImageSharp___parent___internal___mediaType' |
+  'childImageSharp___parent___internal___owner' |
+  'childImageSharp___parent___internal___type' |
+  'childImageSharp___children' |
+  'childImageSharp___children___id' |
+  'childImageSharp___children___parent___id' |
+  'childImageSharp___children___parent___children' |
+  'childImageSharp___children___children' |
+  'childImageSharp___children___children___id' |
+  'childImageSharp___children___children___children' |
+  'childImageSharp___children___internal___content' |
+  'childImageSharp___children___internal___contentDigest' |
+  'childImageSharp___children___internal___description' |
+  'childImageSharp___children___internal___fieldOwners' |
+  'childImageSharp___children___internal___ignoreType' |
+  'childImageSharp___children___internal___mediaType' |
+  'childImageSharp___children___internal___owner' |
+  'childImageSharp___children___internal___type' |
+  'childImageSharp___internal___content' |
+  'childImageSharp___internal___contentDigest' |
+  'childImageSharp___internal___description' |
+  'childImageSharp___internal___fieldOwners' |
+  'childImageSharp___internal___ignoreType' |
+  'childImageSharp___internal___mediaType' |
+  'childImageSharp___internal___owner' |
+  'childImageSharp___internal___type' |
+  'id' |
+  'parent___id' |
+  'parent___parent___id' |
+  'parent___parent___parent___id' |
+  'parent___parent___parent___children' |
+  'parent___parent___children' |
+  'parent___parent___children___id' |
+  'parent___parent___children___children' |
+  'parent___parent___internal___content' |
+  'parent___parent___internal___contentDigest' |
+  'parent___parent___internal___description' |
+  'parent___parent___internal___fieldOwners' |
+  'parent___parent___internal___ignoreType' |
+  'parent___parent___internal___mediaType' |
+  'parent___parent___internal___owner' |
+  'parent___parent___internal___type' |
+  'parent___children' |
+  'parent___children___id' |
+  'parent___children___parent___id' |
+  'parent___children___parent___children' |
+  'parent___children___children' |
+  'parent___children___children___id' |
+  'parent___children___children___children' |
+  'parent___children___internal___content' |
+  'parent___children___internal___contentDigest' |
+  'parent___children___internal___description' |
+  'parent___children___internal___fieldOwners' |
+  'parent___children___internal___ignoreType' |
+  'parent___children___internal___mediaType' |
+  'parent___children___internal___owner' |
+  'parent___children___internal___type' |
+  'parent___internal___content' |
+  'parent___internal___contentDigest' |
+  'parent___internal___description' |
+  'parent___internal___fieldOwners' |
+  'parent___internal___ignoreType' |
+  'parent___internal___mediaType' |
+  'parent___internal___owner' |
+  'parent___internal___type' |
+  'children' |
+  'children___id' |
+  'children___parent___id' |
+  'children___parent___parent___id' |
+  'children___parent___parent___children' |
+  'children___parent___children' |
+  'children___parent___children___id' |
+  'children___parent___children___children' |
+  'children___parent___internal___content' |
+  'children___parent___internal___contentDigest' |
+  'children___parent___internal___description' |
+  'children___parent___internal___fieldOwners' |
+  'children___parent___internal___ignoreType' |
+  'children___parent___internal___mediaType' |
+  'children___parent___internal___owner' |
+  'children___parent___internal___type' |
+  'children___children' |
+  'children___children___id' |
+  'children___children___parent___id' |
+  'children___children___parent___children' |
+  'children___children___children' |
+  'children___children___children___id' |
+  'children___children___children___children' |
+  'children___children___internal___content' |
+  'children___children___internal___contentDigest' |
+  'children___children___internal___description' |
+  'children___children___internal___fieldOwners' |
+  'children___children___internal___ignoreType' |
+  'children___children___internal___mediaType' |
+  'children___children___internal___owner' |
+  'children___children___internal___type' |
+  'children___internal___content' |
+  'children___internal___contentDigest' |
+  'children___internal___description' |
+  'children___internal___fieldOwners' |
+  'children___internal___ignoreType' |
+  'children___internal___mediaType' |
+  'children___internal___owner' |
+  'children___internal___type' |
+  'internal___content' |
+  'internal___contentDigest' |
+  'internal___description' |
+  'internal___fieldOwners' |
+  'internal___ignoreType' |
+  'internal___mediaType' |
+  'internal___owner' |
+  'internal___type';
 
 export type FileFilterInput = {
   sourceInstanceName?: Maybe<StringQueryOperatorInput>,
@@ -723,7 +730,6 @@ export type FileFilterInput = {
 };
 
 export type FileGroupConnection = {
-   __typename?: 'FileGroupConnection',
   totalCount: Scalars['Int'],
   edges: Array<FileEdge>,
   nodes: Array<File>,
@@ -748,35 +754,31 @@ export type FloatQueryOperatorInput = {
   nin?: Maybe<Array<Maybe<Scalars['Float']>>>,
 };
 
-export enum ImageCropFocus {
-  Center = 'CENTER',
-  North = 'NORTH',
-  Northeast = 'NORTHEAST',
-  East = 'EAST',
-  Southeast = 'SOUTHEAST',
-  South = 'SOUTH',
-  Southwest = 'SOUTHWEST',
-  West = 'WEST',
-  Northwest = 'NORTHWEST',
-  Entropy = 'ENTROPY',
-  Attention = 'ATTENTION'
-}
+export type ImageCropFocus = 
+  'CENTER' |
+  'NORTH' |
+  'NORTHEAST' |
+  'EAST' |
+  'SOUTHEAST' |
+  'SOUTH' |
+  'SOUTHWEST' |
+  'WEST' |
+  'NORTHWEST' |
+  'ENTROPY' |
+  'ATTENTION';
 
-export enum ImageFit {
-  Cover = 'COVER',
-  Contain = 'CONTAIN',
-  Fill = 'FILL'
-}
+export type ImageFit = 
+  'COVER' |
+  'CONTAIN' |
+  'FILL';
 
-export enum ImageFormat {
-  NoChange = 'NO_CHANGE',
-  Jpg = 'JPG',
-  Png = 'PNG',
-  Webp = 'WEBP'
-}
+export type ImageFormat = 
+  'NO_CHANGE' |
+  'JPG' |
+  'PNG' |
+  'WEBP';
 
 export type ImageSharp = Node & {
-   __typename?: 'ImageSharp',
   fixed?: Maybe<ImageSharpFixed>,
   resolutions?: Maybe<ImageSharpResolutions>,
   fluid?: Maybe<ImageSharpFluid>,
@@ -909,7 +911,6 @@ export type ImageSharpResizeArgs = {
 };
 
 export type ImageSharpConnection = {
-   __typename?: 'ImageSharpConnection',
   totalCount: Scalars['Int'],
   edges: Array<ImageSharpEdge>,
   nodes: Array<ImageSharp>,
@@ -931,153 +932,151 @@ export type ImageSharpConnectionGroupArgs = {
 };
 
 export type ImageSharpEdge = {
-   __typename?: 'ImageSharpEdge',
   next?: Maybe<ImageSharp>,
   node: ImageSharp,
   previous?: Maybe<ImageSharp>,
 };
 
-export enum ImageSharpFieldsEnum {
-  FixedBase64 = 'fixed___base64',
-  FixedTracedSvg = 'fixed___tracedSVG',
-  FixedAspectRatio = 'fixed___aspectRatio',
-  FixedWidth = 'fixed___width',
-  FixedHeight = 'fixed___height',
-  FixedSrc = 'fixed___src',
-  FixedSrcSet = 'fixed___srcSet',
-  FixedSrcWebp = 'fixed___srcWebp',
-  FixedSrcSetWebp = 'fixed___srcSetWebp',
-  FixedOriginalName = 'fixed___originalName',
-  ResolutionsBase64 = 'resolutions___base64',
-  ResolutionsTracedSvg = 'resolutions___tracedSVG',
-  ResolutionsAspectRatio = 'resolutions___aspectRatio',
-  ResolutionsWidth = 'resolutions___width',
-  ResolutionsHeight = 'resolutions___height',
-  ResolutionsSrc = 'resolutions___src',
-  ResolutionsSrcSet = 'resolutions___srcSet',
-  ResolutionsSrcWebp = 'resolutions___srcWebp',
-  ResolutionsSrcSetWebp = 'resolutions___srcSetWebp',
-  ResolutionsOriginalName = 'resolutions___originalName',
-  FluidBase64 = 'fluid___base64',
-  FluidTracedSvg = 'fluid___tracedSVG',
-  FluidAspectRatio = 'fluid___aspectRatio',
-  FluidSrc = 'fluid___src',
-  FluidSrcSet = 'fluid___srcSet',
-  FluidSrcWebp = 'fluid___srcWebp',
-  FluidSrcSetWebp = 'fluid___srcSetWebp',
-  FluidSizes = 'fluid___sizes',
-  FluidOriginalImg = 'fluid___originalImg',
-  FluidOriginalName = 'fluid___originalName',
-  FluidPresentationWidth = 'fluid___presentationWidth',
-  FluidPresentationHeight = 'fluid___presentationHeight',
-  SizesBase64 = 'sizes___base64',
-  SizesTracedSvg = 'sizes___tracedSVG',
-  SizesAspectRatio = 'sizes___aspectRatio',
-  SizesSrc = 'sizes___src',
-  SizesSrcSet = 'sizes___srcSet',
-  SizesSrcWebp = 'sizes___srcWebp',
-  SizesSrcSetWebp = 'sizes___srcSetWebp',
-  SizesSizes = 'sizes___sizes',
-  SizesOriginalImg = 'sizes___originalImg',
-  SizesOriginalName = 'sizes___originalName',
-  SizesPresentationWidth = 'sizes___presentationWidth',
-  SizesPresentationHeight = 'sizes___presentationHeight',
-  OriginalWidth = 'original___width',
-  OriginalHeight = 'original___height',
-  OriginalSrc = 'original___src',
-  ResizeSrc = 'resize___src',
-  ResizeTracedSvg = 'resize___tracedSVG',
-  ResizeWidth = 'resize___width',
-  ResizeHeight = 'resize___height',
-  ResizeAspectRatio = 'resize___aspectRatio',
-  ResizeOriginalName = 'resize___originalName',
-  Id = 'id',
-  ParentId = 'parent___id',
-  ParentParentId = 'parent___parent___id',
-  ParentParentParentId = 'parent___parent___parent___id',
-  ParentParentParentChildren = 'parent___parent___parent___children',
-  ParentParentChildren = 'parent___parent___children',
-  ParentParentChildrenId = 'parent___parent___children___id',
-  ParentParentChildrenChildren = 'parent___parent___children___children',
-  ParentParentInternalContent = 'parent___parent___internal___content',
-  ParentParentInternalContentDigest = 'parent___parent___internal___contentDigest',
-  ParentParentInternalDescription = 'parent___parent___internal___description',
-  ParentParentInternalFieldOwners = 'parent___parent___internal___fieldOwners',
-  ParentParentInternalIgnoreType = 'parent___parent___internal___ignoreType',
-  ParentParentInternalMediaType = 'parent___parent___internal___mediaType',
-  ParentParentInternalOwner = 'parent___parent___internal___owner',
-  ParentParentInternalType = 'parent___parent___internal___type',
-  ParentChildren = 'parent___children',
-  ParentChildrenId = 'parent___children___id',
-  ParentChildrenParentId = 'parent___children___parent___id',
-  ParentChildrenParentChildren = 'parent___children___parent___children',
-  ParentChildrenChildren = 'parent___children___children',
-  ParentChildrenChildrenId = 'parent___children___children___id',
-  ParentChildrenChildrenChildren = 'parent___children___children___children',
-  ParentChildrenInternalContent = 'parent___children___internal___content',
-  ParentChildrenInternalContentDigest = 'parent___children___internal___contentDigest',
-  ParentChildrenInternalDescription = 'parent___children___internal___description',
-  ParentChildrenInternalFieldOwners = 'parent___children___internal___fieldOwners',
-  ParentChildrenInternalIgnoreType = 'parent___children___internal___ignoreType',
-  ParentChildrenInternalMediaType = 'parent___children___internal___mediaType',
-  ParentChildrenInternalOwner = 'parent___children___internal___owner',
-  ParentChildrenInternalType = 'parent___children___internal___type',
-  ParentInternalContent = 'parent___internal___content',
-  ParentInternalContentDigest = 'parent___internal___contentDigest',
-  ParentInternalDescription = 'parent___internal___description',
-  ParentInternalFieldOwners = 'parent___internal___fieldOwners',
-  ParentInternalIgnoreType = 'parent___internal___ignoreType',
-  ParentInternalMediaType = 'parent___internal___mediaType',
-  ParentInternalOwner = 'parent___internal___owner',
-  ParentInternalType = 'parent___internal___type',
-  Children = 'children',
-  ChildrenId = 'children___id',
-  ChildrenParentId = 'children___parent___id',
-  ChildrenParentParentId = 'children___parent___parent___id',
-  ChildrenParentParentChildren = 'children___parent___parent___children',
-  ChildrenParentChildren = 'children___parent___children',
-  ChildrenParentChildrenId = 'children___parent___children___id',
-  ChildrenParentChildrenChildren = 'children___parent___children___children',
-  ChildrenParentInternalContent = 'children___parent___internal___content',
-  ChildrenParentInternalContentDigest = 'children___parent___internal___contentDigest',
-  ChildrenParentInternalDescription = 'children___parent___internal___description',
-  ChildrenParentInternalFieldOwners = 'children___parent___internal___fieldOwners',
-  ChildrenParentInternalIgnoreType = 'children___parent___internal___ignoreType',
-  ChildrenParentInternalMediaType = 'children___parent___internal___mediaType',
-  ChildrenParentInternalOwner = 'children___parent___internal___owner',
-  ChildrenParentInternalType = 'children___parent___internal___type',
-  ChildrenChildren = 'children___children',
-  ChildrenChildrenId = 'children___children___id',
-  ChildrenChildrenParentId = 'children___children___parent___id',
-  ChildrenChildrenParentChildren = 'children___children___parent___children',
-  ChildrenChildrenChildren = 'children___children___children',
-  ChildrenChildrenChildrenId = 'children___children___children___id',
-  ChildrenChildrenChildrenChildren = 'children___children___children___children',
-  ChildrenChildrenInternalContent = 'children___children___internal___content',
-  ChildrenChildrenInternalContentDigest = 'children___children___internal___contentDigest',
-  ChildrenChildrenInternalDescription = 'children___children___internal___description',
-  ChildrenChildrenInternalFieldOwners = 'children___children___internal___fieldOwners',
-  ChildrenChildrenInternalIgnoreType = 'children___children___internal___ignoreType',
-  ChildrenChildrenInternalMediaType = 'children___children___internal___mediaType',
-  ChildrenChildrenInternalOwner = 'children___children___internal___owner',
-  ChildrenChildrenInternalType = 'children___children___internal___type',
-  ChildrenInternalContent = 'children___internal___content',
-  ChildrenInternalContentDigest = 'children___internal___contentDigest',
-  ChildrenInternalDescription = 'children___internal___description',
-  ChildrenInternalFieldOwners = 'children___internal___fieldOwners',
-  ChildrenInternalIgnoreType = 'children___internal___ignoreType',
-  ChildrenInternalMediaType = 'children___internal___mediaType',
-  ChildrenInternalOwner = 'children___internal___owner',
-  ChildrenInternalType = 'children___internal___type',
-  InternalContent = 'internal___content',
-  InternalContentDigest = 'internal___contentDigest',
-  InternalDescription = 'internal___description',
-  InternalFieldOwners = 'internal___fieldOwners',
-  InternalIgnoreType = 'internal___ignoreType',
-  InternalMediaType = 'internal___mediaType',
-  InternalOwner = 'internal___owner',
-  InternalType = 'internal___type'
-}
+export type ImageSharpFieldsEnum = 
+  'fixed___base64' |
+  'fixed___tracedSVG' |
+  'fixed___aspectRatio' |
+  'fixed___width' |
+  'fixed___height' |
+  'fixed___src' |
+  'fixed___srcSet' |
+  'fixed___srcWebp' |
+  'fixed___srcSetWebp' |
+  'fixed___originalName' |
+  'resolutions___base64' |
+  'resolutions___tracedSVG' |
+  'resolutions___aspectRatio' |
+  'resolutions___width' |
+  'resolutions___height' |
+  'resolutions___src' |
+  'resolutions___srcSet' |
+  'resolutions___srcWebp' |
+  'resolutions___srcSetWebp' |
+  'resolutions___originalName' |
+  'fluid___base64' |
+  'fluid___tracedSVG' |
+  'fluid___aspectRatio' |
+  'fluid___src' |
+  'fluid___srcSet' |
+  'fluid___srcWebp' |
+  'fluid___srcSetWebp' |
+  'fluid___sizes' |
+  'fluid___originalImg' |
+  'fluid___originalName' |
+  'fluid___presentationWidth' |
+  'fluid___presentationHeight' |
+  'sizes___base64' |
+  'sizes___tracedSVG' |
+  'sizes___aspectRatio' |
+  'sizes___src' |
+  'sizes___srcSet' |
+  'sizes___srcWebp' |
+  'sizes___srcSetWebp' |
+  'sizes___sizes' |
+  'sizes___originalImg' |
+  'sizes___originalName' |
+  'sizes___presentationWidth' |
+  'sizes___presentationHeight' |
+  'original___width' |
+  'original___height' |
+  'original___src' |
+  'resize___src' |
+  'resize___tracedSVG' |
+  'resize___width' |
+  'resize___height' |
+  'resize___aspectRatio' |
+  'resize___originalName' |
+  'id' |
+  'parent___id' |
+  'parent___parent___id' |
+  'parent___parent___parent___id' |
+  'parent___parent___parent___children' |
+  'parent___parent___children' |
+  'parent___parent___children___id' |
+  'parent___parent___children___children' |
+  'parent___parent___internal___content' |
+  'parent___parent___internal___contentDigest' |
+  'parent___parent___internal___description' |
+  'parent___parent___internal___fieldOwners' |
+  'parent___parent___internal___ignoreType' |
+  'parent___parent___internal___mediaType' |
+  'parent___parent___internal___owner' |
+  'parent___parent___internal___type' |
+  'parent___children' |
+  'parent___children___id' |
+  'parent___children___parent___id' |
+  'parent___children___parent___children' |
+  'parent___children___children' |
+  'parent___children___children___id' |
+  'parent___children___children___children' |
+  'parent___children___internal___content' |
+  'parent___children___internal___contentDigest' |
+  'parent___children___internal___description' |
+  'parent___children___internal___fieldOwners' |
+  'parent___children___internal___ignoreType' |
+  'parent___children___internal___mediaType' |
+  'parent___children___internal___owner' |
+  'parent___children___internal___type' |
+  'parent___internal___content' |
+  'parent___internal___contentDigest' |
+  'parent___internal___description' |
+  'parent___internal___fieldOwners' |
+  'parent___internal___ignoreType' |
+  'parent___internal___mediaType' |
+  'parent___internal___owner' |
+  'parent___internal___type' |
+  'children' |
+  'children___id' |
+  'children___parent___id' |
+  'children___parent___parent___id' |
+  'children___parent___parent___children' |
+  'children___parent___children' |
+  'children___parent___children___id' |
+  'children___parent___children___children' |
+  'children___parent___internal___content' |
+  'children___parent___internal___contentDigest' |
+  'children___parent___internal___description' |
+  'children___parent___internal___fieldOwners' |
+  'children___parent___internal___ignoreType' |
+  'children___parent___internal___mediaType' |
+  'children___parent___internal___owner' |
+  'children___parent___internal___type' |
+  'children___children' |
+  'children___children___id' |
+  'children___children___parent___id' |
+  'children___children___parent___children' |
+  'children___children___children' |
+  'children___children___children___id' |
+  'children___children___children___children' |
+  'children___children___internal___content' |
+  'children___children___internal___contentDigest' |
+  'children___children___internal___description' |
+  'children___children___internal___fieldOwners' |
+  'children___children___internal___ignoreType' |
+  'children___children___internal___mediaType' |
+  'children___children___internal___owner' |
+  'children___children___internal___type' |
+  'children___internal___content' |
+  'children___internal___contentDigest' |
+  'children___internal___description' |
+  'children___internal___fieldOwners' |
+  'children___internal___ignoreType' |
+  'children___internal___mediaType' |
+  'children___internal___owner' |
+  'children___internal___type' |
+  'internal___content' |
+  'internal___contentDigest' |
+  'internal___description' |
+  'internal___fieldOwners' |
+  'internal___ignoreType' |
+  'internal___mediaType' |
+  'internal___owner' |
+  'internal___type';
 
 export type ImageSharpFilterInput = {
   fixed?: Maybe<ImageSharpFixedFilterInput>,
@@ -1093,7 +1092,6 @@ export type ImageSharpFilterInput = {
 };
 
 export type ImageSharpFixed = {
-   __typename?: 'ImageSharpFixed',
   base64?: Maybe<Scalars['String']>,
   tracedSVG?: Maybe<Scalars['String']>,
   aspectRatio?: Maybe<Scalars['Float']>,
@@ -1120,7 +1118,6 @@ export type ImageSharpFixedFilterInput = {
 };
 
 export type ImageSharpFluid = {
-   __typename?: 'ImageSharpFluid',
   base64?: Maybe<Scalars['String']>,
   tracedSVG?: Maybe<Scalars['String']>,
   aspectRatio: Scalars['Float'],
@@ -1151,7 +1148,6 @@ export type ImageSharpFluidFilterInput = {
 };
 
 export type ImageSharpGroupConnection = {
-   __typename?: 'ImageSharpGroupConnection',
   totalCount: Scalars['Int'],
   edges: Array<ImageSharpEdge>,
   nodes: Array<ImageSharp>,
@@ -1161,7 +1157,6 @@ export type ImageSharpGroupConnection = {
 };
 
 export type ImageSharpOriginal = {
-   __typename?: 'ImageSharpOriginal',
   width?: Maybe<Scalars['Float']>,
   height?: Maybe<Scalars['Float']>,
   src?: Maybe<Scalars['String']>,
@@ -1174,7 +1169,6 @@ export type ImageSharpOriginalFilterInput = {
 };
 
 export type ImageSharpResize = {
-   __typename?: 'ImageSharpResize',
   src?: Maybe<Scalars['String']>,
   tracedSVG?: Maybe<Scalars['String']>,
   width?: Maybe<Scalars['Int']>,
@@ -1193,7 +1187,6 @@ export type ImageSharpResizeFilterInput = {
 };
 
 export type ImageSharpResolutions = {
-   __typename?: 'ImageSharpResolutions',
   base64?: Maybe<Scalars['String']>,
   tracedSVG?: Maybe<Scalars['String']>,
   aspectRatio?: Maybe<Scalars['Float']>,
@@ -1220,7 +1213,6 @@ export type ImageSharpResolutionsFilterInput = {
 };
 
 export type ImageSharpSizes = {
-   __typename?: 'ImageSharpSizes',
   base64?: Maybe<Scalars['String']>,
   tracedSVG?: Maybe<Scalars['String']>,
   aspectRatio: Scalars['Float'],
@@ -1256,7 +1248,6 @@ export type ImageSharpSortInput = {
 };
 
 export type Internal = {
-   __typename?: 'Internal',
   content?: Maybe<Scalars['String']>,
   contentDigest: Scalars['String'],
   description?: Maybe<Scalars['String']>,
@@ -1299,6 +1290,7 @@ export type JsonQueryOperatorInput = {
   glob?: Maybe<Scalars['JSON']>,
 };
 
+/** Node Interface */
 export type Node = {
   id: Scalars['ID'],
   parent?: Maybe<Node>,
@@ -1318,7 +1310,6 @@ export type NodeFilterListInput = {
 };
 
 export type PageInfo = {
-   __typename?: 'PageInfo',
   currentPage: Scalars['Int'],
   hasPreviousPage: Scalars['Boolean'],
   hasNextPage: Scalars['Boolean'],
@@ -1339,17 +1330,15 @@ export type Potrace = {
   background?: Maybe<Scalars['String']>,
 };
 
-export enum PotraceTurnPolicy {
-  TurnpolicyBlack = 'TURNPOLICY_BLACK',
-  TurnpolicyWhite = 'TURNPOLICY_WHITE',
-  TurnpolicyLeft = 'TURNPOLICY_LEFT',
-  TurnpolicyRight = 'TURNPOLICY_RIGHT',
-  TurnpolicyMinority = 'TURNPOLICY_MINORITY',
-  TurnpolicyMajority = 'TURNPOLICY_MAJORITY'
-}
+export type PotraceTurnPolicy = 
+  'TURNPOLICY_BLACK' |
+  'TURNPOLICY_WHITE' |
+  'TURNPOLICY_LEFT' |
+  'TURNPOLICY_RIGHT' |
+  'TURNPOLICY_MINORITY' |
+  'TURNPOLICY_MAJORITY';
 
 export type Query = {
-   __typename?: 'Query',
   file?: Maybe<File>,
   allFile: FileConnection,
   directory?: Maybe<Directory>,
@@ -1362,6 +1351,8 @@ export type Query = {
   allSanityAbout: SanityAboutConnection,
   sanityBlog?: Maybe<SanityBlog>,
   allSanityBlog: SanityBlogConnection,
+  sanityPortfolio?: Maybe<SanityPortfolio>,
+  allSanityPortfolio: SanityPortfolioConnection,
   sanityFileAsset?: Maybe<SanityFileAsset>,
   allSanityFileAsset: SanityFileAssetConnection,
   sanityImageAsset?: Maybe<SanityImageAsset>,
@@ -1584,6 +1575,44 @@ export type QueryAllSanityBlogArgs = {
 };
 
 
+export type QuerySanityPortfolioArgs = {
+  _id?: Maybe<StringQueryOperatorInput>,
+  _type?: Maybe<StringQueryOperatorInput>,
+  _createdAt?: Maybe<DateQueryOperatorInput>,
+  _updatedAt?: Maybe<DateQueryOperatorInput>,
+  _rev?: Maybe<StringQueryOperatorInput>,
+  _key?: Maybe<StringQueryOperatorInput>,
+  pageTitle?: Maybe<StringQueryOperatorInput>,
+  profilePhoto?: Maybe<SanityImageFilterInput>,
+  slug?: Maybe<SanitySlugFilterInput>,
+  experience?: Maybe<SanityExperienceFilterListInput>,
+  work?: Maybe<SanityWorkDetailsFilterListInput>,
+  testimonials?: Maybe<SanityTestimonialFilterListInput>,
+  accessGrant?: Maybe<StringQueryOperatorInput>,
+  about?: Maybe<SanityBlockFilterListInput>,
+  myPreferences?: Maybe<SanityBlockFilterListInput>,
+  _rawProfilePhoto?: Maybe<JsonQueryOperatorInput>,
+  _rawSlug?: Maybe<JsonQueryOperatorInput>,
+  _rawAbout?: Maybe<JsonQueryOperatorInput>,
+  _rawExperience?: Maybe<JsonQueryOperatorInput>,
+  _rawWork?: Maybe<JsonQueryOperatorInput>,
+  _rawTestimonials?: Maybe<JsonQueryOperatorInput>,
+  _rawMyPreferences?: Maybe<JsonQueryOperatorInput>,
+  id?: Maybe<StringQueryOperatorInput>,
+  parent?: Maybe<NodeFilterInput>,
+  children?: Maybe<NodeFilterListInput>,
+  internal?: Maybe<InternalFilterInput>
+};
+
+
+export type QueryAllSanityPortfolioArgs = {
+  filter?: Maybe<SanityPortfolioFilterInput>,
+  sort?: Maybe<SanityPortfolioSortInput>,
+  skip?: Maybe<Scalars['Int']>,
+  limit?: Maybe<Scalars['Int']>
+};
+
+
 export type QuerySanityFileAssetArgs = {
   _id?: Maybe<StringQueryOperatorInput>,
   _type?: Maybe<StringQueryOperatorInput>,
@@ -1671,10 +1700,16 @@ export type QuerySanityWorkArgs = {
   mainImage?: Maybe<SanityImageFilterInput>,
   featured?: Maybe<BooleanQueryOperatorInput>,
   publishedAt?: Maybe<DateQueryOperatorInput>,
+  themeColor?: Maybe<SanityColorFilterInput>,
+  problemStatement?: Maybe<SanityBlockFilterListInput>,
+  solution?: Maybe<SanityBlockFilterListInput>,
   body?: Maybe<SanityBlockFilterListInput>,
   _rawSlug?: Maybe<JsonQueryOperatorInput>,
+  _rawProblemStatement?: Maybe<JsonQueryOperatorInput>,
+  _rawSolution?: Maybe<JsonQueryOperatorInput>,
   _rawMainImage?: Maybe<JsonQueryOperatorInput>,
   _rawBody?: Maybe<JsonQueryOperatorInput>,
+  _rawThemeColor?: Maybe<JsonQueryOperatorInput>,
   id?: Maybe<StringQueryOperatorInput>,
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
@@ -1737,7 +1772,6 @@ export type QueryAllSitePluginArgs = {
 };
 
 export type SanityAbout = SanityDocument & Node & {
-   __typename?: 'SanityAbout',
   _id?: Maybe<Scalars['String']>,
   _type?: Maybe<Scalars['String']>,
   _createdAt?: Maybe<Scalars['Date']>,
@@ -1790,7 +1824,6 @@ export type SanityAbout_RawMainImageArgs = {
 };
 
 export type SanityAboutConnection = {
-   __typename?: 'SanityAboutConnection',
   totalCount: Scalars['Int'],
   edges: Array<SanityAboutEdge>,
   nodes: Array<SanityAbout>,
@@ -1812,198 +1845,196 @@ export type SanityAboutConnectionGroupArgs = {
 };
 
 export type SanityAboutEdge = {
-   __typename?: 'SanityAboutEdge',
   next?: Maybe<SanityAbout>,
   node: SanityAbout,
   previous?: Maybe<SanityAbout>,
 };
 
-export enum SanityAboutFieldsEnum {
-  Id = '_id',
-  Type = '_type',
-  CreatedAt = '_createdAt',
-  UpdatedAt = '_updatedAt',
-  Rev = '_rev',
-  Key = '_key',
-  Title = 'title',
-  Tldr = 'tldr',
-  SlugKey = 'slug____key',
-  SlugType = 'slug____type',
-  SlugCurrent = 'slug___current',
-  MainImageKey = 'mainImage____key',
-  MainImageType = 'mainImage____type',
-  MainImageAssetId = 'mainImage___asset____id',
-  MainImageAssetType = 'mainImage___asset____type',
-  MainImageAssetCreatedAt = 'mainImage___asset____createdAt',
-  MainImageAssetUpdatedAt = 'mainImage___asset____updatedAt',
-  MainImageAssetRev = 'mainImage___asset____rev',
-  MainImageAssetKey = 'mainImage___asset____key',
-  MainImageAssetOriginalFilename = 'mainImage___asset___originalFilename',
-  MainImageAssetLabel = 'mainImage___asset___label',
-  MainImageAssetTitle = 'mainImage___asset___title',
-  MainImageAssetDescription = 'mainImage___asset___description',
-  MainImageAssetSha1hash = 'mainImage___asset___sha1hash',
-  MainImageAssetExtension = 'mainImage___asset___extension',
-  MainImageAssetMimeType = 'mainImage___asset___mimeType',
-  MainImageAssetSize = 'mainImage___asset___size',
-  MainImageAssetAssetId = 'mainImage___asset___assetId',
-  MainImageAssetPath = 'mainImage___asset___path',
-  MainImageAssetUrl = 'mainImage___asset___url',
-  MainImageAssetMetadataKey = 'mainImage___asset___metadata____key',
-  MainImageAssetMetadataType = 'mainImage___asset___metadata____type',
-  MainImageAssetMetadataLqip = 'mainImage___asset___metadata___lqip',
-  MainImageAssetMetadataHasAlpha = 'mainImage___asset___metadata___hasAlpha',
-  MainImageAssetMetadataIsOpaque = 'mainImage___asset___metadata___isOpaque',
-  MainImageAssetSourceKey = 'mainImage___asset___source____key',
-  MainImageAssetSourceType = 'mainImage___asset___source____type',
-  MainImageAssetSourceName = 'mainImage___asset___source___name',
-  MainImageAssetSourceSanityId = 'mainImage___asset___source___sanityId',
-  MainImageAssetSourceUrl = 'mainImage___asset___source___url',
-  MainImageAssetFixedBase64 = 'mainImage___asset___fixed___base64',
-  MainImageAssetFixedAspectRatio = 'mainImage___asset___fixed___aspectRatio',
-  MainImageAssetFixedWidth = 'mainImage___asset___fixed___width',
-  MainImageAssetFixedHeight = 'mainImage___asset___fixed___height',
-  MainImageAssetFixedSrc = 'mainImage___asset___fixed___src',
-  MainImageAssetFixedSrcSet = 'mainImage___asset___fixed___srcSet',
-  MainImageAssetFixedSrcWebp = 'mainImage___asset___fixed___srcWebp',
-  MainImageAssetFixedSrcSetWebp = 'mainImage___asset___fixed___srcSetWebp',
-  MainImageAssetFluidBase64 = 'mainImage___asset___fluid___base64',
-  MainImageAssetFluidAspectRatio = 'mainImage___asset___fluid___aspectRatio',
-  MainImageAssetFluidSrc = 'mainImage___asset___fluid___src',
-  MainImageAssetFluidSrcSet = 'mainImage___asset___fluid___srcSet',
-  MainImageAssetFluidSrcWebp = 'mainImage___asset___fluid___srcWebp',
-  MainImageAssetFluidSrcSetWebp = 'mainImage___asset___fluid___srcSetWebp',
-  MainImageAssetFluidSizes = 'mainImage___asset___fluid___sizes',
-  MainImageAssetRawMetadata = 'mainImage___asset____rawMetadata',
-  MainImageAssetRawSource = 'mainImage___asset____rawSource',
-  MainImageAssetId = 'mainImage___asset___id',
-  MainImageAssetParentId = 'mainImage___asset___parent___id',
-  MainImageAssetParentChildren = 'mainImage___asset___parent___children',
-  MainImageAssetChildren = 'mainImage___asset___children',
-  MainImageAssetChildrenId = 'mainImage___asset___children___id',
-  MainImageAssetChildrenChildren = 'mainImage___asset___children___children',
-  MainImageAssetInternalContent = 'mainImage___asset___internal___content',
-  MainImageAssetInternalContentDigest = 'mainImage___asset___internal___contentDigest',
-  MainImageAssetInternalDescription = 'mainImage___asset___internal___description',
-  MainImageAssetInternalFieldOwners = 'mainImage___asset___internal___fieldOwners',
-  MainImageAssetInternalIgnoreType = 'mainImage___asset___internal___ignoreType',
-  MainImageAssetInternalMediaType = 'mainImage___asset___internal___mediaType',
-  MainImageAssetInternalOwner = 'mainImage___asset___internal___owner',
-  MainImageAssetInternalType = 'mainImage___asset___internal___type',
-  MainImageAssetChildImageSharpId = 'mainImage___asset___childImageSharp___id',
-  MainImageAssetChildImageSharpChildren = 'mainImage___asset___childImageSharp___children',
-  MainImageHotspotKey = 'mainImage___hotspot____key',
-  MainImageHotspotType = 'mainImage___hotspot____type',
-  MainImageHotspotX = 'mainImage___hotspot___x',
-  MainImageHotspotY = 'mainImage___hotspot___y',
-  MainImageHotspotHeight = 'mainImage___hotspot___height',
-  MainImageHotspotWidth = 'mainImage___hotspot___width',
-  MainImageCropKey = 'mainImage___crop____key',
-  MainImageCropType = 'mainImage___crop____type',
-  MainImageCropTop = 'mainImage___crop___top',
-  MainImageCropBottom = 'mainImage___crop___bottom',
-  MainImageCropLeft = 'mainImage___crop___left',
-  MainImageCropRight = 'mainImage___crop___right',
-  Aboutme = 'aboutme',
-  AboutmeKey = 'aboutme____key',
-  AboutmeType = 'aboutme____type',
-  AboutmeSanityChildren = 'aboutme___sanityChildren',
-  AboutmeSanityChildrenKey = 'aboutme___sanityChildren____key',
-  AboutmeSanityChildrenType = 'aboutme___sanityChildren____type',
-  AboutmeSanityChildrenMarks = 'aboutme___sanityChildren___marks',
-  AboutmeSanityChildrenText = 'aboutme___sanityChildren___text',
-  AboutmeStyle = 'aboutme___style',
-  AboutmeList = 'aboutme___list',
-  RawAboutme = '_rawAboutme',
-  RawSlug = '_rawSlug',
-  RawMainImage = '_rawMainImage',
-  Id = 'id',
-  ParentId = 'parent___id',
-  ParentParentId = 'parent___parent___id',
-  ParentParentParentId = 'parent___parent___parent___id',
-  ParentParentParentChildren = 'parent___parent___parent___children',
-  ParentParentChildren = 'parent___parent___children',
-  ParentParentChildrenId = 'parent___parent___children___id',
-  ParentParentChildrenChildren = 'parent___parent___children___children',
-  ParentParentInternalContent = 'parent___parent___internal___content',
-  ParentParentInternalContentDigest = 'parent___parent___internal___contentDigest',
-  ParentParentInternalDescription = 'parent___parent___internal___description',
-  ParentParentInternalFieldOwners = 'parent___parent___internal___fieldOwners',
-  ParentParentInternalIgnoreType = 'parent___parent___internal___ignoreType',
-  ParentParentInternalMediaType = 'parent___parent___internal___mediaType',
-  ParentParentInternalOwner = 'parent___parent___internal___owner',
-  ParentParentInternalType = 'parent___parent___internal___type',
-  ParentChildren = 'parent___children',
-  ParentChildrenId = 'parent___children___id',
-  ParentChildrenParentId = 'parent___children___parent___id',
-  ParentChildrenParentChildren = 'parent___children___parent___children',
-  ParentChildrenChildren = 'parent___children___children',
-  ParentChildrenChildrenId = 'parent___children___children___id',
-  ParentChildrenChildrenChildren = 'parent___children___children___children',
-  ParentChildrenInternalContent = 'parent___children___internal___content',
-  ParentChildrenInternalContentDigest = 'parent___children___internal___contentDigest',
-  ParentChildrenInternalDescription = 'parent___children___internal___description',
-  ParentChildrenInternalFieldOwners = 'parent___children___internal___fieldOwners',
-  ParentChildrenInternalIgnoreType = 'parent___children___internal___ignoreType',
-  ParentChildrenInternalMediaType = 'parent___children___internal___mediaType',
-  ParentChildrenInternalOwner = 'parent___children___internal___owner',
-  ParentChildrenInternalType = 'parent___children___internal___type',
-  ParentInternalContent = 'parent___internal___content',
-  ParentInternalContentDigest = 'parent___internal___contentDigest',
-  ParentInternalDescription = 'parent___internal___description',
-  ParentInternalFieldOwners = 'parent___internal___fieldOwners',
-  ParentInternalIgnoreType = 'parent___internal___ignoreType',
-  ParentInternalMediaType = 'parent___internal___mediaType',
-  ParentInternalOwner = 'parent___internal___owner',
-  ParentInternalType = 'parent___internal___type',
-  Children = 'children',
-  ChildrenId = 'children___id',
-  ChildrenParentId = 'children___parent___id',
-  ChildrenParentParentId = 'children___parent___parent___id',
-  ChildrenParentParentChildren = 'children___parent___parent___children',
-  ChildrenParentChildren = 'children___parent___children',
-  ChildrenParentChildrenId = 'children___parent___children___id',
-  ChildrenParentChildrenChildren = 'children___parent___children___children',
-  ChildrenParentInternalContent = 'children___parent___internal___content',
-  ChildrenParentInternalContentDigest = 'children___parent___internal___contentDigest',
-  ChildrenParentInternalDescription = 'children___parent___internal___description',
-  ChildrenParentInternalFieldOwners = 'children___parent___internal___fieldOwners',
-  ChildrenParentInternalIgnoreType = 'children___parent___internal___ignoreType',
-  ChildrenParentInternalMediaType = 'children___parent___internal___mediaType',
-  ChildrenParentInternalOwner = 'children___parent___internal___owner',
-  ChildrenParentInternalType = 'children___parent___internal___type',
-  ChildrenChildren = 'children___children',
-  ChildrenChildrenId = 'children___children___id',
-  ChildrenChildrenParentId = 'children___children___parent___id',
-  ChildrenChildrenParentChildren = 'children___children___parent___children',
-  ChildrenChildrenChildren = 'children___children___children',
-  ChildrenChildrenChildrenId = 'children___children___children___id',
-  ChildrenChildrenChildrenChildren = 'children___children___children___children',
-  ChildrenChildrenInternalContent = 'children___children___internal___content',
-  ChildrenChildrenInternalContentDigest = 'children___children___internal___contentDigest',
-  ChildrenChildrenInternalDescription = 'children___children___internal___description',
-  ChildrenChildrenInternalFieldOwners = 'children___children___internal___fieldOwners',
-  ChildrenChildrenInternalIgnoreType = 'children___children___internal___ignoreType',
-  ChildrenChildrenInternalMediaType = 'children___children___internal___mediaType',
-  ChildrenChildrenInternalOwner = 'children___children___internal___owner',
-  ChildrenChildrenInternalType = 'children___children___internal___type',
-  ChildrenInternalContent = 'children___internal___content',
-  ChildrenInternalContentDigest = 'children___internal___contentDigest',
-  ChildrenInternalDescription = 'children___internal___description',
-  ChildrenInternalFieldOwners = 'children___internal___fieldOwners',
-  ChildrenInternalIgnoreType = 'children___internal___ignoreType',
-  ChildrenInternalMediaType = 'children___internal___mediaType',
-  ChildrenInternalOwner = 'children___internal___owner',
-  ChildrenInternalType = 'children___internal___type',
-  InternalContent = 'internal___content',
-  InternalContentDigest = 'internal___contentDigest',
-  InternalDescription = 'internal___description',
-  InternalFieldOwners = 'internal___fieldOwners',
-  InternalIgnoreType = 'internal___ignoreType',
-  InternalMediaType = 'internal___mediaType',
-  InternalOwner = 'internal___owner',
-  InternalType = 'internal___type'
-}
+export type SanityAboutFieldsEnum = 
+  '_id' |
+  '_type' |
+  '_createdAt' |
+  '_updatedAt' |
+  '_rev' |
+  '_key' |
+  'title' |
+  'tldr' |
+  'slug____key' |
+  'slug____type' |
+  'slug___current' |
+  'mainImage____key' |
+  'mainImage____type' |
+  'mainImage___asset____id' |
+  'mainImage___asset____type' |
+  'mainImage___asset____createdAt' |
+  'mainImage___asset____updatedAt' |
+  'mainImage___asset____rev' |
+  'mainImage___asset____key' |
+  'mainImage___asset___originalFilename' |
+  'mainImage___asset___label' |
+  'mainImage___asset___title' |
+  'mainImage___asset___description' |
+  'mainImage___asset___sha1hash' |
+  'mainImage___asset___extension' |
+  'mainImage___asset___mimeType' |
+  'mainImage___asset___size' |
+  'mainImage___asset___assetId' |
+  'mainImage___asset___path' |
+  'mainImage___asset___url' |
+  'mainImage___asset___metadata____key' |
+  'mainImage___asset___metadata____type' |
+  'mainImage___asset___metadata___lqip' |
+  'mainImage___asset___metadata___hasAlpha' |
+  'mainImage___asset___metadata___isOpaque' |
+  'mainImage___asset___source____key' |
+  'mainImage___asset___source____type' |
+  'mainImage___asset___source___name' |
+  'mainImage___asset___source___sanityId' |
+  'mainImage___asset___source___url' |
+  'mainImage___asset___fixed___base64' |
+  'mainImage___asset___fixed___aspectRatio' |
+  'mainImage___asset___fixed___width' |
+  'mainImage___asset___fixed___height' |
+  'mainImage___asset___fixed___src' |
+  'mainImage___asset___fixed___srcSet' |
+  'mainImage___asset___fixed___srcWebp' |
+  'mainImage___asset___fixed___srcSetWebp' |
+  'mainImage___asset___fluid___base64' |
+  'mainImage___asset___fluid___aspectRatio' |
+  'mainImage___asset___fluid___src' |
+  'mainImage___asset___fluid___srcSet' |
+  'mainImage___asset___fluid___srcWebp' |
+  'mainImage___asset___fluid___srcSetWebp' |
+  'mainImage___asset___fluid___sizes' |
+  'mainImage___asset____rawMetadata' |
+  'mainImage___asset____rawSource' |
+  'mainImage___asset___id' |
+  'mainImage___asset___parent___id' |
+  'mainImage___asset___parent___children' |
+  'mainImage___asset___children' |
+  'mainImage___asset___children___id' |
+  'mainImage___asset___children___children' |
+  'mainImage___asset___internal___content' |
+  'mainImage___asset___internal___contentDigest' |
+  'mainImage___asset___internal___description' |
+  'mainImage___asset___internal___fieldOwners' |
+  'mainImage___asset___internal___ignoreType' |
+  'mainImage___asset___internal___mediaType' |
+  'mainImage___asset___internal___owner' |
+  'mainImage___asset___internal___type' |
+  'mainImage___asset___childImageSharp___id' |
+  'mainImage___asset___childImageSharp___children' |
+  'mainImage___hotspot____key' |
+  'mainImage___hotspot____type' |
+  'mainImage___hotspot___x' |
+  'mainImage___hotspot___y' |
+  'mainImage___hotspot___height' |
+  'mainImage___hotspot___width' |
+  'mainImage___crop____key' |
+  'mainImage___crop____type' |
+  'mainImage___crop___top' |
+  'mainImage___crop___bottom' |
+  'mainImage___crop___left' |
+  'mainImage___crop___right' |
+  'aboutme' |
+  'aboutme____key' |
+  'aboutme____type' |
+  'aboutme___sanityChildren' |
+  'aboutme___sanityChildren____key' |
+  'aboutme___sanityChildren____type' |
+  'aboutme___sanityChildren___marks' |
+  'aboutme___sanityChildren___text' |
+  'aboutme___style' |
+  'aboutme___list' |
+  '_rawAboutme' |
+  '_rawSlug' |
+  '_rawMainImage' |
+  'id' |
+  'parent___id' |
+  'parent___parent___id' |
+  'parent___parent___parent___id' |
+  'parent___parent___parent___children' |
+  'parent___parent___children' |
+  'parent___parent___children___id' |
+  'parent___parent___children___children' |
+  'parent___parent___internal___content' |
+  'parent___parent___internal___contentDigest' |
+  'parent___parent___internal___description' |
+  'parent___parent___internal___fieldOwners' |
+  'parent___parent___internal___ignoreType' |
+  'parent___parent___internal___mediaType' |
+  'parent___parent___internal___owner' |
+  'parent___parent___internal___type' |
+  'parent___children' |
+  'parent___children___id' |
+  'parent___children___parent___id' |
+  'parent___children___parent___children' |
+  'parent___children___children' |
+  'parent___children___children___id' |
+  'parent___children___children___children' |
+  'parent___children___internal___content' |
+  'parent___children___internal___contentDigest' |
+  'parent___children___internal___description' |
+  'parent___children___internal___fieldOwners' |
+  'parent___children___internal___ignoreType' |
+  'parent___children___internal___mediaType' |
+  'parent___children___internal___owner' |
+  'parent___children___internal___type' |
+  'parent___internal___content' |
+  'parent___internal___contentDigest' |
+  'parent___internal___description' |
+  'parent___internal___fieldOwners' |
+  'parent___internal___ignoreType' |
+  'parent___internal___mediaType' |
+  'parent___internal___owner' |
+  'parent___internal___type' |
+  'children' |
+  'children___id' |
+  'children___parent___id' |
+  'children___parent___parent___id' |
+  'children___parent___parent___children' |
+  'children___parent___children' |
+  'children___parent___children___id' |
+  'children___parent___children___children' |
+  'children___parent___internal___content' |
+  'children___parent___internal___contentDigest' |
+  'children___parent___internal___description' |
+  'children___parent___internal___fieldOwners' |
+  'children___parent___internal___ignoreType' |
+  'children___parent___internal___mediaType' |
+  'children___parent___internal___owner' |
+  'children___parent___internal___type' |
+  'children___children' |
+  'children___children___id' |
+  'children___children___parent___id' |
+  'children___children___parent___children' |
+  'children___children___children' |
+  'children___children___children___id' |
+  'children___children___children___children' |
+  'children___children___internal___content' |
+  'children___children___internal___contentDigest' |
+  'children___children___internal___description' |
+  'children___children___internal___fieldOwners' |
+  'children___children___internal___ignoreType' |
+  'children___children___internal___mediaType' |
+  'children___children___internal___owner' |
+  'children___children___internal___type' |
+  'children___internal___content' |
+  'children___internal___contentDigest' |
+  'children___internal___description' |
+  'children___internal___fieldOwners' |
+  'children___internal___ignoreType' |
+  'children___internal___mediaType' |
+  'children___internal___owner' |
+  'children___internal___type' |
+  'internal___content' |
+  'internal___contentDigest' |
+  'internal___description' |
+  'internal___fieldOwners' |
+  'internal___ignoreType' |
+  'internal___mediaType' |
+  'internal___owner' |
+  'internal___type';
 
 export type SanityAboutFilterInput = {
   _id?: Maybe<StringQueryOperatorInput>,
@@ -2027,7 +2058,6 @@ export type SanityAboutFilterInput = {
 };
 
 export type SanityAboutGroupConnection = {
-   __typename?: 'SanityAboutGroupConnection',
   totalCount: Scalars['Int'],
   edges: Array<SanityAboutEdge>,
   nodes: Array<SanityAbout>,
@@ -2042,7 +2072,6 @@ export type SanityAboutSortInput = {
 };
 
 export type SanityAssetSourceData = {
-   __typename?: 'SanityAssetSourceData',
   _key?: Maybe<Scalars['String']>,
   _type?: Maybe<Scalars['String']>,
   name?: Maybe<Scalars['String']>,
@@ -2059,7 +2088,6 @@ export type SanityAssetSourceDataFilterInput = {
 };
 
 export type SanityBlock = {
-   __typename?: 'SanityBlock',
   _key?: Maybe<Scalars['String']>,
   _type?: Maybe<Scalars['String']>,
   sanityChildren?: Maybe<Array<Maybe<SanitySpan>>>,
@@ -2082,7 +2110,6 @@ export type SanityBlockFilterListInput = {
 export type SanityBlockOrImage = SanityBlock | SanityImage;
 
 export type SanityBlog = SanityDocument & Node & {
-   __typename?: 'SanityBlog',
   _id?: Maybe<Scalars['String']>,
   _type?: Maybe<Scalars['String']>,
   _createdAt?: Maybe<Scalars['Date']>,
@@ -2144,7 +2171,6 @@ export type SanityBlog_RawBodyArgs = {
 };
 
 export type SanityBlogConnection = {
-   __typename?: 'SanityBlogConnection',
   totalCount: Scalars['Int'],
   edges: Array<SanityBlogEdge>,
   nodes: Array<SanityBlog>,
@@ -2166,199 +2192,197 @@ export type SanityBlogConnectionGroupArgs = {
 };
 
 export type SanityBlogEdge = {
-   __typename?: 'SanityBlogEdge',
   next?: Maybe<SanityBlog>,
   node: SanityBlog,
   previous?: Maybe<SanityBlog>,
 };
 
-export enum SanityBlogFieldsEnum {
-  Id = '_id',
-  Type = '_type',
-  CreatedAt = '_createdAt',
-  UpdatedAt = '_updatedAt',
-  Rev = '_rev',
-  Key = '_key',
-  Title = 'title',
-  SlugKey = 'slug____key',
-  SlugType = 'slug____type',
-  SlugCurrent = 'slug___current',
-  MainImageKey = 'mainImage____key',
-  MainImageType = 'mainImage____type',
-  MainImageAssetId = 'mainImage___asset____id',
-  MainImageAssetType = 'mainImage___asset____type',
-  MainImageAssetCreatedAt = 'mainImage___asset____createdAt',
-  MainImageAssetUpdatedAt = 'mainImage___asset____updatedAt',
-  MainImageAssetRev = 'mainImage___asset____rev',
-  MainImageAssetKey = 'mainImage___asset____key',
-  MainImageAssetOriginalFilename = 'mainImage___asset___originalFilename',
-  MainImageAssetLabel = 'mainImage___asset___label',
-  MainImageAssetTitle = 'mainImage___asset___title',
-  MainImageAssetDescription = 'mainImage___asset___description',
-  MainImageAssetSha1hash = 'mainImage___asset___sha1hash',
-  MainImageAssetExtension = 'mainImage___asset___extension',
-  MainImageAssetMimeType = 'mainImage___asset___mimeType',
-  MainImageAssetSize = 'mainImage___asset___size',
-  MainImageAssetAssetId = 'mainImage___asset___assetId',
-  MainImageAssetPath = 'mainImage___asset___path',
-  MainImageAssetUrl = 'mainImage___asset___url',
-  MainImageAssetMetadataKey = 'mainImage___asset___metadata____key',
-  MainImageAssetMetadataType = 'mainImage___asset___metadata____type',
-  MainImageAssetMetadataLqip = 'mainImage___asset___metadata___lqip',
-  MainImageAssetMetadataHasAlpha = 'mainImage___asset___metadata___hasAlpha',
-  MainImageAssetMetadataIsOpaque = 'mainImage___asset___metadata___isOpaque',
-  MainImageAssetSourceKey = 'mainImage___asset___source____key',
-  MainImageAssetSourceType = 'mainImage___asset___source____type',
-  MainImageAssetSourceName = 'mainImage___asset___source___name',
-  MainImageAssetSourceSanityId = 'mainImage___asset___source___sanityId',
-  MainImageAssetSourceUrl = 'mainImage___asset___source___url',
-  MainImageAssetFixedBase64 = 'mainImage___asset___fixed___base64',
-  MainImageAssetFixedAspectRatio = 'mainImage___asset___fixed___aspectRatio',
-  MainImageAssetFixedWidth = 'mainImage___asset___fixed___width',
-  MainImageAssetFixedHeight = 'mainImage___asset___fixed___height',
-  MainImageAssetFixedSrc = 'mainImage___asset___fixed___src',
-  MainImageAssetFixedSrcSet = 'mainImage___asset___fixed___srcSet',
-  MainImageAssetFixedSrcWebp = 'mainImage___asset___fixed___srcWebp',
-  MainImageAssetFixedSrcSetWebp = 'mainImage___asset___fixed___srcSetWebp',
-  MainImageAssetFluidBase64 = 'mainImage___asset___fluid___base64',
-  MainImageAssetFluidAspectRatio = 'mainImage___asset___fluid___aspectRatio',
-  MainImageAssetFluidSrc = 'mainImage___asset___fluid___src',
-  MainImageAssetFluidSrcSet = 'mainImage___asset___fluid___srcSet',
-  MainImageAssetFluidSrcWebp = 'mainImage___asset___fluid___srcWebp',
-  MainImageAssetFluidSrcSetWebp = 'mainImage___asset___fluid___srcSetWebp',
-  MainImageAssetFluidSizes = 'mainImage___asset___fluid___sizes',
-  MainImageAssetRawMetadata = 'mainImage___asset____rawMetadata',
-  MainImageAssetRawSource = 'mainImage___asset____rawSource',
-  MainImageAssetId = 'mainImage___asset___id',
-  MainImageAssetParentId = 'mainImage___asset___parent___id',
-  MainImageAssetParentChildren = 'mainImage___asset___parent___children',
-  MainImageAssetChildren = 'mainImage___asset___children',
-  MainImageAssetChildrenId = 'mainImage___asset___children___id',
-  MainImageAssetChildrenChildren = 'mainImage___asset___children___children',
-  MainImageAssetInternalContent = 'mainImage___asset___internal___content',
-  MainImageAssetInternalContentDigest = 'mainImage___asset___internal___contentDigest',
-  MainImageAssetInternalDescription = 'mainImage___asset___internal___description',
-  MainImageAssetInternalFieldOwners = 'mainImage___asset___internal___fieldOwners',
-  MainImageAssetInternalIgnoreType = 'mainImage___asset___internal___ignoreType',
-  MainImageAssetInternalMediaType = 'mainImage___asset___internal___mediaType',
-  MainImageAssetInternalOwner = 'mainImage___asset___internal___owner',
-  MainImageAssetInternalType = 'mainImage___asset___internal___type',
-  MainImageAssetChildImageSharpId = 'mainImage___asset___childImageSharp___id',
-  MainImageAssetChildImageSharpChildren = 'mainImage___asset___childImageSharp___children',
-  MainImageHotspotKey = 'mainImage___hotspot____key',
-  MainImageHotspotType = 'mainImage___hotspot____type',
-  MainImageHotspotX = 'mainImage___hotspot___x',
-  MainImageHotspotY = 'mainImage___hotspot___y',
-  MainImageHotspotHeight = 'mainImage___hotspot___height',
-  MainImageHotspotWidth = 'mainImage___hotspot___width',
-  MainImageCropKey = 'mainImage___crop____key',
-  MainImageCropType = 'mainImage___crop____type',
-  MainImageCropTop = 'mainImage___crop___top',
-  MainImageCropBottom = 'mainImage___crop___bottom',
-  MainImageCropLeft = 'mainImage___crop___left',
-  MainImageCropRight = 'mainImage___crop___right',
-  Featured = 'featured',
-  LastUpdated = 'lastUpdated',
-  Body = 'body',
-  BodyKey = 'body____key',
-  BodyType = 'body____type',
-  BodySanityChildren = 'body___sanityChildren',
-  BodySanityChildrenKey = 'body___sanityChildren____key',
-  BodySanityChildrenType = 'body___sanityChildren____type',
-  BodySanityChildrenMarks = 'body___sanityChildren___marks',
-  BodySanityChildrenText = 'body___sanityChildren___text',
-  BodyStyle = 'body___style',
-  BodyList = 'body___list',
-  RawSlug = '_rawSlug',
-  RawMainImage = '_rawMainImage',
-  RawBody = '_rawBody',
-  Id = 'id',
-  ParentId = 'parent___id',
-  ParentParentId = 'parent___parent___id',
-  ParentParentParentId = 'parent___parent___parent___id',
-  ParentParentParentChildren = 'parent___parent___parent___children',
-  ParentParentChildren = 'parent___parent___children',
-  ParentParentChildrenId = 'parent___parent___children___id',
-  ParentParentChildrenChildren = 'parent___parent___children___children',
-  ParentParentInternalContent = 'parent___parent___internal___content',
-  ParentParentInternalContentDigest = 'parent___parent___internal___contentDigest',
-  ParentParentInternalDescription = 'parent___parent___internal___description',
-  ParentParentInternalFieldOwners = 'parent___parent___internal___fieldOwners',
-  ParentParentInternalIgnoreType = 'parent___parent___internal___ignoreType',
-  ParentParentInternalMediaType = 'parent___parent___internal___mediaType',
-  ParentParentInternalOwner = 'parent___parent___internal___owner',
-  ParentParentInternalType = 'parent___parent___internal___type',
-  ParentChildren = 'parent___children',
-  ParentChildrenId = 'parent___children___id',
-  ParentChildrenParentId = 'parent___children___parent___id',
-  ParentChildrenParentChildren = 'parent___children___parent___children',
-  ParentChildrenChildren = 'parent___children___children',
-  ParentChildrenChildrenId = 'parent___children___children___id',
-  ParentChildrenChildrenChildren = 'parent___children___children___children',
-  ParentChildrenInternalContent = 'parent___children___internal___content',
-  ParentChildrenInternalContentDigest = 'parent___children___internal___contentDigest',
-  ParentChildrenInternalDescription = 'parent___children___internal___description',
-  ParentChildrenInternalFieldOwners = 'parent___children___internal___fieldOwners',
-  ParentChildrenInternalIgnoreType = 'parent___children___internal___ignoreType',
-  ParentChildrenInternalMediaType = 'parent___children___internal___mediaType',
-  ParentChildrenInternalOwner = 'parent___children___internal___owner',
-  ParentChildrenInternalType = 'parent___children___internal___type',
-  ParentInternalContent = 'parent___internal___content',
-  ParentInternalContentDigest = 'parent___internal___contentDigest',
-  ParentInternalDescription = 'parent___internal___description',
-  ParentInternalFieldOwners = 'parent___internal___fieldOwners',
-  ParentInternalIgnoreType = 'parent___internal___ignoreType',
-  ParentInternalMediaType = 'parent___internal___mediaType',
-  ParentInternalOwner = 'parent___internal___owner',
-  ParentInternalType = 'parent___internal___type',
-  Children = 'children',
-  ChildrenId = 'children___id',
-  ChildrenParentId = 'children___parent___id',
-  ChildrenParentParentId = 'children___parent___parent___id',
-  ChildrenParentParentChildren = 'children___parent___parent___children',
-  ChildrenParentChildren = 'children___parent___children',
-  ChildrenParentChildrenId = 'children___parent___children___id',
-  ChildrenParentChildrenChildren = 'children___parent___children___children',
-  ChildrenParentInternalContent = 'children___parent___internal___content',
-  ChildrenParentInternalContentDigest = 'children___parent___internal___contentDigest',
-  ChildrenParentInternalDescription = 'children___parent___internal___description',
-  ChildrenParentInternalFieldOwners = 'children___parent___internal___fieldOwners',
-  ChildrenParentInternalIgnoreType = 'children___parent___internal___ignoreType',
-  ChildrenParentInternalMediaType = 'children___parent___internal___mediaType',
-  ChildrenParentInternalOwner = 'children___parent___internal___owner',
-  ChildrenParentInternalType = 'children___parent___internal___type',
-  ChildrenChildren = 'children___children',
-  ChildrenChildrenId = 'children___children___id',
-  ChildrenChildrenParentId = 'children___children___parent___id',
-  ChildrenChildrenParentChildren = 'children___children___parent___children',
-  ChildrenChildrenChildren = 'children___children___children',
-  ChildrenChildrenChildrenId = 'children___children___children___id',
-  ChildrenChildrenChildrenChildren = 'children___children___children___children',
-  ChildrenChildrenInternalContent = 'children___children___internal___content',
-  ChildrenChildrenInternalContentDigest = 'children___children___internal___contentDigest',
-  ChildrenChildrenInternalDescription = 'children___children___internal___description',
-  ChildrenChildrenInternalFieldOwners = 'children___children___internal___fieldOwners',
-  ChildrenChildrenInternalIgnoreType = 'children___children___internal___ignoreType',
-  ChildrenChildrenInternalMediaType = 'children___children___internal___mediaType',
-  ChildrenChildrenInternalOwner = 'children___children___internal___owner',
-  ChildrenChildrenInternalType = 'children___children___internal___type',
-  ChildrenInternalContent = 'children___internal___content',
-  ChildrenInternalContentDigest = 'children___internal___contentDigest',
-  ChildrenInternalDescription = 'children___internal___description',
-  ChildrenInternalFieldOwners = 'children___internal___fieldOwners',
-  ChildrenInternalIgnoreType = 'children___internal___ignoreType',
-  ChildrenInternalMediaType = 'children___internal___mediaType',
-  ChildrenInternalOwner = 'children___internal___owner',
-  ChildrenInternalType = 'children___internal___type',
-  InternalContent = 'internal___content',
-  InternalContentDigest = 'internal___contentDigest',
-  InternalDescription = 'internal___description',
-  InternalFieldOwners = 'internal___fieldOwners',
-  InternalIgnoreType = 'internal___ignoreType',
-  InternalMediaType = 'internal___mediaType',
-  InternalOwner = 'internal___owner',
-  InternalType = 'internal___type'
-}
+export type SanityBlogFieldsEnum = 
+  '_id' |
+  '_type' |
+  '_createdAt' |
+  '_updatedAt' |
+  '_rev' |
+  '_key' |
+  'title' |
+  'slug____key' |
+  'slug____type' |
+  'slug___current' |
+  'mainImage____key' |
+  'mainImage____type' |
+  'mainImage___asset____id' |
+  'mainImage___asset____type' |
+  'mainImage___asset____createdAt' |
+  'mainImage___asset____updatedAt' |
+  'mainImage___asset____rev' |
+  'mainImage___asset____key' |
+  'mainImage___asset___originalFilename' |
+  'mainImage___asset___label' |
+  'mainImage___asset___title' |
+  'mainImage___asset___description' |
+  'mainImage___asset___sha1hash' |
+  'mainImage___asset___extension' |
+  'mainImage___asset___mimeType' |
+  'mainImage___asset___size' |
+  'mainImage___asset___assetId' |
+  'mainImage___asset___path' |
+  'mainImage___asset___url' |
+  'mainImage___asset___metadata____key' |
+  'mainImage___asset___metadata____type' |
+  'mainImage___asset___metadata___lqip' |
+  'mainImage___asset___metadata___hasAlpha' |
+  'mainImage___asset___metadata___isOpaque' |
+  'mainImage___asset___source____key' |
+  'mainImage___asset___source____type' |
+  'mainImage___asset___source___name' |
+  'mainImage___asset___source___sanityId' |
+  'mainImage___asset___source___url' |
+  'mainImage___asset___fixed___base64' |
+  'mainImage___asset___fixed___aspectRatio' |
+  'mainImage___asset___fixed___width' |
+  'mainImage___asset___fixed___height' |
+  'mainImage___asset___fixed___src' |
+  'mainImage___asset___fixed___srcSet' |
+  'mainImage___asset___fixed___srcWebp' |
+  'mainImage___asset___fixed___srcSetWebp' |
+  'mainImage___asset___fluid___base64' |
+  'mainImage___asset___fluid___aspectRatio' |
+  'mainImage___asset___fluid___src' |
+  'mainImage___asset___fluid___srcSet' |
+  'mainImage___asset___fluid___srcWebp' |
+  'mainImage___asset___fluid___srcSetWebp' |
+  'mainImage___asset___fluid___sizes' |
+  'mainImage___asset____rawMetadata' |
+  'mainImage___asset____rawSource' |
+  'mainImage___asset___id' |
+  'mainImage___asset___parent___id' |
+  'mainImage___asset___parent___children' |
+  'mainImage___asset___children' |
+  'mainImage___asset___children___id' |
+  'mainImage___asset___children___children' |
+  'mainImage___asset___internal___content' |
+  'mainImage___asset___internal___contentDigest' |
+  'mainImage___asset___internal___description' |
+  'mainImage___asset___internal___fieldOwners' |
+  'mainImage___asset___internal___ignoreType' |
+  'mainImage___asset___internal___mediaType' |
+  'mainImage___asset___internal___owner' |
+  'mainImage___asset___internal___type' |
+  'mainImage___asset___childImageSharp___id' |
+  'mainImage___asset___childImageSharp___children' |
+  'mainImage___hotspot____key' |
+  'mainImage___hotspot____type' |
+  'mainImage___hotspot___x' |
+  'mainImage___hotspot___y' |
+  'mainImage___hotspot___height' |
+  'mainImage___hotspot___width' |
+  'mainImage___crop____key' |
+  'mainImage___crop____type' |
+  'mainImage___crop___top' |
+  'mainImage___crop___bottom' |
+  'mainImage___crop___left' |
+  'mainImage___crop___right' |
+  'featured' |
+  'lastUpdated' |
+  'body' |
+  'body____key' |
+  'body____type' |
+  'body___sanityChildren' |
+  'body___sanityChildren____key' |
+  'body___sanityChildren____type' |
+  'body___sanityChildren___marks' |
+  'body___sanityChildren___text' |
+  'body___style' |
+  'body___list' |
+  '_rawSlug' |
+  '_rawMainImage' |
+  '_rawBody' |
+  'id' |
+  'parent___id' |
+  'parent___parent___id' |
+  'parent___parent___parent___id' |
+  'parent___parent___parent___children' |
+  'parent___parent___children' |
+  'parent___parent___children___id' |
+  'parent___parent___children___children' |
+  'parent___parent___internal___content' |
+  'parent___parent___internal___contentDigest' |
+  'parent___parent___internal___description' |
+  'parent___parent___internal___fieldOwners' |
+  'parent___parent___internal___ignoreType' |
+  'parent___parent___internal___mediaType' |
+  'parent___parent___internal___owner' |
+  'parent___parent___internal___type' |
+  'parent___children' |
+  'parent___children___id' |
+  'parent___children___parent___id' |
+  'parent___children___parent___children' |
+  'parent___children___children' |
+  'parent___children___children___id' |
+  'parent___children___children___children' |
+  'parent___children___internal___content' |
+  'parent___children___internal___contentDigest' |
+  'parent___children___internal___description' |
+  'parent___children___internal___fieldOwners' |
+  'parent___children___internal___ignoreType' |
+  'parent___children___internal___mediaType' |
+  'parent___children___internal___owner' |
+  'parent___children___internal___type' |
+  'parent___internal___content' |
+  'parent___internal___contentDigest' |
+  'parent___internal___description' |
+  'parent___internal___fieldOwners' |
+  'parent___internal___ignoreType' |
+  'parent___internal___mediaType' |
+  'parent___internal___owner' |
+  'parent___internal___type' |
+  'children' |
+  'children___id' |
+  'children___parent___id' |
+  'children___parent___parent___id' |
+  'children___parent___parent___children' |
+  'children___parent___children' |
+  'children___parent___children___id' |
+  'children___parent___children___children' |
+  'children___parent___internal___content' |
+  'children___parent___internal___contentDigest' |
+  'children___parent___internal___description' |
+  'children___parent___internal___fieldOwners' |
+  'children___parent___internal___ignoreType' |
+  'children___parent___internal___mediaType' |
+  'children___parent___internal___owner' |
+  'children___parent___internal___type' |
+  'children___children' |
+  'children___children___id' |
+  'children___children___parent___id' |
+  'children___children___parent___children' |
+  'children___children___children' |
+  'children___children___children___id' |
+  'children___children___children___children' |
+  'children___children___internal___content' |
+  'children___children___internal___contentDigest' |
+  'children___children___internal___description' |
+  'children___children___internal___fieldOwners' |
+  'children___children___internal___ignoreType' |
+  'children___children___internal___mediaType' |
+  'children___children___internal___owner' |
+  'children___children___internal___type' |
+  'children___internal___content' |
+  'children___internal___contentDigest' |
+  'children___internal___description' |
+  'children___internal___fieldOwners' |
+  'children___internal___ignoreType' |
+  'children___internal___mediaType' |
+  'children___internal___owner' |
+  'children___internal___type' |
+  'internal___content' |
+  'internal___contentDigest' |
+  'internal___description' |
+  'internal___fieldOwners' |
+  'internal___ignoreType' |
+  'internal___mediaType' |
+  'internal___owner' |
+  'internal___type';
 
 export type SanityBlogFilterInput = {
   _id?: Maybe<StringQueryOperatorInput>,
@@ -2383,7 +2407,6 @@ export type SanityBlogFilterInput = {
 };
 
 export type SanityBlogGroupConnection = {
-   __typename?: 'SanityBlogGroupConnection',
   totalCount: Scalars['Int'],
   edges: Array<SanityBlogEdge>,
   nodes: Array<SanityBlog>,
@@ -2397,6 +2420,27 @@ export type SanityBlogSortInput = {
   order?: Maybe<Array<Maybe<SortOrderEnum>>>,
 };
 
+export type SanityColor = {
+  _key?: Maybe<Scalars['String']>,
+  _type?: Maybe<Scalars['String']>,
+  hex?: Maybe<Scalars['String']>,
+  alpha?: Maybe<Scalars['Float']>,
+  hsl?: Maybe<SanityHslaColor>,
+  hsv?: Maybe<SanityHsvaColor>,
+  rgb?: Maybe<SanityRgbaColor>,
+};
+
+export type SanityColorFilterInput = {
+  _key?: Maybe<StringQueryOperatorInput>,
+  _type?: Maybe<StringQueryOperatorInput>,
+  hex?: Maybe<StringQueryOperatorInput>,
+  alpha?: Maybe<FloatQueryOperatorInput>,
+  hsl?: Maybe<SanityHslaColorFilterInput>,
+  hsv?: Maybe<SanityHsvaColorFilterInput>,
+  rgb?: Maybe<SanityRgbaColorFilterInput>,
+};
+
+/** A Sanity document */
 export type SanityDocument = {
   _id?: Maybe<Scalars['String']>,
   _type?: Maybe<Scalars['String']>,
@@ -2405,15 +2449,35 @@ export type SanityDocument = {
   _rev?: Maybe<Scalars['String']>,
 };
 
+export type SanityExperience = {
+  _key?: Maybe<Scalars['String']>,
+  _type?: Maybe<Scalars['String']>,
+  company?: Maybe<Scalars['String']>,
+  companyLogo?: Maybe<SanityImage>,
+  designation?: Maybe<Scalars['String']>,
+  currentlyWorking?: Maybe<Scalars['Boolean']>,
+};
+
+export type SanityExperienceFilterInput = {
+  _key?: Maybe<StringQueryOperatorInput>,
+  _type?: Maybe<StringQueryOperatorInput>,
+  company?: Maybe<StringQueryOperatorInput>,
+  companyLogo?: Maybe<SanityImageFilterInput>,
+  designation?: Maybe<StringQueryOperatorInput>,
+  currentlyWorking?: Maybe<BooleanQueryOperatorInput>,
+};
+
+export type SanityExperienceFilterListInput = {
+  elemMatch?: Maybe<SanityExperienceFilterInput>,
+};
+
 export type SanityFile = {
-   __typename?: 'SanityFile',
   _key?: Maybe<Scalars['String']>,
   _type?: Maybe<Scalars['String']>,
   asset?: Maybe<SanityFileAsset>,
 };
 
 export type SanityFileAsset = SanityDocument & Node & {
-   __typename?: 'SanityFileAsset',
   _id?: Maybe<Scalars['String']>,
   _type?: Maybe<Scalars['String']>,
   _createdAt?: Maybe<Scalars['Date']>,
@@ -2461,7 +2525,6 @@ export type SanityFileAsset_RawSourceArgs = {
 };
 
 export type SanityFileAssetConnection = {
-   __typename?: 'SanityFileAssetConnection',
   totalCount: Scalars['Int'],
   edges: Array<SanityFileAssetEdge>,
   nodes: Array<SanityFileAsset>,
@@ -2483,123 +2546,121 @@ export type SanityFileAssetConnectionGroupArgs = {
 };
 
 export type SanityFileAssetEdge = {
-   __typename?: 'SanityFileAssetEdge',
   next?: Maybe<SanityFileAsset>,
   node: SanityFileAsset,
   previous?: Maybe<SanityFileAsset>,
 };
 
-export enum SanityFileAssetFieldsEnum {
-  Id = '_id',
-  Type = '_type',
-  CreatedAt = '_createdAt',
-  UpdatedAt = '_updatedAt',
-  Rev = '_rev',
-  Key = '_key',
-  OriginalFilename = 'originalFilename',
-  Label = 'label',
-  Title = 'title',
-  Description = 'description',
-  Sha1hash = 'sha1hash',
-  Extension = 'extension',
-  MimeType = 'mimeType',
-  Size = 'size',
-  AssetId = 'assetId',
-  Path = 'path',
-  Url = 'url',
-  SourceKey = 'source____key',
-  SourceType = 'source____type',
-  SourceName = 'source___name',
-  SourceSanityId = 'source___sanityId',
-  SourceUrl = 'source___url',
-  RawSource = '_rawSource',
-  Id = 'id',
-  ParentId = 'parent___id',
-  ParentParentId = 'parent___parent___id',
-  ParentParentParentId = 'parent___parent___parent___id',
-  ParentParentParentChildren = 'parent___parent___parent___children',
-  ParentParentChildren = 'parent___parent___children',
-  ParentParentChildrenId = 'parent___parent___children___id',
-  ParentParentChildrenChildren = 'parent___parent___children___children',
-  ParentParentInternalContent = 'parent___parent___internal___content',
-  ParentParentInternalContentDigest = 'parent___parent___internal___contentDigest',
-  ParentParentInternalDescription = 'parent___parent___internal___description',
-  ParentParentInternalFieldOwners = 'parent___parent___internal___fieldOwners',
-  ParentParentInternalIgnoreType = 'parent___parent___internal___ignoreType',
-  ParentParentInternalMediaType = 'parent___parent___internal___mediaType',
-  ParentParentInternalOwner = 'parent___parent___internal___owner',
-  ParentParentInternalType = 'parent___parent___internal___type',
-  ParentChildren = 'parent___children',
-  ParentChildrenId = 'parent___children___id',
-  ParentChildrenParentId = 'parent___children___parent___id',
-  ParentChildrenParentChildren = 'parent___children___parent___children',
-  ParentChildrenChildren = 'parent___children___children',
-  ParentChildrenChildrenId = 'parent___children___children___id',
-  ParentChildrenChildrenChildren = 'parent___children___children___children',
-  ParentChildrenInternalContent = 'parent___children___internal___content',
-  ParentChildrenInternalContentDigest = 'parent___children___internal___contentDigest',
-  ParentChildrenInternalDescription = 'parent___children___internal___description',
-  ParentChildrenInternalFieldOwners = 'parent___children___internal___fieldOwners',
-  ParentChildrenInternalIgnoreType = 'parent___children___internal___ignoreType',
-  ParentChildrenInternalMediaType = 'parent___children___internal___mediaType',
-  ParentChildrenInternalOwner = 'parent___children___internal___owner',
-  ParentChildrenInternalType = 'parent___children___internal___type',
-  ParentInternalContent = 'parent___internal___content',
-  ParentInternalContentDigest = 'parent___internal___contentDigest',
-  ParentInternalDescription = 'parent___internal___description',
-  ParentInternalFieldOwners = 'parent___internal___fieldOwners',
-  ParentInternalIgnoreType = 'parent___internal___ignoreType',
-  ParentInternalMediaType = 'parent___internal___mediaType',
-  ParentInternalOwner = 'parent___internal___owner',
-  ParentInternalType = 'parent___internal___type',
-  Children = 'children',
-  ChildrenId = 'children___id',
-  ChildrenParentId = 'children___parent___id',
-  ChildrenParentParentId = 'children___parent___parent___id',
-  ChildrenParentParentChildren = 'children___parent___parent___children',
-  ChildrenParentChildren = 'children___parent___children',
-  ChildrenParentChildrenId = 'children___parent___children___id',
-  ChildrenParentChildrenChildren = 'children___parent___children___children',
-  ChildrenParentInternalContent = 'children___parent___internal___content',
-  ChildrenParentInternalContentDigest = 'children___parent___internal___contentDigest',
-  ChildrenParentInternalDescription = 'children___parent___internal___description',
-  ChildrenParentInternalFieldOwners = 'children___parent___internal___fieldOwners',
-  ChildrenParentInternalIgnoreType = 'children___parent___internal___ignoreType',
-  ChildrenParentInternalMediaType = 'children___parent___internal___mediaType',
-  ChildrenParentInternalOwner = 'children___parent___internal___owner',
-  ChildrenParentInternalType = 'children___parent___internal___type',
-  ChildrenChildren = 'children___children',
-  ChildrenChildrenId = 'children___children___id',
-  ChildrenChildrenParentId = 'children___children___parent___id',
-  ChildrenChildrenParentChildren = 'children___children___parent___children',
-  ChildrenChildrenChildren = 'children___children___children',
-  ChildrenChildrenChildrenId = 'children___children___children___id',
-  ChildrenChildrenChildrenChildren = 'children___children___children___children',
-  ChildrenChildrenInternalContent = 'children___children___internal___content',
-  ChildrenChildrenInternalContentDigest = 'children___children___internal___contentDigest',
-  ChildrenChildrenInternalDescription = 'children___children___internal___description',
-  ChildrenChildrenInternalFieldOwners = 'children___children___internal___fieldOwners',
-  ChildrenChildrenInternalIgnoreType = 'children___children___internal___ignoreType',
-  ChildrenChildrenInternalMediaType = 'children___children___internal___mediaType',
-  ChildrenChildrenInternalOwner = 'children___children___internal___owner',
-  ChildrenChildrenInternalType = 'children___children___internal___type',
-  ChildrenInternalContent = 'children___internal___content',
-  ChildrenInternalContentDigest = 'children___internal___contentDigest',
-  ChildrenInternalDescription = 'children___internal___description',
-  ChildrenInternalFieldOwners = 'children___internal___fieldOwners',
-  ChildrenInternalIgnoreType = 'children___internal___ignoreType',
-  ChildrenInternalMediaType = 'children___internal___mediaType',
-  ChildrenInternalOwner = 'children___internal___owner',
-  ChildrenInternalType = 'children___internal___type',
-  InternalContent = 'internal___content',
-  InternalContentDigest = 'internal___contentDigest',
-  InternalDescription = 'internal___description',
-  InternalFieldOwners = 'internal___fieldOwners',
-  InternalIgnoreType = 'internal___ignoreType',
-  InternalMediaType = 'internal___mediaType',
-  InternalOwner = 'internal___owner',
-  InternalType = 'internal___type'
-}
+export type SanityFileAssetFieldsEnum = 
+  '_id' |
+  '_type' |
+  '_createdAt' |
+  '_updatedAt' |
+  '_rev' |
+  '_key' |
+  'originalFilename' |
+  'label' |
+  'title' |
+  'description' |
+  'sha1hash' |
+  'extension' |
+  'mimeType' |
+  'size' |
+  'assetId' |
+  'path' |
+  'url' |
+  'source____key' |
+  'source____type' |
+  'source___name' |
+  'source___sanityId' |
+  'source___url' |
+  '_rawSource' |
+  'id' |
+  'parent___id' |
+  'parent___parent___id' |
+  'parent___parent___parent___id' |
+  'parent___parent___parent___children' |
+  'parent___parent___children' |
+  'parent___parent___children___id' |
+  'parent___parent___children___children' |
+  'parent___parent___internal___content' |
+  'parent___parent___internal___contentDigest' |
+  'parent___parent___internal___description' |
+  'parent___parent___internal___fieldOwners' |
+  'parent___parent___internal___ignoreType' |
+  'parent___parent___internal___mediaType' |
+  'parent___parent___internal___owner' |
+  'parent___parent___internal___type' |
+  'parent___children' |
+  'parent___children___id' |
+  'parent___children___parent___id' |
+  'parent___children___parent___children' |
+  'parent___children___children' |
+  'parent___children___children___id' |
+  'parent___children___children___children' |
+  'parent___children___internal___content' |
+  'parent___children___internal___contentDigest' |
+  'parent___children___internal___description' |
+  'parent___children___internal___fieldOwners' |
+  'parent___children___internal___ignoreType' |
+  'parent___children___internal___mediaType' |
+  'parent___children___internal___owner' |
+  'parent___children___internal___type' |
+  'parent___internal___content' |
+  'parent___internal___contentDigest' |
+  'parent___internal___description' |
+  'parent___internal___fieldOwners' |
+  'parent___internal___ignoreType' |
+  'parent___internal___mediaType' |
+  'parent___internal___owner' |
+  'parent___internal___type' |
+  'children' |
+  'children___id' |
+  'children___parent___id' |
+  'children___parent___parent___id' |
+  'children___parent___parent___children' |
+  'children___parent___children' |
+  'children___parent___children___id' |
+  'children___parent___children___children' |
+  'children___parent___internal___content' |
+  'children___parent___internal___contentDigest' |
+  'children___parent___internal___description' |
+  'children___parent___internal___fieldOwners' |
+  'children___parent___internal___ignoreType' |
+  'children___parent___internal___mediaType' |
+  'children___parent___internal___owner' |
+  'children___parent___internal___type' |
+  'children___children' |
+  'children___children___id' |
+  'children___children___parent___id' |
+  'children___children___parent___children' |
+  'children___children___children' |
+  'children___children___children___id' |
+  'children___children___children___children' |
+  'children___children___internal___content' |
+  'children___children___internal___contentDigest' |
+  'children___children___internal___description' |
+  'children___children___internal___fieldOwners' |
+  'children___children___internal___ignoreType' |
+  'children___children___internal___mediaType' |
+  'children___children___internal___owner' |
+  'children___children___internal___type' |
+  'children___internal___content' |
+  'children___internal___contentDigest' |
+  'children___internal___description' |
+  'children___internal___fieldOwners' |
+  'children___internal___ignoreType' |
+  'children___internal___mediaType' |
+  'children___internal___owner' |
+  'children___internal___type' |
+  'internal___content' |
+  'internal___contentDigest' |
+  'internal___description' |
+  'internal___fieldOwners' |
+  'internal___ignoreType' |
+  'internal___mediaType' |
+  'internal___owner' |
+  'internal___type';
 
 export type SanityFileAssetFilterInput = {
   _id?: Maybe<StringQueryOperatorInput>,
@@ -2628,7 +2689,6 @@ export type SanityFileAssetFilterInput = {
 };
 
 export type SanityFileAssetGroupConnection = {
-   __typename?: 'SanityFileAssetGroupConnection',
   totalCount: Scalars['Int'],
   edges: Array<SanityFileAssetEdge>,
   nodes: Array<SanityFileAsset>,
@@ -2643,7 +2703,6 @@ export type SanityFileAssetSortInput = {
 };
 
 export type SanityGeopoint = {
-   __typename?: 'SanityGeopoint',
   _key?: Maybe<Scalars['String']>,
   _type?: Maybe<Scalars['String']>,
   lat?: Maybe<Scalars['Float']>,
@@ -2659,8 +2718,43 @@ export type SanityGeopointFilterInput = {
   alt?: Maybe<FloatQueryOperatorInput>,
 };
 
+export type SanityHslaColor = {
+  _key?: Maybe<Scalars['String']>,
+  _type?: Maybe<Scalars['String']>,
+  h?: Maybe<Scalars['Float']>,
+  s?: Maybe<Scalars['Float']>,
+  l?: Maybe<Scalars['Float']>,
+  a?: Maybe<Scalars['Float']>,
+};
+
+export type SanityHslaColorFilterInput = {
+  _key?: Maybe<StringQueryOperatorInput>,
+  _type?: Maybe<StringQueryOperatorInput>,
+  h?: Maybe<FloatQueryOperatorInput>,
+  s?: Maybe<FloatQueryOperatorInput>,
+  l?: Maybe<FloatQueryOperatorInput>,
+  a?: Maybe<FloatQueryOperatorInput>,
+};
+
+export type SanityHsvaColor = {
+  _key?: Maybe<Scalars['String']>,
+  _type?: Maybe<Scalars['String']>,
+  h?: Maybe<Scalars['Float']>,
+  s?: Maybe<Scalars['Float']>,
+  v?: Maybe<Scalars['Float']>,
+  a?: Maybe<Scalars['Float']>,
+};
+
+export type SanityHsvaColorFilterInput = {
+  _key?: Maybe<StringQueryOperatorInput>,
+  _type?: Maybe<StringQueryOperatorInput>,
+  h?: Maybe<FloatQueryOperatorInput>,
+  s?: Maybe<FloatQueryOperatorInput>,
+  v?: Maybe<FloatQueryOperatorInput>,
+  a?: Maybe<FloatQueryOperatorInput>,
+};
+
 export type SanityImage = {
-   __typename?: 'SanityImage',
   _key?: Maybe<Scalars['String']>,
   _type?: Maybe<Scalars['String']>,
   asset?: Maybe<SanityImageAsset>,
@@ -2669,7 +2763,6 @@ export type SanityImage = {
 };
 
 export type SanityImageAsset = SanityDocument & Node & {
-   __typename?: 'SanityImageAsset',
   _id?: Maybe<Scalars['String']>,
   _type?: Maybe<Scalars['String']>,
   _createdAt?: Maybe<Scalars['Date']>,
@@ -2742,7 +2835,6 @@ export type SanityImageAsset_RawSourceArgs = {
 };
 
 export type SanityImageAssetConnection = {
-   __typename?: 'SanityImageAssetConnection',
   totalCount: Scalars['Int'],
   edges: Array<SanityImageAssetEdge>,
   nodes: Array<SanityImageAsset>,
@@ -2764,289 +2856,287 @@ export type SanityImageAssetConnectionGroupArgs = {
 };
 
 export type SanityImageAssetEdge = {
-   __typename?: 'SanityImageAssetEdge',
   next?: Maybe<SanityImageAsset>,
   node: SanityImageAsset,
   previous?: Maybe<SanityImageAsset>,
 };
 
-export enum SanityImageAssetFieldsEnum {
-  Id = '_id',
-  Type = '_type',
-  CreatedAt = '_createdAt',
-  UpdatedAt = '_updatedAt',
-  Rev = '_rev',
-  Key = '_key',
-  OriginalFilename = 'originalFilename',
-  Label = 'label',
-  Title = 'title',
-  Description = 'description',
-  Sha1hash = 'sha1hash',
-  Extension = 'extension',
-  MimeType = 'mimeType',
-  Size = 'size',
-  AssetId = 'assetId',
-  Path = 'path',
-  Url = 'url',
-  MetadataKey = 'metadata____key',
-  MetadataType = 'metadata____type',
-  MetadataLocationKey = 'metadata___location____key',
-  MetadataLocationType = 'metadata___location____type',
-  MetadataLocationLat = 'metadata___location___lat',
-  MetadataLocationLng = 'metadata___location___lng',
-  MetadataLocationAlt = 'metadata___location___alt',
-  MetadataDimensionsKey = 'metadata___dimensions____key',
-  MetadataDimensionsType = 'metadata___dimensions____type',
-  MetadataDimensionsHeight = 'metadata___dimensions___height',
-  MetadataDimensionsWidth = 'metadata___dimensions___width',
-  MetadataDimensionsAspectRatio = 'metadata___dimensions___aspectRatio',
-  MetadataPaletteKey = 'metadata___palette____key',
-  MetadataPaletteType = 'metadata___palette____type',
-  MetadataPaletteDarkMutedKey = 'metadata___palette___darkMuted____key',
-  MetadataPaletteDarkMutedType = 'metadata___palette___darkMuted____type',
-  MetadataPaletteDarkMutedBackground = 'metadata___palette___darkMuted___background',
-  MetadataPaletteDarkMutedForeground = 'metadata___palette___darkMuted___foreground',
-  MetadataPaletteDarkMutedPopulation = 'metadata___palette___darkMuted___population',
-  MetadataPaletteDarkMutedTitle = 'metadata___palette___darkMuted___title',
-  MetadataPaletteLightVibrantKey = 'metadata___palette___lightVibrant____key',
-  MetadataPaletteLightVibrantType = 'metadata___palette___lightVibrant____type',
-  MetadataPaletteLightVibrantBackground = 'metadata___palette___lightVibrant___background',
-  MetadataPaletteLightVibrantForeground = 'metadata___palette___lightVibrant___foreground',
-  MetadataPaletteLightVibrantPopulation = 'metadata___palette___lightVibrant___population',
-  MetadataPaletteLightVibrantTitle = 'metadata___palette___lightVibrant___title',
-  MetadataPaletteDarkVibrantKey = 'metadata___palette___darkVibrant____key',
-  MetadataPaletteDarkVibrantType = 'metadata___palette___darkVibrant____type',
-  MetadataPaletteDarkVibrantBackground = 'metadata___palette___darkVibrant___background',
-  MetadataPaletteDarkVibrantForeground = 'metadata___palette___darkVibrant___foreground',
-  MetadataPaletteDarkVibrantPopulation = 'metadata___palette___darkVibrant___population',
-  MetadataPaletteDarkVibrantTitle = 'metadata___palette___darkVibrant___title',
-  MetadataPaletteVibrantKey = 'metadata___palette___vibrant____key',
-  MetadataPaletteVibrantType = 'metadata___palette___vibrant____type',
-  MetadataPaletteVibrantBackground = 'metadata___palette___vibrant___background',
-  MetadataPaletteVibrantForeground = 'metadata___palette___vibrant___foreground',
-  MetadataPaletteVibrantPopulation = 'metadata___palette___vibrant___population',
-  MetadataPaletteVibrantTitle = 'metadata___palette___vibrant___title',
-  MetadataPaletteDominantKey = 'metadata___palette___dominant____key',
-  MetadataPaletteDominantType = 'metadata___palette___dominant____type',
-  MetadataPaletteDominantBackground = 'metadata___palette___dominant___background',
-  MetadataPaletteDominantForeground = 'metadata___palette___dominant___foreground',
-  MetadataPaletteDominantPopulation = 'metadata___palette___dominant___population',
-  MetadataPaletteDominantTitle = 'metadata___palette___dominant___title',
-  MetadataPaletteLightMutedKey = 'metadata___palette___lightMuted____key',
-  MetadataPaletteLightMutedType = 'metadata___palette___lightMuted____type',
-  MetadataPaletteLightMutedBackground = 'metadata___palette___lightMuted___background',
-  MetadataPaletteLightMutedForeground = 'metadata___palette___lightMuted___foreground',
-  MetadataPaletteLightMutedPopulation = 'metadata___palette___lightMuted___population',
-  MetadataPaletteLightMutedTitle = 'metadata___palette___lightMuted___title',
-  MetadataPaletteMutedKey = 'metadata___palette___muted____key',
-  MetadataPaletteMutedType = 'metadata___palette___muted____type',
-  MetadataPaletteMutedBackground = 'metadata___palette___muted___background',
-  MetadataPaletteMutedForeground = 'metadata___palette___muted___foreground',
-  MetadataPaletteMutedPopulation = 'metadata___palette___muted___population',
-  MetadataPaletteMutedTitle = 'metadata___palette___muted___title',
-  MetadataLqip = 'metadata___lqip',
-  MetadataHasAlpha = 'metadata___hasAlpha',
-  MetadataIsOpaque = 'metadata___isOpaque',
-  SourceKey = 'source____key',
-  SourceType = 'source____type',
-  SourceName = 'source___name',
-  SourceSanityId = 'source___sanityId',
-  SourceUrl = 'source___url',
-  FixedBase64 = 'fixed___base64',
-  FixedAspectRatio = 'fixed___aspectRatio',
-  FixedWidth = 'fixed___width',
-  FixedHeight = 'fixed___height',
-  FixedSrc = 'fixed___src',
-  FixedSrcSet = 'fixed___srcSet',
-  FixedSrcWebp = 'fixed___srcWebp',
-  FixedSrcSetWebp = 'fixed___srcSetWebp',
-  FluidBase64 = 'fluid___base64',
-  FluidAspectRatio = 'fluid___aspectRatio',
-  FluidSrc = 'fluid___src',
-  FluidSrcSet = 'fluid___srcSet',
-  FluidSrcWebp = 'fluid___srcWebp',
-  FluidSrcSetWebp = 'fluid___srcSetWebp',
-  FluidSizes = 'fluid___sizes',
-  RawMetadata = '_rawMetadata',
-  RawSource = '_rawSource',
-  Id = 'id',
-  ParentId = 'parent___id',
-  ParentParentId = 'parent___parent___id',
-  ParentParentParentId = 'parent___parent___parent___id',
-  ParentParentParentChildren = 'parent___parent___parent___children',
-  ParentParentChildren = 'parent___parent___children',
-  ParentParentChildrenId = 'parent___parent___children___id',
-  ParentParentChildrenChildren = 'parent___parent___children___children',
-  ParentParentInternalContent = 'parent___parent___internal___content',
-  ParentParentInternalContentDigest = 'parent___parent___internal___contentDigest',
-  ParentParentInternalDescription = 'parent___parent___internal___description',
-  ParentParentInternalFieldOwners = 'parent___parent___internal___fieldOwners',
-  ParentParentInternalIgnoreType = 'parent___parent___internal___ignoreType',
-  ParentParentInternalMediaType = 'parent___parent___internal___mediaType',
-  ParentParentInternalOwner = 'parent___parent___internal___owner',
-  ParentParentInternalType = 'parent___parent___internal___type',
-  ParentChildren = 'parent___children',
-  ParentChildrenId = 'parent___children___id',
-  ParentChildrenParentId = 'parent___children___parent___id',
-  ParentChildrenParentChildren = 'parent___children___parent___children',
-  ParentChildrenChildren = 'parent___children___children',
-  ParentChildrenChildrenId = 'parent___children___children___id',
-  ParentChildrenChildrenChildren = 'parent___children___children___children',
-  ParentChildrenInternalContent = 'parent___children___internal___content',
-  ParentChildrenInternalContentDigest = 'parent___children___internal___contentDigest',
-  ParentChildrenInternalDescription = 'parent___children___internal___description',
-  ParentChildrenInternalFieldOwners = 'parent___children___internal___fieldOwners',
-  ParentChildrenInternalIgnoreType = 'parent___children___internal___ignoreType',
-  ParentChildrenInternalMediaType = 'parent___children___internal___mediaType',
-  ParentChildrenInternalOwner = 'parent___children___internal___owner',
-  ParentChildrenInternalType = 'parent___children___internal___type',
-  ParentInternalContent = 'parent___internal___content',
-  ParentInternalContentDigest = 'parent___internal___contentDigest',
-  ParentInternalDescription = 'parent___internal___description',
-  ParentInternalFieldOwners = 'parent___internal___fieldOwners',
-  ParentInternalIgnoreType = 'parent___internal___ignoreType',
-  ParentInternalMediaType = 'parent___internal___mediaType',
-  ParentInternalOwner = 'parent___internal___owner',
-  ParentInternalType = 'parent___internal___type',
-  Children = 'children',
-  ChildrenId = 'children___id',
-  ChildrenParentId = 'children___parent___id',
-  ChildrenParentParentId = 'children___parent___parent___id',
-  ChildrenParentParentChildren = 'children___parent___parent___children',
-  ChildrenParentChildren = 'children___parent___children',
-  ChildrenParentChildrenId = 'children___parent___children___id',
-  ChildrenParentChildrenChildren = 'children___parent___children___children',
-  ChildrenParentInternalContent = 'children___parent___internal___content',
-  ChildrenParentInternalContentDigest = 'children___parent___internal___contentDigest',
-  ChildrenParentInternalDescription = 'children___parent___internal___description',
-  ChildrenParentInternalFieldOwners = 'children___parent___internal___fieldOwners',
-  ChildrenParentInternalIgnoreType = 'children___parent___internal___ignoreType',
-  ChildrenParentInternalMediaType = 'children___parent___internal___mediaType',
-  ChildrenParentInternalOwner = 'children___parent___internal___owner',
-  ChildrenParentInternalType = 'children___parent___internal___type',
-  ChildrenChildren = 'children___children',
-  ChildrenChildrenId = 'children___children___id',
-  ChildrenChildrenParentId = 'children___children___parent___id',
-  ChildrenChildrenParentChildren = 'children___children___parent___children',
-  ChildrenChildrenChildren = 'children___children___children',
-  ChildrenChildrenChildrenId = 'children___children___children___id',
-  ChildrenChildrenChildrenChildren = 'children___children___children___children',
-  ChildrenChildrenInternalContent = 'children___children___internal___content',
-  ChildrenChildrenInternalContentDigest = 'children___children___internal___contentDigest',
-  ChildrenChildrenInternalDescription = 'children___children___internal___description',
-  ChildrenChildrenInternalFieldOwners = 'children___children___internal___fieldOwners',
-  ChildrenChildrenInternalIgnoreType = 'children___children___internal___ignoreType',
-  ChildrenChildrenInternalMediaType = 'children___children___internal___mediaType',
-  ChildrenChildrenInternalOwner = 'children___children___internal___owner',
-  ChildrenChildrenInternalType = 'children___children___internal___type',
-  ChildrenInternalContent = 'children___internal___content',
-  ChildrenInternalContentDigest = 'children___internal___contentDigest',
-  ChildrenInternalDescription = 'children___internal___description',
-  ChildrenInternalFieldOwners = 'children___internal___fieldOwners',
-  ChildrenInternalIgnoreType = 'children___internal___ignoreType',
-  ChildrenInternalMediaType = 'children___internal___mediaType',
-  ChildrenInternalOwner = 'children___internal___owner',
-  ChildrenInternalType = 'children___internal___type',
-  InternalContent = 'internal___content',
-  InternalContentDigest = 'internal___contentDigest',
-  InternalDescription = 'internal___description',
-  InternalFieldOwners = 'internal___fieldOwners',
-  InternalIgnoreType = 'internal___ignoreType',
-  InternalMediaType = 'internal___mediaType',
-  InternalOwner = 'internal___owner',
-  InternalType = 'internal___type',
-  ChildImageSharpFixedBase64 = 'childImageSharp___fixed___base64',
-  ChildImageSharpFixedTracedSvg = 'childImageSharp___fixed___tracedSVG',
-  ChildImageSharpFixedAspectRatio = 'childImageSharp___fixed___aspectRatio',
-  ChildImageSharpFixedWidth = 'childImageSharp___fixed___width',
-  ChildImageSharpFixedHeight = 'childImageSharp___fixed___height',
-  ChildImageSharpFixedSrc = 'childImageSharp___fixed___src',
-  ChildImageSharpFixedSrcSet = 'childImageSharp___fixed___srcSet',
-  ChildImageSharpFixedSrcWebp = 'childImageSharp___fixed___srcWebp',
-  ChildImageSharpFixedSrcSetWebp = 'childImageSharp___fixed___srcSetWebp',
-  ChildImageSharpFixedOriginalName = 'childImageSharp___fixed___originalName',
-  ChildImageSharpResolutionsBase64 = 'childImageSharp___resolutions___base64',
-  ChildImageSharpResolutionsTracedSvg = 'childImageSharp___resolutions___tracedSVG',
-  ChildImageSharpResolutionsAspectRatio = 'childImageSharp___resolutions___aspectRatio',
-  ChildImageSharpResolutionsWidth = 'childImageSharp___resolutions___width',
-  ChildImageSharpResolutionsHeight = 'childImageSharp___resolutions___height',
-  ChildImageSharpResolutionsSrc = 'childImageSharp___resolutions___src',
-  ChildImageSharpResolutionsSrcSet = 'childImageSharp___resolutions___srcSet',
-  ChildImageSharpResolutionsSrcWebp = 'childImageSharp___resolutions___srcWebp',
-  ChildImageSharpResolutionsSrcSetWebp = 'childImageSharp___resolutions___srcSetWebp',
-  ChildImageSharpResolutionsOriginalName = 'childImageSharp___resolutions___originalName',
-  ChildImageSharpFluidBase64 = 'childImageSharp___fluid___base64',
-  ChildImageSharpFluidTracedSvg = 'childImageSharp___fluid___tracedSVG',
-  ChildImageSharpFluidAspectRatio = 'childImageSharp___fluid___aspectRatio',
-  ChildImageSharpFluidSrc = 'childImageSharp___fluid___src',
-  ChildImageSharpFluidSrcSet = 'childImageSharp___fluid___srcSet',
-  ChildImageSharpFluidSrcWebp = 'childImageSharp___fluid___srcWebp',
-  ChildImageSharpFluidSrcSetWebp = 'childImageSharp___fluid___srcSetWebp',
-  ChildImageSharpFluidSizes = 'childImageSharp___fluid___sizes',
-  ChildImageSharpFluidOriginalImg = 'childImageSharp___fluid___originalImg',
-  ChildImageSharpFluidOriginalName = 'childImageSharp___fluid___originalName',
-  ChildImageSharpFluidPresentationWidth = 'childImageSharp___fluid___presentationWidth',
-  ChildImageSharpFluidPresentationHeight = 'childImageSharp___fluid___presentationHeight',
-  ChildImageSharpSizesBase64 = 'childImageSharp___sizes___base64',
-  ChildImageSharpSizesTracedSvg = 'childImageSharp___sizes___tracedSVG',
-  ChildImageSharpSizesAspectRatio = 'childImageSharp___sizes___aspectRatio',
-  ChildImageSharpSizesSrc = 'childImageSharp___sizes___src',
-  ChildImageSharpSizesSrcSet = 'childImageSharp___sizes___srcSet',
-  ChildImageSharpSizesSrcWebp = 'childImageSharp___sizes___srcWebp',
-  ChildImageSharpSizesSrcSetWebp = 'childImageSharp___sizes___srcSetWebp',
-  ChildImageSharpSizesSizes = 'childImageSharp___sizes___sizes',
-  ChildImageSharpSizesOriginalImg = 'childImageSharp___sizes___originalImg',
-  ChildImageSharpSizesOriginalName = 'childImageSharp___sizes___originalName',
-  ChildImageSharpSizesPresentationWidth = 'childImageSharp___sizes___presentationWidth',
-  ChildImageSharpSizesPresentationHeight = 'childImageSharp___sizes___presentationHeight',
-  ChildImageSharpOriginalWidth = 'childImageSharp___original___width',
-  ChildImageSharpOriginalHeight = 'childImageSharp___original___height',
-  ChildImageSharpOriginalSrc = 'childImageSharp___original___src',
-  ChildImageSharpResizeSrc = 'childImageSharp___resize___src',
-  ChildImageSharpResizeTracedSvg = 'childImageSharp___resize___tracedSVG',
-  ChildImageSharpResizeWidth = 'childImageSharp___resize___width',
-  ChildImageSharpResizeHeight = 'childImageSharp___resize___height',
-  ChildImageSharpResizeAspectRatio = 'childImageSharp___resize___aspectRatio',
-  ChildImageSharpResizeOriginalName = 'childImageSharp___resize___originalName',
-  ChildImageSharpId = 'childImageSharp___id',
-  ChildImageSharpParentId = 'childImageSharp___parent___id',
-  ChildImageSharpParentParentId = 'childImageSharp___parent___parent___id',
-  ChildImageSharpParentParentChildren = 'childImageSharp___parent___parent___children',
-  ChildImageSharpParentChildren = 'childImageSharp___parent___children',
-  ChildImageSharpParentChildrenId = 'childImageSharp___parent___children___id',
-  ChildImageSharpParentChildrenChildren = 'childImageSharp___parent___children___children',
-  ChildImageSharpParentInternalContent = 'childImageSharp___parent___internal___content',
-  ChildImageSharpParentInternalContentDigest = 'childImageSharp___parent___internal___contentDigest',
-  ChildImageSharpParentInternalDescription = 'childImageSharp___parent___internal___description',
-  ChildImageSharpParentInternalFieldOwners = 'childImageSharp___parent___internal___fieldOwners',
-  ChildImageSharpParentInternalIgnoreType = 'childImageSharp___parent___internal___ignoreType',
-  ChildImageSharpParentInternalMediaType = 'childImageSharp___parent___internal___mediaType',
-  ChildImageSharpParentInternalOwner = 'childImageSharp___parent___internal___owner',
-  ChildImageSharpParentInternalType = 'childImageSharp___parent___internal___type',
-  ChildImageSharpChildren = 'childImageSharp___children',
-  ChildImageSharpChildrenId = 'childImageSharp___children___id',
-  ChildImageSharpChildrenParentId = 'childImageSharp___children___parent___id',
-  ChildImageSharpChildrenParentChildren = 'childImageSharp___children___parent___children',
-  ChildImageSharpChildrenChildren = 'childImageSharp___children___children',
-  ChildImageSharpChildrenChildrenId = 'childImageSharp___children___children___id',
-  ChildImageSharpChildrenChildrenChildren = 'childImageSharp___children___children___children',
-  ChildImageSharpChildrenInternalContent = 'childImageSharp___children___internal___content',
-  ChildImageSharpChildrenInternalContentDigest = 'childImageSharp___children___internal___contentDigest',
-  ChildImageSharpChildrenInternalDescription = 'childImageSharp___children___internal___description',
-  ChildImageSharpChildrenInternalFieldOwners = 'childImageSharp___children___internal___fieldOwners',
-  ChildImageSharpChildrenInternalIgnoreType = 'childImageSharp___children___internal___ignoreType',
-  ChildImageSharpChildrenInternalMediaType = 'childImageSharp___children___internal___mediaType',
-  ChildImageSharpChildrenInternalOwner = 'childImageSharp___children___internal___owner',
-  ChildImageSharpChildrenInternalType = 'childImageSharp___children___internal___type',
-  ChildImageSharpInternalContent = 'childImageSharp___internal___content',
-  ChildImageSharpInternalContentDigest = 'childImageSharp___internal___contentDigest',
-  ChildImageSharpInternalDescription = 'childImageSharp___internal___description',
-  ChildImageSharpInternalFieldOwners = 'childImageSharp___internal___fieldOwners',
-  ChildImageSharpInternalIgnoreType = 'childImageSharp___internal___ignoreType',
-  ChildImageSharpInternalMediaType = 'childImageSharp___internal___mediaType',
-  ChildImageSharpInternalOwner = 'childImageSharp___internal___owner',
-  ChildImageSharpInternalType = 'childImageSharp___internal___type'
-}
+export type SanityImageAssetFieldsEnum = 
+  '_id' |
+  '_type' |
+  '_createdAt' |
+  '_updatedAt' |
+  '_rev' |
+  '_key' |
+  'originalFilename' |
+  'label' |
+  'title' |
+  'description' |
+  'sha1hash' |
+  'extension' |
+  'mimeType' |
+  'size' |
+  'assetId' |
+  'path' |
+  'url' |
+  'metadata____key' |
+  'metadata____type' |
+  'metadata___location____key' |
+  'metadata___location____type' |
+  'metadata___location___lat' |
+  'metadata___location___lng' |
+  'metadata___location___alt' |
+  'metadata___dimensions____key' |
+  'metadata___dimensions____type' |
+  'metadata___dimensions___height' |
+  'metadata___dimensions___width' |
+  'metadata___dimensions___aspectRatio' |
+  'metadata___palette____key' |
+  'metadata___palette____type' |
+  'metadata___palette___darkMuted____key' |
+  'metadata___palette___darkMuted____type' |
+  'metadata___palette___darkMuted___background' |
+  'metadata___palette___darkMuted___foreground' |
+  'metadata___palette___darkMuted___population' |
+  'metadata___palette___darkMuted___title' |
+  'metadata___palette___lightVibrant____key' |
+  'metadata___palette___lightVibrant____type' |
+  'metadata___palette___lightVibrant___background' |
+  'metadata___palette___lightVibrant___foreground' |
+  'metadata___palette___lightVibrant___population' |
+  'metadata___palette___lightVibrant___title' |
+  'metadata___palette___darkVibrant____key' |
+  'metadata___palette___darkVibrant____type' |
+  'metadata___palette___darkVibrant___background' |
+  'metadata___palette___darkVibrant___foreground' |
+  'metadata___palette___darkVibrant___population' |
+  'metadata___palette___darkVibrant___title' |
+  'metadata___palette___vibrant____key' |
+  'metadata___palette___vibrant____type' |
+  'metadata___palette___vibrant___background' |
+  'metadata___palette___vibrant___foreground' |
+  'metadata___palette___vibrant___population' |
+  'metadata___palette___vibrant___title' |
+  'metadata___palette___dominant____key' |
+  'metadata___palette___dominant____type' |
+  'metadata___palette___dominant___background' |
+  'metadata___palette___dominant___foreground' |
+  'metadata___palette___dominant___population' |
+  'metadata___palette___dominant___title' |
+  'metadata___palette___lightMuted____key' |
+  'metadata___palette___lightMuted____type' |
+  'metadata___palette___lightMuted___background' |
+  'metadata___palette___lightMuted___foreground' |
+  'metadata___palette___lightMuted___population' |
+  'metadata___palette___lightMuted___title' |
+  'metadata___palette___muted____key' |
+  'metadata___palette___muted____type' |
+  'metadata___palette___muted___background' |
+  'metadata___palette___muted___foreground' |
+  'metadata___palette___muted___population' |
+  'metadata___palette___muted___title' |
+  'metadata___lqip' |
+  'metadata___hasAlpha' |
+  'metadata___isOpaque' |
+  'source____key' |
+  'source____type' |
+  'source___name' |
+  'source___sanityId' |
+  'source___url' |
+  'fixed___base64' |
+  'fixed___aspectRatio' |
+  'fixed___width' |
+  'fixed___height' |
+  'fixed___src' |
+  'fixed___srcSet' |
+  'fixed___srcWebp' |
+  'fixed___srcSetWebp' |
+  'fluid___base64' |
+  'fluid___aspectRatio' |
+  'fluid___src' |
+  'fluid___srcSet' |
+  'fluid___srcWebp' |
+  'fluid___srcSetWebp' |
+  'fluid___sizes' |
+  '_rawMetadata' |
+  '_rawSource' |
+  'id' |
+  'parent___id' |
+  'parent___parent___id' |
+  'parent___parent___parent___id' |
+  'parent___parent___parent___children' |
+  'parent___parent___children' |
+  'parent___parent___children___id' |
+  'parent___parent___children___children' |
+  'parent___parent___internal___content' |
+  'parent___parent___internal___contentDigest' |
+  'parent___parent___internal___description' |
+  'parent___parent___internal___fieldOwners' |
+  'parent___parent___internal___ignoreType' |
+  'parent___parent___internal___mediaType' |
+  'parent___parent___internal___owner' |
+  'parent___parent___internal___type' |
+  'parent___children' |
+  'parent___children___id' |
+  'parent___children___parent___id' |
+  'parent___children___parent___children' |
+  'parent___children___children' |
+  'parent___children___children___id' |
+  'parent___children___children___children' |
+  'parent___children___internal___content' |
+  'parent___children___internal___contentDigest' |
+  'parent___children___internal___description' |
+  'parent___children___internal___fieldOwners' |
+  'parent___children___internal___ignoreType' |
+  'parent___children___internal___mediaType' |
+  'parent___children___internal___owner' |
+  'parent___children___internal___type' |
+  'parent___internal___content' |
+  'parent___internal___contentDigest' |
+  'parent___internal___description' |
+  'parent___internal___fieldOwners' |
+  'parent___internal___ignoreType' |
+  'parent___internal___mediaType' |
+  'parent___internal___owner' |
+  'parent___internal___type' |
+  'children' |
+  'children___id' |
+  'children___parent___id' |
+  'children___parent___parent___id' |
+  'children___parent___parent___children' |
+  'children___parent___children' |
+  'children___parent___children___id' |
+  'children___parent___children___children' |
+  'children___parent___internal___content' |
+  'children___parent___internal___contentDigest' |
+  'children___parent___internal___description' |
+  'children___parent___internal___fieldOwners' |
+  'children___parent___internal___ignoreType' |
+  'children___parent___internal___mediaType' |
+  'children___parent___internal___owner' |
+  'children___parent___internal___type' |
+  'children___children' |
+  'children___children___id' |
+  'children___children___parent___id' |
+  'children___children___parent___children' |
+  'children___children___children' |
+  'children___children___children___id' |
+  'children___children___children___children' |
+  'children___children___internal___content' |
+  'children___children___internal___contentDigest' |
+  'children___children___internal___description' |
+  'children___children___internal___fieldOwners' |
+  'children___children___internal___ignoreType' |
+  'children___children___internal___mediaType' |
+  'children___children___internal___owner' |
+  'children___children___internal___type' |
+  'children___internal___content' |
+  'children___internal___contentDigest' |
+  'children___internal___description' |
+  'children___internal___fieldOwners' |
+  'children___internal___ignoreType' |
+  'children___internal___mediaType' |
+  'children___internal___owner' |
+  'children___internal___type' |
+  'internal___content' |
+  'internal___contentDigest' |
+  'internal___description' |
+  'internal___fieldOwners' |
+  'internal___ignoreType' |
+  'internal___mediaType' |
+  'internal___owner' |
+  'internal___type' |
+  'childImageSharp___fixed___base64' |
+  'childImageSharp___fixed___tracedSVG' |
+  'childImageSharp___fixed___aspectRatio' |
+  'childImageSharp___fixed___width' |
+  'childImageSharp___fixed___height' |
+  'childImageSharp___fixed___src' |
+  'childImageSharp___fixed___srcSet' |
+  'childImageSharp___fixed___srcWebp' |
+  'childImageSharp___fixed___srcSetWebp' |
+  'childImageSharp___fixed___originalName' |
+  'childImageSharp___resolutions___base64' |
+  'childImageSharp___resolutions___tracedSVG' |
+  'childImageSharp___resolutions___aspectRatio' |
+  'childImageSharp___resolutions___width' |
+  'childImageSharp___resolutions___height' |
+  'childImageSharp___resolutions___src' |
+  'childImageSharp___resolutions___srcSet' |
+  'childImageSharp___resolutions___srcWebp' |
+  'childImageSharp___resolutions___srcSetWebp' |
+  'childImageSharp___resolutions___originalName' |
+  'childImageSharp___fluid___base64' |
+  'childImageSharp___fluid___tracedSVG' |
+  'childImageSharp___fluid___aspectRatio' |
+  'childImageSharp___fluid___src' |
+  'childImageSharp___fluid___srcSet' |
+  'childImageSharp___fluid___srcWebp' |
+  'childImageSharp___fluid___srcSetWebp' |
+  'childImageSharp___fluid___sizes' |
+  'childImageSharp___fluid___originalImg' |
+  'childImageSharp___fluid___originalName' |
+  'childImageSharp___fluid___presentationWidth' |
+  'childImageSharp___fluid___presentationHeight' |
+  'childImageSharp___sizes___base64' |
+  'childImageSharp___sizes___tracedSVG' |
+  'childImageSharp___sizes___aspectRatio' |
+  'childImageSharp___sizes___src' |
+  'childImageSharp___sizes___srcSet' |
+  'childImageSharp___sizes___srcWebp' |
+  'childImageSharp___sizes___srcSetWebp' |
+  'childImageSharp___sizes___sizes' |
+  'childImageSharp___sizes___originalImg' |
+  'childImageSharp___sizes___originalName' |
+  'childImageSharp___sizes___presentationWidth' |
+  'childImageSharp___sizes___presentationHeight' |
+  'childImageSharp___original___width' |
+  'childImageSharp___original___height' |
+  'childImageSharp___original___src' |
+  'childImageSharp___resize___src' |
+  'childImageSharp___resize___tracedSVG' |
+  'childImageSharp___resize___width' |
+  'childImageSharp___resize___height' |
+  'childImageSharp___resize___aspectRatio' |
+  'childImageSharp___resize___originalName' |
+  'childImageSharp___id' |
+  'childImageSharp___parent___id' |
+  'childImageSharp___parent___parent___id' |
+  'childImageSharp___parent___parent___children' |
+  'childImageSharp___parent___children' |
+  'childImageSharp___parent___children___id' |
+  'childImageSharp___parent___children___children' |
+  'childImageSharp___parent___internal___content' |
+  'childImageSharp___parent___internal___contentDigest' |
+  'childImageSharp___parent___internal___description' |
+  'childImageSharp___parent___internal___fieldOwners' |
+  'childImageSharp___parent___internal___ignoreType' |
+  'childImageSharp___parent___internal___mediaType' |
+  'childImageSharp___parent___internal___owner' |
+  'childImageSharp___parent___internal___type' |
+  'childImageSharp___children' |
+  'childImageSharp___children___id' |
+  'childImageSharp___children___parent___id' |
+  'childImageSharp___children___parent___children' |
+  'childImageSharp___children___children' |
+  'childImageSharp___children___children___id' |
+  'childImageSharp___children___children___children' |
+  'childImageSharp___children___internal___content' |
+  'childImageSharp___children___internal___contentDigest' |
+  'childImageSharp___children___internal___description' |
+  'childImageSharp___children___internal___fieldOwners' |
+  'childImageSharp___children___internal___ignoreType' |
+  'childImageSharp___children___internal___mediaType' |
+  'childImageSharp___children___internal___owner' |
+  'childImageSharp___children___internal___type' |
+  'childImageSharp___internal___content' |
+  'childImageSharp___internal___contentDigest' |
+  'childImageSharp___internal___description' |
+  'childImageSharp___internal___fieldOwners' |
+  'childImageSharp___internal___ignoreType' |
+  'childImageSharp___internal___mediaType' |
+  'childImageSharp___internal___owner' |
+  'childImageSharp___internal___type';
 
 export type SanityImageAssetFilterInput = {
   _id?: Maybe<StringQueryOperatorInput>,
@@ -3080,7 +3170,6 @@ export type SanityImageAssetFilterInput = {
 };
 
 export type SanityImageAssetGroupConnection = {
-   __typename?: 'SanityImageAssetGroupConnection',
   totalCount: Scalars['Int'],
   edges: Array<SanityImageAssetEdge>,
   nodes: Array<SanityImageAsset>,
@@ -3095,7 +3184,6 @@ export type SanityImageAssetSortInput = {
 };
 
 export type SanityImageCrop = {
-   __typename?: 'SanityImageCrop',
   _key?: Maybe<Scalars['String']>,
   _type?: Maybe<Scalars['String']>,
   top?: Maybe<Scalars['Float']>,
@@ -3114,7 +3202,6 @@ export type SanityImageCropFilterInput = {
 };
 
 export type SanityImageDimensions = {
-   __typename?: 'SanityImageDimensions',
   _key?: Maybe<Scalars['String']>,
   _type?: Maybe<Scalars['String']>,
   height?: Maybe<Scalars['Float']>,
@@ -3139,7 +3226,6 @@ export type SanityImageFilterInput = {
 };
 
 export type SanityImageFixed = {
-   __typename?: 'SanityImageFixed',
   base64?: Maybe<Scalars['String']>,
   aspectRatio?: Maybe<Scalars['Float']>,
   width?: Maybe<Scalars['Float']>,
@@ -3162,7 +3248,6 @@ export type SanityImageFixedFilterInput = {
 };
 
 export type SanityImageFluid = {
-   __typename?: 'SanityImageFluid',
   base64?: Maybe<Scalars['String']>,
   aspectRatio?: Maybe<Scalars['Float']>,
   src?: Maybe<Scalars['String']>,
@@ -3182,15 +3267,13 @@ export type SanityImageFluidFilterInput = {
   sizes?: Maybe<StringQueryOperatorInput>,
 };
 
-export enum SanityImageFormat {
-  NoChange = 'NO_CHANGE',
-  Jpg = 'JPG',
-  Png = 'PNG',
-  Webp = 'WEBP'
-}
+export type SanityImageFormat = 
+  'NO_CHANGE' |
+  'JPG' |
+  'PNG' |
+  'WEBP';
 
 export type SanityImageHotspot = {
-   __typename?: 'SanityImageHotspot',
   _key?: Maybe<Scalars['String']>,
   _type?: Maybe<Scalars['String']>,
   x?: Maybe<Scalars['Float']>,
@@ -3209,7 +3292,6 @@ export type SanityImageHotspotFilterInput = {
 };
 
 export type SanityImageMetadata = {
-   __typename?: 'SanityImageMetadata',
   _key?: Maybe<Scalars['String']>,
   _type?: Maybe<Scalars['String']>,
   location?: Maybe<SanityGeopoint>,
@@ -3232,7 +3314,6 @@ export type SanityImageMetadataFilterInput = {
 };
 
 export type SanityImagePalette = {
-   __typename?: 'SanityImagePalette',
   _key?: Maybe<Scalars['String']>,
   _type?: Maybe<Scalars['String']>,
   darkMuted?: Maybe<SanityImagePaletteSwatch>,
@@ -3257,7 +3338,6 @@ export type SanityImagePaletteFilterInput = {
 };
 
 export type SanityImagePaletteSwatch = {
-   __typename?: 'SanityImagePaletteSwatch',
   _key?: Maybe<Scalars['String']>,
   _type?: Maybe<Scalars['String']>,
   background?: Maybe<Scalars['String']>,
@@ -3275,12 +3355,541 @@ export type SanityImagePaletteSwatchFilterInput = {
   title?: Maybe<StringQueryOperatorInput>,
 };
 
+export type SanityPortfolio = SanityDocument & Node & {
+  _id?: Maybe<Scalars['String']>,
+  _type?: Maybe<Scalars['String']>,
+  _createdAt?: Maybe<Scalars['Date']>,
+  _updatedAt?: Maybe<Scalars['Date']>,
+  _rev?: Maybe<Scalars['String']>,
+  _key?: Maybe<Scalars['String']>,
+  pageTitle?: Maybe<Scalars['String']>,
+  profilePhoto?: Maybe<SanityImage>,
+  slug?: Maybe<SanitySlug>,
+  experience?: Maybe<Array<Maybe<SanityExperience>>>,
+  work?: Maybe<Array<Maybe<SanityWorkDetails>>>,
+  testimonials?: Maybe<Array<Maybe<SanityTestimonial>>>,
+  accessGrant?: Maybe<Array<Maybe<Scalars['String']>>>,
+  about?: Maybe<Array<Maybe<SanityBlock>>>,
+  myPreferences?: Maybe<Array<Maybe<SanityBlock>>>,
+  _rawProfilePhoto?: Maybe<Scalars['JSON']>,
+  _rawSlug?: Maybe<Scalars['JSON']>,
+  _rawAbout?: Maybe<Scalars['JSON']>,
+  _rawExperience?: Maybe<Scalars['JSON']>,
+  _rawWork?: Maybe<Scalars['JSON']>,
+  _rawTestimonials?: Maybe<Scalars['JSON']>,
+  _rawMyPreferences?: Maybe<Scalars['JSON']>,
+  id: Scalars['ID'],
+  parent?: Maybe<Node>,
+  children: Array<Node>,
+  internal: Internal,
+};
+
+
+export type SanityPortfolio_CreatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>,
+  fromNow?: Maybe<Scalars['Boolean']>,
+  difference?: Maybe<Scalars['String']>,
+  locale?: Maybe<Scalars['String']>
+};
+
+
+export type SanityPortfolio_UpdatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>,
+  fromNow?: Maybe<Scalars['Boolean']>,
+  difference?: Maybe<Scalars['String']>,
+  locale?: Maybe<Scalars['String']>
+};
+
+
+export type SanityPortfolio_RawProfilePhotoArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>
+};
+
+
+export type SanityPortfolio_RawSlugArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>
+};
+
+
+export type SanityPortfolio_RawAboutArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>
+};
+
+
+export type SanityPortfolio_RawExperienceArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>
+};
+
+
+export type SanityPortfolio_RawWorkArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>
+};
+
+
+export type SanityPortfolio_RawTestimonialsArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>
+};
+
+
+export type SanityPortfolio_RawMyPreferencesArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>
+};
+
+export type SanityPortfolioConnection = {
+  totalCount: Scalars['Int'],
+  edges: Array<SanityPortfolioEdge>,
+  nodes: Array<SanityPortfolio>,
+  pageInfo: PageInfo,
+  distinct: Array<Scalars['String']>,
+  group: Array<SanityPortfolioGroupConnection>,
+};
+
+
+export type SanityPortfolioConnectionDistinctArgs = {
+  field: SanityPortfolioFieldsEnum
+};
+
+
+export type SanityPortfolioConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>,
+  limit?: Maybe<Scalars['Int']>,
+  field: SanityPortfolioFieldsEnum
+};
+
+export type SanityPortfolioEdge = {
+  next?: Maybe<SanityPortfolio>,
+  node: SanityPortfolio,
+  previous?: Maybe<SanityPortfolio>,
+};
+
+export type SanityPortfolioFieldsEnum = 
+  '_id' |
+  '_type' |
+  '_createdAt' |
+  '_updatedAt' |
+  '_rev' |
+  '_key' |
+  'pageTitle' |
+  'profilePhoto____key' |
+  'profilePhoto____type' |
+  'profilePhoto___asset____id' |
+  'profilePhoto___asset____type' |
+  'profilePhoto___asset____createdAt' |
+  'profilePhoto___asset____updatedAt' |
+  'profilePhoto___asset____rev' |
+  'profilePhoto___asset____key' |
+  'profilePhoto___asset___originalFilename' |
+  'profilePhoto___asset___label' |
+  'profilePhoto___asset___title' |
+  'profilePhoto___asset___description' |
+  'profilePhoto___asset___sha1hash' |
+  'profilePhoto___asset___extension' |
+  'profilePhoto___asset___mimeType' |
+  'profilePhoto___asset___size' |
+  'profilePhoto___asset___assetId' |
+  'profilePhoto___asset___path' |
+  'profilePhoto___asset___url' |
+  'profilePhoto___asset___metadata____key' |
+  'profilePhoto___asset___metadata____type' |
+  'profilePhoto___asset___metadata___lqip' |
+  'profilePhoto___asset___metadata___hasAlpha' |
+  'profilePhoto___asset___metadata___isOpaque' |
+  'profilePhoto___asset___source____key' |
+  'profilePhoto___asset___source____type' |
+  'profilePhoto___asset___source___name' |
+  'profilePhoto___asset___source___sanityId' |
+  'profilePhoto___asset___source___url' |
+  'profilePhoto___asset___fixed___base64' |
+  'profilePhoto___asset___fixed___aspectRatio' |
+  'profilePhoto___asset___fixed___width' |
+  'profilePhoto___asset___fixed___height' |
+  'profilePhoto___asset___fixed___src' |
+  'profilePhoto___asset___fixed___srcSet' |
+  'profilePhoto___asset___fixed___srcWebp' |
+  'profilePhoto___asset___fixed___srcSetWebp' |
+  'profilePhoto___asset___fluid___base64' |
+  'profilePhoto___asset___fluid___aspectRatio' |
+  'profilePhoto___asset___fluid___src' |
+  'profilePhoto___asset___fluid___srcSet' |
+  'profilePhoto___asset___fluid___srcWebp' |
+  'profilePhoto___asset___fluid___srcSetWebp' |
+  'profilePhoto___asset___fluid___sizes' |
+  'profilePhoto___asset____rawMetadata' |
+  'profilePhoto___asset____rawSource' |
+  'profilePhoto___asset___id' |
+  'profilePhoto___asset___parent___id' |
+  'profilePhoto___asset___parent___children' |
+  'profilePhoto___asset___children' |
+  'profilePhoto___asset___children___id' |
+  'profilePhoto___asset___children___children' |
+  'profilePhoto___asset___internal___content' |
+  'profilePhoto___asset___internal___contentDigest' |
+  'profilePhoto___asset___internal___description' |
+  'profilePhoto___asset___internal___fieldOwners' |
+  'profilePhoto___asset___internal___ignoreType' |
+  'profilePhoto___asset___internal___mediaType' |
+  'profilePhoto___asset___internal___owner' |
+  'profilePhoto___asset___internal___type' |
+  'profilePhoto___asset___childImageSharp___id' |
+  'profilePhoto___asset___childImageSharp___children' |
+  'profilePhoto___hotspot____key' |
+  'profilePhoto___hotspot____type' |
+  'profilePhoto___hotspot___x' |
+  'profilePhoto___hotspot___y' |
+  'profilePhoto___hotspot___height' |
+  'profilePhoto___hotspot___width' |
+  'profilePhoto___crop____key' |
+  'profilePhoto___crop____type' |
+  'profilePhoto___crop___top' |
+  'profilePhoto___crop___bottom' |
+  'profilePhoto___crop___left' |
+  'profilePhoto___crop___right' |
+  'slug____key' |
+  'slug____type' |
+  'slug___current' |
+  'experience' |
+  'experience____key' |
+  'experience____type' |
+  'experience___company' |
+  'experience___companyLogo____key' |
+  'experience___companyLogo____type' |
+  'experience___companyLogo___asset____id' |
+  'experience___companyLogo___asset____type' |
+  'experience___companyLogo___asset____createdAt' |
+  'experience___companyLogo___asset____updatedAt' |
+  'experience___companyLogo___asset____rev' |
+  'experience___companyLogo___asset____key' |
+  'experience___companyLogo___asset___originalFilename' |
+  'experience___companyLogo___asset___label' |
+  'experience___companyLogo___asset___title' |
+  'experience___companyLogo___asset___description' |
+  'experience___companyLogo___asset___sha1hash' |
+  'experience___companyLogo___asset___extension' |
+  'experience___companyLogo___asset___mimeType' |
+  'experience___companyLogo___asset___size' |
+  'experience___companyLogo___asset___assetId' |
+  'experience___companyLogo___asset___path' |
+  'experience___companyLogo___asset___url' |
+  'experience___companyLogo___asset____rawMetadata' |
+  'experience___companyLogo___asset____rawSource' |
+  'experience___companyLogo___asset___id' |
+  'experience___companyLogo___asset___children' |
+  'experience___companyLogo___hotspot____key' |
+  'experience___companyLogo___hotspot____type' |
+  'experience___companyLogo___hotspot___x' |
+  'experience___companyLogo___hotspot___y' |
+  'experience___companyLogo___hotspot___height' |
+  'experience___companyLogo___hotspot___width' |
+  'experience___companyLogo___crop____key' |
+  'experience___companyLogo___crop____type' |
+  'experience___companyLogo___crop___top' |
+  'experience___companyLogo___crop___bottom' |
+  'experience___companyLogo___crop___left' |
+  'experience___companyLogo___crop___right' |
+  'experience___designation' |
+  'experience___currentlyWorking' |
+  'work' |
+  'work____key' |
+  'work____type' |
+  'work___companyName' |
+  'work___work' |
+  'work___work____id' |
+  'work___work____type' |
+  'work___work____createdAt' |
+  'work___work____updatedAt' |
+  'work___work____rev' |
+  'work___work____key' |
+  'work___work___title' |
+  'work___work___slug____key' |
+  'work___work___slug____type' |
+  'work___work___slug___current' |
+  'work___work___mainImage____key' |
+  'work___work___mainImage____type' |
+  'work___work___featured' |
+  'work___work___publishedAt' |
+  'work___work___themeColor____key' |
+  'work___work___themeColor____type' |
+  'work___work___themeColor___hex' |
+  'work___work___themeColor___alpha' |
+  'work___work___problemStatement' |
+  'work___work___problemStatement____key' |
+  'work___work___problemStatement____type' |
+  'work___work___problemStatement___sanityChildren' |
+  'work___work___problemStatement___style' |
+  'work___work___problemStatement___list' |
+  'work___work___solution' |
+  'work___work___solution____key' |
+  'work___work___solution____type' |
+  'work___work___solution___sanityChildren' |
+  'work___work___solution___style' |
+  'work___work___solution___list' |
+  'work___work___body' |
+  'work___work___body____key' |
+  'work___work___body____type' |
+  'work___work___body___sanityChildren' |
+  'work___work___body___style' |
+  'work___work___body___list' |
+  'work___work____rawSlug' |
+  'work___work____rawProblemStatement' |
+  'work___work____rawSolution' |
+  'work___work____rawMainImage' |
+  'work___work____rawBody' |
+  'work___work____rawThemeColor' |
+  'work___work___id' |
+  'work___work___parent___id' |
+  'work___work___parent___children' |
+  'work___work___children' |
+  'work___work___children___id' |
+  'work___work___children___children' |
+  'work___work___internal___content' |
+  'work___work___internal___contentDigest' |
+  'work___work___internal___description' |
+  'work___work___internal___fieldOwners' |
+  'work___work___internal___ignoreType' |
+  'work___work___internal___mediaType' |
+  'work___work___internal___owner' |
+  'work___work___internal___type' |
+  'work___keyAchievements' |
+  'work___keyAchievements____key' |
+  'work___keyAchievements____type' |
+  'work___keyAchievements___sanityChildren' |
+  'work___keyAchievements___sanityChildren____key' |
+  'work___keyAchievements___sanityChildren____type' |
+  'work___keyAchievements___sanityChildren___marks' |
+  'work___keyAchievements___sanityChildren___text' |
+  'work___keyAchievements___style' |
+  'work___keyAchievements___list' |
+  'testimonials' |
+  'testimonials____key' |
+  'testimonials____type' |
+  'testimonials___author' |
+  'testimonials___authorPhoto____key' |
+  'testimonials___authorPhoto____type' |
+  'testimonials___authorPhoto___asset____id' |
+  'testimonials___authorPhoto___asset____type' |
+  'testimonials___authorPhoto___asset____createdAt' |
+  'testimonials___authorPhoto___asset____updatedAt' |
+  'testimonials___authorPhoto___asset____rev' |
+  'testimonials___authorPhoto___asset____key' |
+  'testimonials___authorPhoto___asset___originalFilename' |
+  'testimonials___authorPhoto___asset___label' |
+  'testimonials___authorPhoto___asset___title' |
+  'testimonials___authorPhoto___asset___description' |
+  'testimonials___authorPhoto___asset___sha1hash' |
+  'testimonials___authorPhoto___asset___extension' |
+  'testimonials___authorPhoto___asset___mimeType' |
+  'testimonials___authorPhoto___asset___size' |
+  'testimonials___authorPhoto___asset___assetId' |
+  'testimonials___authorPhoto___asset___path' |
+  'testimonials___authorPhoto___asset___url' |
+  'testimonials___authorPhoto___asset____rawMetadata' |
+  'testimonials___authorPhoto___asset____rawSource' |
+  'testimonials___authorPhoto___asset___id' |
+  'testimonials___authorPhoto___asset___children' |
+  'testimonials___authorPhoto___hotspot____key' |
+  'testimonials___authorPhoto___hotspot____type' |
+  'testimonials___authorPhoto___hotspot___x' |
+  'testimonials___authorPhoto___hotspot___y' |
+  'testimonials___authorPhoto___hotspot___height' |
+  'testimonials___authorPhoto___hotspot___width' |
+  'testimonials___authorPhoto___crop____key' |
+  'testimonials___authorPhoto___crop____type' |
+  'testimonials___authorPhoto___crop___top' |
+  'testimonials___authorPhoto___crop___bottom' |
+  'testimonials___authorPhoto___crop___left' |
+  'testimonials___authorPhoto___crop___right' |
+  'testimonials___statement' |
+  'testimonials___statement____key' |
+  'testimonials___statement____type' |
+  'testimonials___statement___sanityChildren' |
+  'testimonials___statement___sanityChildren____key' |
+  'testimonials___statement___sanityChildren____type' |
+  'testimonials___statement___sanityChildren___marks' |
+  'testimonials___statement___sanityChildren___text' |
+  'testimonials___statement___style' |
+  'testimonials___statement___list' |
+  'accessGrant' |
+  'about' |
+  'about____key' |
+  'about____type' |
+  'about___sanityChildren' |
+  'about___sanityChildren____key' |
+  'about___sanityChildren____type' |
+  'about___sanityChildren___marks' |
+  'about___sanityChildren___text' |
+  'about___style' |
+  'about___list' |
+  'myPreferences' |
+  'myPreferences____key' |
+  'myPreferences____type' |
+  'myPreferences___sanityChildren' |
+  'myPreferences___sanityChildren____key' |
+  'myPreferences___sanityChildren____type' |
+  'myPreferences___sanityChildren___marks' |
+  'myPreferences___sanityChildren___text' |
+  'myPreferences___style' |
+  'myPreferences___list' |
+  '_rawProfilePhoto' |
+  '_rawSlug' |
+  '_rawAbout' |
+  '_rawExperience' |
+  '_rawWork' |
+  '_rawTestimonials' |
+  '_rawMyPreferences' |
+  'id' |
+  'parent___id' |
+  'parent___parent___id' |
+  'parent___parent___parent___id' |
+  'parent___parent___parent___children' |
+  'parent___parent___children' |
+  'parent___parent___children___id' |
+  'parent___parent___children___children' |
+  'parent___parent___internal___content' |
+  'parent___parent___internal___contentDigest' |
+  'parent___parent___internal___description' |
+  'parent___parent___internal___fieldOwners' |
+  'parent___parent___internal___ignoreType' |
+  'parent___parent___internal___mediaType' |
+  'parent___parent___internal___owner' |
+  'parent___parent___internal___type' |
+  'parent___children' |
+  'parent___children___id' |
+  'parent___children___parent___id' |
+  'parent___children___parent___children' |
+  'parent___children___children' |
+  'parent___children___children___id' |
+  'parent___children___children___children' |
+  'parent___children___internal___content' |
+  'parent___children___internal___contentDigest' |
+  'parent___children___internal___description' |
+  'parent___children___internal___fieldOwners' |
+  'parent___children___internal___ignoreType' |
+  'parent___children___internal___mediaType' |
+  'parent___children___internal___owner' |
+  'parent___children___internal___type' |
+  'parent___internal___content' |
+  'parent___internal___contentDigest' |
+  'parent___internal___description' |
+  'parent___internal___fieldOwners' |
+  'parent___internal___ignoreType' |
+  'parent___internal___mediaType' |
+  'parent___internal___owner' |
+  'parent___internal___type' |
+  'children' |
+  'children___id' |
+  'children___parent___id' |
+  'children___parent___parent___id' |
+  'children___parent___parent___children' |
+  'children___parent___children' |
+  'children___parent___children___id' |
+  'children___parent___children___children' |
+  'children___parent___internal___content' |
+  'children___parent___internal___contentDigest' |
+  'children___parent___internal___description' |
+  'children___parent___internal___fieldOwners' |
+  'children___parent___internal___ignoreType' |
+  'children___parent___internal___mediaType' |
+  'children___parent___internal___owner' |
+  'children___parent___internal___type' |
+  'children___children' |
+  'children___children___id' |
+  'children___children___parent___id' |
+  'children___children___parent___children' |
+  'children___children___children' |
+  'children___children___children___id' |
+  'children___children___children___children' |
+  'children___children___internal___content' |
+  'children___children___internal___contentDigest' |
+  'children___children___internal___description' |
+  'children___children___internal___fieldOwners' |
+  'children___children___internal___ignoreType' |
+  'children___children___internal___mediaType' |
+  'children___children___internal___owner' |
+  'children___children___internal___type' |
+  'children___internal___content' |
+  'children___internal___contentDigest' |
+  'children___internal___description' |
+  'children___internal___fieldOwners' |
+  'children___internal___ignoreType' |
+  'children___internal___mediaType' |
+  'children___internal___owner' |
+  'children___internal___type' |
+  'internal___content' |
+  'internal___contentDigest' |
+  'internal___description' |
+  'internal___fieldOwners' |
+  'internal___ignoreType' |
+  'internal___mediaType' |
+  'internal___owner' |
+  'internal___type';
+
+export type SanityPortfolioFilterInput = {
+  _id?: Maybe<StringQueryOperatorInput>,
+  _type?: Maybe<StringQueryOperatorInput>,
+  _createdAt?: Maybe<DateQueryOperatorInput>,
+  _updatedAt?: Maybe<DateQueryOperatorInput>,
+  _rev?: Maybe<StringQueryOperatorInput>,
+  _key?: Maybe<StringQueryOperatorInput>,
+  pageTitle?: Maybe<StringQueryOperatorInput>,
+  profilePhoto?: Maybe<SanityImageFilterInput>,
+  slug?: Maybe<SanitySlugFilterInput>,
+  experience?: Maybe<SanityExperienceFilterListInput>,
+  work?: Maybe<SanityWorkDetailsFilterListInput>,
+  testimonials?: Maybe<SanityTestimonialFilterListInput>,
+  accessGrant?: Maybe<StringQueryOperatorInput>,
+  about?: Maybe<SanityBlockFilterListInput>,
+  myPreferences?: Maybe<SanityBlockFilterListInput>,
+  _rawProfilePhoto?: Maybe<JsonQueryOperatorInput>,
+  _rawSlug?: Maybe<JsonQueryOperatorInput>,
+  _rawAbout?: Maybe<JsonQueryOperatorInput>,
+  _rawExperience?: Maybe<JsonQueryOperatorInput>,
+  _rawWork?: Maybe<JsonQueryOperatorInput>,
+  _rawTestimonials?: Maybe<JsonQueryOperatorInput>,
+  _rawMyPreferences?: Maybe<JsonQueryOperatorInput>,
+  id?: Maybe<StringQueryOperatorInput>,
+  parent?: Maybe<NodeFilterInput>,
+  children?: Maybe<NodeFilterListInput>,
+  internal?: Maybe<InternalFilterInput>,
+};
+
+export type SanityPortfolioGroupConnection = {
+  totalCount: Scalars['Int'],
+  edges: Array<SanityPortfolioEdge>,
+  nodes: Array<SanityPortfolio>,
+  pageInfo: PageInfo,
+  field: Scalars['String'],
+  fieldValue?: Maybe<Scalars['String']>,
+};
+
+export type SanityPortfolioSortInput = {
+  fields?: Maybe<Array<Maybe<SanityPortfolioFieldsEnum>>>,
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
+};
+
 export type SanityResolveReferencesConfiguration = {
+  /** Max depth to resolve references to */
   maxDepth: Scalars['Int'],
 };
 
+export type SanityRgbaColor = {
+  _key?: Maybe<Scalars['String']>,
+  _type?: Maybe<Scalars['String']>,
+  r?: Maybe<Scalars['Float']>,
+  g?: Maybe<Scalars['Float']>,
+  b?: Maybe<Scalars['Float']>,
+  a?: Maybe<Scalars['Float']>,
+};
+
+export type SanityRgbaColorFilterInput = {
+  _key?: Maybe<StringQueryOperatorInput>,
+  _type?: Maybe<StringQueryOperatorInput>,
+  r?: Maybe<FloatQueryOperatorInput>,
+  g?: Maybe<FloatQueryOperatorInput>,
+  b?: Maybe<FloatQueryOperatorInput>,
+  a?: Maybe<FloatQueryOperatorInput>,
+};
+
 export type SanitySlug = {
-   __typename?: 'SanitySlug',
   _key?: Maybe<Scalars['String']>,
   _type?: Maybe<Scalars['String']>,
   current?: Maybe<Scalars['String']>,
@@ -3293,7 +3902,6 @@ export type SanitySlugFilterInput = {
 };
 
 export type SanitySpan = {
-   __typename?: 'SanitySpan',
   _key?: Maybe<Scalars['String']>,
   _type?: Maybe<Scalars['String']>,
   marks?: Maybe<Array<Maybe<Scalars['String']>>>,
@@ -3311,8 +3919,27 @@ export type SanitySpanFilterListInput = {
   elemMatch?: Maybe<SanitySpanFilterInput>,
 };
 
+export type SanityTestimonial = {
+  _key?: Maybe<Scalars['String']>,
+  _type?: Maybe<Scalars['String']>,
+  author?: Maybe<Scalars['String']>,
+  authorPhoto?: Maybe<SanityImage>,
+  statement?: Maybe<Array<Maybe<SanityBlock>>>,
+};
+
+export type SanityTestimonialFilterInput = {
+  _key?: Maybe<StringQueryOperatorInput>,
+  _type?: Maybe<StringQueryOperatorInput>,
+  author?: Maybe<StringQueryOperatorInput>,
+  authorPhoto?: Maybe<SanityImageFilterInput>,
+  statement?: Maybe<SanityBlockFilterListInput>,
+};
+
+export type SanityTestimonialFilterListInput = {
+  elemMatch?: Maybe<SanityTestimonialFilterInput>,
+};
+
 export type SanityWork = SanityDocument & Node & {
-   __typename?: 'SanityWork',
   _id?: Maybe<Scalars['String']>,
   _type?: Maybe<Scalars['String']>,
   _createdAt?: Maybe<Scalars['Date']>,
@@ -3324,10 +3951,16 @@ export type SanityWork = SanityDocument & Node & {
   mainImage?: Maybe<SanityImage>,
   featured?: Maybe<Scalars['Boolean']>,
   publishedAt?: Maybe<Scalars['Date']>,
+  themeColor?: Maybe<SanityColor>,
+  problemStatement?: Maybe<Array<Maybe<SanityBlock>>>,
+  solution?: Maybe<Array<Maybe<SanityBlock>>>,
   body?: Maybe<Array<Maybe<SanityBlock>>>,
   _rawSlug?: Maybe<Scalars['JSON']>,
+  _rawProblemStatement?: Maybe<Scalars['JSON']>,
+  _rawSolution?: Maybe<Scalars['JSON']>,
   _rawMainImage?: Maybe<Scalars['JSON']>,
   _rawBody?: Maybe<Scalars['JSON']>,
+  _rawThemeColor?: Maybe<Scalars['JSON']>,
   id: Scalars['ID'],
   parent?: Maybe<Node>,
   children: Array<Node>,
@@ -3364,6 +3997,16 @@ export type SanityWork_RawSlugArgs = {
 };
 
 
+export type SanityWork_RawProblemStatementArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>
+};
+
+
+export type SanityWork_RawSolutionArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>
+};
+
+
 export type SanityWork_RawMainImageArgs = {
   resolveReferences?: Maybe<SanityResolveReferencesConfiguration>
 };
@@ -3373,8 +4016,12 @@ export type SanityWork_RawBodyArgs = {
   resolveReferences?: Maybe<SanityResolveReferencesConfiguration>
 };
 
+
+export type SanityWork_RawThemeColorArgs = {
+  resolveReferences?: Maybe<SanityResolveReferencesConfiguration>
+};
+
 export type SanityWorkConnection = {
-   __typename?: 'SanityWorkConnection',
   totalCount: Scalars['Int'],
   edges: Array<SanityWorkEdge>,
   nodes: Array<SanityWork>,
@@ -3395,200 +4042,263 @@ export type SanityWorkConnectionGroupArgs = {
   field: SanityWorkFieldsEnum
 };
 
+export type SanityWorkDetails = {
+  _key?: Maybe<Scalars['String']>,
+  _type?: Maybe<Scalars['String']>,
+  companyName?: Maybe<Scalars['String']>,
+  work?: Maybe<Array<Maybe<SanityWork>>>,
+  keyAchievements?: Maybe<Array<Maybe<SanityBlock>>>,
+};
+
+export type SanityWorkDetailsFilterInput = {
+  _key?: Maybe<StringQueryOperatorInput>,
+  _type?: Maybe<StringQueryOperatorInput>,
+  companyName?: Maybe<StringQueryOperatorInput>,
+  work?: Maybe<SanityWorkFilterListInput>,
+  keyAchievements?: Maybe<SanityBlockFilterListInput>,
+};
+
+export type SanityWorkDetailsFilterListInput = {
+  elemMatch?: Maybe<SanityWorkDetailsFilterInput>,
+};
+
 export type SanityWorkEdge = {
-   __typename?: 'SanityWorkEdge',
   next?: Maybe<SanityWork>,
   node: SanityWork,
   previous?: Maybe<SanityWork>,
 };
 
-export enum SanityWorkFieldsEnum {
-  Id = '_id',
-  Type = '_type',
-  CreatedAt = '_createdAt',
-  UpdatedAt = '_updatedAt',
-  Rev = '_rev',
-  Key = '_key',
-  Title = 'title',
-  SlugKey = 'slug____key',
-  SlugType = 'slug____type',
-  SlugCurrent = 'slug___current',
-  MainImageKey = 'mainImage____key',
-  MainImageType = 'mainImage____type',
-  MainImageAssetId = 'mainImage___asset____id',
-  MainImageAssetType = 'mainImage___asset____type',
-  MainImageAssetCreatedAt = 'mainImage___asset____createdAt',
-  MainImageAssetUpdatedAt = 'mainImage___asset____updatedAt',
-  MainImageAssetRev = 'mainImage___asset____rev',
-  MainImageAssetKey = 'mainImage___asset____key',
-  MainImageAssetOriginalFilename = 'mainImage___asset___originalFilename',
-  MainImageAssetLabel = 'mainImage___asset___label',
-  MainImageAssetTitle = 'mainImage___asset___title',
-  MainImageAssetDescription = 'mainImage___asset___description',
-  MainImageAssetSha1hash = 'mainImage___asset___sha1hash',
-  MainImageAssetExtension = 'mainImage___asset___extension',
-  MainImageAssetMimeType = 'mainImage___asset___mimeType',
-  MainImageAssetSize = 'mainImage___asset___size',
-  MainImageAssetAssetId = 'mainImage___asset___assetId',
-  MainImageAssetPath = 'mainImage___asset___path',
-  MainImageAssetUrl = 'mainImage___asset___url',
-  MainImageAssetMetadataKey = 'mainImage___asset___metadata____key',
-  MainImageAssetMetadataType = 'mainImage___asset___metadata____type',
-  MainImageAssetMetadataLqip = 'mainImage___asset___metadata___lqip',
-  MainImageAssetMetadataHasAlpha = 'mainImage___asset___metadata___hasAlpha',
-  MainImageAssetMetadataIsOpaque = 'mainImage___asset___metadata___isOpaque',
-  MainImageAssetSourceKey = 'mainImage___asset___source____key',
-  MainImageAssetSourceType = 'mainImage___asset___source____type',
-  MainImageAssetSourceName = 'mainImage___asset___source___name',
-  MainImageAssetSourceSanityId = 'mainImage___asset___source___sanityId',
-  MainImageAssetSourceUrl = 'mainImage___asset___source___url',
-  MainImageAssetFixedBase64 = 'mainImage___asset___fixed___base64',
-  MainImageAssetFixedAspectRatio = 'mainImage___asset___fixed___aspectRatio',
-  MainImageAssetFixedWidth = 'mainImage___asset___fixed___width',
-  MainImageAssetFixedHeight = 'mainImage___asset___fixed___height',
-  MainImageAssetFixedSrc = 'mainImage___asset___fixed___src',
-  MainImageAssetFixedSrcSet = 'mainImage___asset___fixed___srcSet',
-  MainImageAssetFixedSrcWebp = 'mainImage___asset___fixed___srcWebp',
-  MainImageAssetFixedSrcSetWebp = 'mainImage___asset___fixed___srcSetWebp',
-  MainImageAssetFluidBase64 = 'mainImage___asset___fluid___base64',
-  MainImageAssetFluidAspectRatio = 'mainImage___asset___fluid___aspectRatio',
-  MainImageAssetFluidSrc = 'mainImage___asset___fluid___src',
-  MainImageAssetFluidSrcSet = 'mainImage___asset___fluid___srcSet',
-  MainImageAssetFluidSrcWebp = 'mainImage___asset___fluid___srcWebp',
-  MainImageAssetFluidSrcSetWebp = 'mainImage___asset___fluid___srcSetWebp',
-  MainImageAssetFluidSizes = 'mainImage___asset___fluid___sizes',
-  MainImageAssetRawMetadata = 'mainImage___asset____rawMetadata',
-  MainImageAssetRawSource = 'mainImage___asset____rawSource',
-  MainImageAssetId = 'mainImage___asset___id',
-  MainImageAssetParentId = 'mainImage___asset___parent___id',
-  MainImageAssetParentChildren = 'mainImage___asset___parent___children',
-  MainImageAssetChildren = 'mainImage___asset___children',
-  MainImageAssetChildrenId = 'mainImage___asset___children___id',
-  MainImageAssetChildrenChildren = 'mainImage___asset___children___children',
-  MainImageAssetInternalContent = 'mainImage___asset___internal___content',
-  MainImageAssetInternalContentDigest = 'mainImage___asset___internal___contentDigest',
-  MainImageAssetInternalDescription = 'mainImage___asset___internal___description',
-  MainImageAssetInternalFieldOwners = 'mainImage___asset___internal___fieldOwners',
-  MainImageAssetInternalIgnoreType = 'mainImage___asset___internal___ignoreType',
-  MainImageAssetInternalMediaType = 'mainImage___asset___internal___mediaType',
-  MainImageAssetInternalOwner = 'mainImage___asset___internal___owner',
-  MainImageAssetInternalType = 'mainImage___asset___internal___type',
-  MainImageAssetChildImageSharpId = 'mainImage___asset___childImageSharp___id',
-  MainImageAssetChildImageSharpChildren = 'mainImage___asset___childImageSharp___children',
-  MainImageHotspotKey = 'mainImage___hotspot____key',
-  MainImageHotspotType = 'mainImage___hotspot____type',
-  MainImageHotspotX = 'mainImage___hotspot___x',
-  MainImageHotspotY = 'mainImage___hotspot___y',
-  MainImageHotspotHeight = 'mainImage___hotspot___height',
-  MainImageHotspotWidth = 'mainImage___hotspot___width',
-  MainImageCropKey = 'mainImage___crop____key',
-  MainImageCropType = 'mainImage___crop____type',
-  MainImageCropTop = 'mainImage___crop___top',
-  MainImageCropBottom = 'mainImage___crop___bottom',
-  MainImageCropLeft = 'mainImage___crop___left',
-  MainImageCropRight = 'mainImage___crop___right',
-  Featured = 'featured',
-  PublishedAt = 'publishedAt',
-  Body = 'body',
-  BodyKey = 'body____key',
-  BodyType = 'body____type',
-  BodySanityChildren = 'body___sanityChildren',
-  BodySanityChildrenKey = 'body___sanityChildren____key',
-  BodySanityChildrenType = 'body___sanityChildren____type',
-  BodySanityChildrenMarks = 'body___sanityChildren___marks',
-  BodySanityChildrenText = 'body___sanityChildren___text',
-  BodyStyle = 'body___style',
-  BodyList = 'body___list',
-  RawSlug = '_rawSlug',
-  RawMainImage = '_rawMainImage',
-  RawBody = '_rawBody',
-  Id = 'id',
-  ParentId = 'parent___id',
-  ParentParentId = 'parent___parent___id',
-  ParentParentParentId = 'parent___parent___parent___id',
-  ParentParentParentChildren = 'parent___parent___parent___children',
-  ParentParentChildren = 'parent___parent___children',
-  ParentParentChildrenId = 'parent___parent___children___id',
-  ParentParentChildrenChildren = 'parent___parent___children___children',
-  ParentParentInternalContent = 'parent___parent___internal___content',
-  ParentParentInternalContentDigest = 'parent___parent___internal___contentDigest',
-  ParentParentInternalDescription = 'parent___parent___internal___description',
-  ParentParentInternalFieldOwners = 'parent___parent___internal___fieldOwners',
-  ParentParentInternalIgnoreType = 'parent___parent___internal___ignoreType',
-  ParentParentInternalMediaType = 'parent___parent___internal___mediaType',
-  ParentParentInternalOwner = 'parent___parent___internal___owner',
-  ParentParentInternalType = 'parent___parent___internal___type',
-  ParentChildren = 'parent___children',
-  ParentChildrenId = 'parent___children___id',
-  ParentChildrenParentId = 'parent___children___parent___id',
-  ParentChildrenParentChildren = 'parent___children___parent___children',
-  ParentChildrenChildren = 'parent___children___children',
-  ParentChildrenChildrenId = 'parent___children___children___id',
-  ParentChildrenChildrenChildren = 'parent___children___children___children',
-  ParentChildrenInternalContent = 'parent___children___internal___content',
-  ParentChildrenInternalContentDigest = 'parent___children___internal___contentDigest',
-  ParentChildrenInternalDescription = 'parent___children___internal___description',
-  ParentChildrenInternalFieldOwners = 'parent___children___internal___fieldOwners',
-  ParentChildrenInternalIgnoreType = 'parent___children___internal___ignoreType',
-  ParentChildrenInternalMediaType = 'parent___children___internal___mediaType',
-  ParentChildrenInternalOwner = 'parent___children___internal___owner',
-  ParentChildrenInternalType = 'parent___children___internal___type',
-  ParentInternalContent = 'parent___internal___content',
-  ParentInternalContentDigest = 'parent___internal___contentDigest',
-  ParentInternalDescription = 'parent___internal___description',
-  ParentInternalFieldOwners = 'parent___internal___fieldOwners',
-  ParentInternalIgnoreType = 'parent___internal___ignoreType',
-  ParentInternalMediaType = 'parent___internal___mediaType',
-  ParentInternalOwner = 'parent___internal___owner',
-  ParentInternalType = 'parent___internal___type',
-  Children = 'children',
-  ChildrenId = 'children___id',
-  ChildrenParentId = 'children___parent___id',
-  ChildrenParentParentId = 'children___parent___parent___id',
-  ChildrenParentParentChildren = 'children___parent___parent___children',
-  ChildrenParentChildren = 'children___parent___children',
-  ChildrenParentChildrenId = 'children___parent___children___id',
-  ChildrenParentChildrenChildren = 'children___parent___children___children',
-  ChildrenParentInternalContent = 'children___parent___internal___content',
-  ChildrenParentInternalContentDigest = 'children___parent___internal___contentDigest',
-  ChildrenParentInternalDescription = 'children___parent___internal___description',
-  ChildrenParentInternalFieldOwners = 'children___parent___internal___fieldOwners',
-  ChildrenParentInternalIgnoreType = 'children___parent___internal___ignoreType',
-  ChildrenParentInternalMediaType = 'children___parent___internal___mediaType',
-  ChildrenParentInternalOwner = 'children___parent___internal___owner',
-  ChildrenParentInternalType = 'children___parent___internal___type',
-  ChildrenChildren = 'children___children',
-  ChildrenChildrenId = 'children___children___id',
-  ChildrenChildrenParentId = 'children___children___parent___id',
-  ChildrenChildrenParentChildren = 'children___children___parent___children',
-  ChildrenChildrenChildren = 'children___children___children',
-  ChildrenChildrenChildrenId = 'children___children___children___id',
-  ChildrenChildrenChildrenChildren = 'children___children___children___children',
-  ChildrenChildrenInternalContent = 'children___children___internal___content',
-  ChildrenChildrenInternalContentDigest = 'children___children___internal___contentDigest',
-  ChildrenChildrenInternalDescription = 'children___children___internal___description',
-  ChildrenChildrenInternalFieldOwners = 'children___children___internal___fieldOwners',
-  ChildrenChildrenInternalIgnoreType = 'children___children___internal___ignoreType',
-  ChildrenChildrenInternalMediaType = 'children___children___internal___mediaType',
-  ChildrenChildrenInternalOwner = 'children___children___internal___owner',
-  ChildrenChildrenInternalType = 'children___children___internal___type',
-  ChildrenInternalContent = 'children___internal___content',
-  ChildrenInternalContentDigest = 'children___internal___contentDigest',
-  ChildrenInternalDescription = 'children___internal___description',
-  ChildrenInternalFieldOwners = 'children___internal___fieldOwners',
-  ChildrenInternalIgnoreType = 'children___internal___ignoreType',
-  ChildrenInternalMediaType = 'children___internal___mediaType',
-  ChildrenInternalOwner = 'children___internal___owner',
-  ChildrenInternalType = 'children___internal___type',
-  InternalContent = 'internal___content',
-  InternalContentDigest = 'internal___contentDigest',
-  InternalDescription = 'internal___description',
-  InternalFieldOwners = 'internal___fieldOwners',
-  InternalIgnoreType = 'internal___ignoreType',
-  InternalMediaType = 'internal___mediaType',
-  InternalOwner = 'internal___owner',
-  InternalType = 'internal___type'
-}
+export type SanityWorkFieldsEnum = 
+  '_id' |
+  '_type' |
+  '_createdAt' |
+  '_updatedAt' |
+  '_rev' |
+  '_key' |
+  'title' |
+  'slug____key' |
+  'slug____type' |
+  'slug___current' |
+  'mainImage____key' |
+  'mainImage____type' |
+  'mainImage___asset____id' |
+  'mainImage___asset____type' |
+  'mainImage___asset____createdAt' |
+  'mainImage___asset____updatedAt' |
+  'mainImage___asset____rev' |
+  'mainImage___asset____key' |
+  'mainImage___asset___originalFilename' |
+  'mainImage___asset___label' |
+  'mainImage___asset___title' |
+  'mainImage___asset___description' |
+  'mainImage___asset___sha1hash' |
+  'mainImage___asset___extension' |
+  'mainImage___asset___mimeType' |
+  'mainImage___asset___size' |
+  'mainImage___asset___assetId' |
+  'mainImage___asset___path' |
+  'mainImage___asset___url' |
+  'mainImage___asset___metadata____key' |
+  'mainImage___asset___metadata____type' |
+  'mainImage___asset___metadata___lqip' |
+  'mainImage___asset___metadata___hasAlpha' |
+  'mainImage___asset___metadata___isOpaque' |
+  'mainImage___asset___source____key' |
+  'mainImage___asset___source____type' |
+  'mainImage___asset___source___name' |
+  'mainImage___asset___source___sanityId' |
+  'mainImage___asset___source___url' |
+  'mainImage___asset___fixed___base64' |
+  'mainImage___asset___fixed___aspectRatio' |
+  'mainImage___asset___fixed___width' |
+  'mainImage___asset___fixed___height' |
+  'mainImage___asset___fixed___src' |
+  'mainImage___asset___fixed___srcSet' |
+  'mainImage___asset___fixed___srcWebp' |
+  'mainImage___asset___fixed___srcSetWebp' |
+  'mainImage___asset___fluid___base64' |
+  'mainImage___asset___fluid___aspectRatio' |
+  'mainImage___asset___fluid___src' |
+  'mainImage___asset___fluid___srcSet' |
+  'mainImage___asset___fluid___srcWebp' |
+  'mainImage___asset___fluid___srcSetWebp' |
+  'mainImage___asset___fluid___sizes' |
+  'mainImage___asset____rawMetadata' |
+  'mainImage___asset____rawSource' |
+  'mainImage___asset___id' |
+  'mainImage___asset___parent___id' |
+  'mainImage___asset___parent___children' |
+  'mainImage___asset___children' |
+  'mainImage___asset___children___id' |
+  'mainImage___asset___children___children' |
+  'mainImage___asset___internal___content' |
+  'mainImage___asset___internal___contentDigest' |
+  'mainImage___asset___internal___description' |
+  'mainImage___asset___internal___fieldOwners' |
+  'mainImage___asset___internal___ignoreType' |
+  'mainImage___asset___internal___mediaType' |
+  'mainImage___asset___internal___owner' |
+  'mainImage___asset___internal___type' |
+  'mainImage___asset___childImageSharp___id' |
+  'mainImage___asset___childImageSharp___children' |
+  'mainImage___hotspot____key' |
+  'mainImage___hotspot____type' |
+  'mainImage___hotspot___x' |
+  'mainImage___hotspot___y' |
+  'mainImage___hotspot___height' |
+  'mainImage___hotspot___width' |
+  'mainImage___crop____key' |
+  'mainImage___crop____type' |
+  'mainImage___crop___top' |
+  'mainImage___crop___bottom' |
+  'mainImage___crop___left' |
+  'mainImage___crop___right' |
+  'featured' |
+  'publishedAt' |
+  'themeColor____key' |
+  'themeColor____type' |
+  'themeColor___hex' |
+  'themeColor___alpha' |
+  'themeColor___hsl____key' |
+  'themeColor___hsl____type' |
+  'themeColor___hsl___h' |
+  'themeColor___hsl___s' |
+  'themeColor___hsl___l' |
+  'themeColor___hsl___a' |
+  'themeColor___hsv____key' |
+  'themeColor___hsv____type' |
+  'themeColor___hsv___h' |
+  'themeColor___hsv___s' |
+  'themeColor___hsv___v' |
+  'themeColor___hsv___a' |
+  'themeColor___rgb____key' |
+  'themeColor___rgb____type' |
+  'themeColor___rgb___r' |
+  'themeColor___rgb___g' |
+  'themeColor___rgb___b' |
+  'themeColor___rgb___a' |
+  'problemStatement' |
+  'problemStatement____key' |
+  'problemStatement____type' |
+  'problemStatement___sanityChildren' |
+  'problemStatement___sanityChildren____key' |
+  'problemStatement___sanityChildren____type' |
+  'problemStatement___sanityChildren___marks' |
+  'problemStatement___sanityChildren___text' |
+  'problemStatement___style' |
+  'problemStatement___list' |
+  'solution' |
+  'solution____key' |
+  'solution____type' |
+  'solution___sanityChildren' |
+  'solution___sanityChildren____key' |
+  'solution___sanityChildren____type' |
+  'solution___sanityChildren___marks' |
+  'solution___sanityChildren___text' |
+  'solution___style' |
+  'solution___list' |
+  'body' |
+  'body____key' |
+  'body____type' |
+  'body___sanityChildren' |
+  'body___sanityChildren____key' |
+  'body___sanityChildren____type' |
+  'body___sanityChildren___marks' |
+  'body___sanityChildren___text' |
+  'body___style' |
+  'body___list' |
+  '_rawSlug' |
+  '_rawProblemStatement' |
+  '_rawSolution' |
+  '_rawMainImage' |
+  '_rawBody' |
+  '_rawThemeColor' |
+  'id' |
+  'parent___id' |
+  'parent___parent___id' |
+  'parent___parent___parent___id' |
+  'parent___parent___parent___children' |
+  'parent___parent___children' |
+  'parent___parent___children___id' |
+  'parent___parent___children___children' |
+  'parent___parent___internal___content' |
+  'parent___parent___internal___contentDigest' |
+  'parent___parent___internal___description' |
+  'parent___parent___internal___fieldOwners' |
+  'parent___parent___internal___ignoreType' |
+  'parent___parent___internal___mediaType' |
+  'parent___parent___internal___owner' |
+  'parent___parent___internal___type' |
+  'parent___children' |
+  'parent___children___id' |
+  'parent___children___parent___id' |
+  'parent___children___parent___children' |
+  'parent___children___children' |
+  'parent___children___children___id' |
+  'parent___children___children___children' |
+  'parent___children___internal___content' |
+  'parent___children___internal___contentDigest' |
+  'parent___children___internal___description' |
+  'parent___children___internal___fieldOwners' |
+  'parent___children___internal___ignoreType' |
+  'parent___children___internal___mediaType' |
+  'parent___children___internal___owner' |
+  'parent___children___internal___type' |
+  'parent___internal___content' |
+  'parent___internal___contentDigest' |
+  'parent___internal___description' |
+  'parent___internal___fieldOwners' |
+  'parent___internal___ignoreType' |
+  'parent___internal___mediaType' |
+  'parent___internal___owner' |
+  'parent___internal___type' |
+  'children' |
+  'children___id' |
+  'children___parent___id' |
+  'children___parent___parent___id' |
+  'children___parent___parent___children' |
+  'children___parent___children' |
+  'children___parent___children___id' |
+  'children___parent___children___children' |
+  'children___parent___internal___content' |
+  'children___parent___internal___contentDigest' |
+  'children___parent___internal___description' |
+  'children___parent___internal___fieldOwners' |
+  'children___parent___internal___ignoreType' |
+  'children___parent___internal___mediaType' |
+  'children___parent___internal___owner' |
+  'children___parent___internal___type' |
+  'children___children' |
+  'children___children___id' |
+  'children___children___parent___id' |
+  'children___children___parent___children' |
+  'children___children___children' |
+  'children___children___children___id' |
+  'children___children___children___children' |
+  'children___children___internal___content' |
+  'children___children___internal___contentDigest' |
+  'children___children___internal___description' |
+  'children___children___internal___fieldOwners' |
+  'children___children___internal___ignoreType' |
+  'children___children___internal___mediaType' |
+  'children___children___internal___owner' |
+  'children___children___internal___type' |
+  'children___internal___content' |
+  'children___internal___contentDigest' |
+  'children___internal___description' |
+  'children___internal___fieldOwners' |
+  'children___internal___ignoreType' |
+  'children___internal___mediaType' |
+  'children___internal___owner' |
+  'children___internal___type' |
+  'internal___content' |
+  'internal___contentDigest' |
+  'internal___description' |
+  'internal___fieldOwners' |
+  'internal___ignoreType' |
+  'internal___mediaType' |
+  'internal___owner' |
+  'internal___type';
 
 export type SanityWorkFilterInput = {
   _id?: Maybe<StringQueryOperatorInput>,
@@ -3602,18 +4312,27 @@ export type SanityWorkFilterInput = {
   mainImage?: Maybe<SanityImageFilterInput>,
   featured?: Maybe<BooleanQueryOperatorInput>,
   publishedAt?: Maybe<DateQueryOperatorInput>,
+  themeColor?: Maybe<SanityColorFilterInput>,
+  problemStatement?: Maybe<SanityBlockFilterListInput>,
+  solution?: Maybe<SanityBlockFilterListInput>,
   body?: Maybe<SanityBlockFilterListInput>,
   _rawSlug?: Maybe<JsonQueryOperatorInput>,
+  _rawProblemStatement?: Maybe<JsonQueryOperatorInput>,
+  _rawSolution?: Maybe<JsonQueryOperatorInput>,
   _rawMainImage?: Maybe<JsonQueryOperatorInput>,
   _rawBody?: Maybe<JsonQueryOperatorInput>,
+  _rawThemeColor?: Maybe<JsonQueryOperatorInput>,
   id?: Maybe<StringQueryOperatorInput>,
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
 };
 
+export type SanityWorkFilterListInput = {
+  elemMatch?: Maybe<SanityWorkFilterInput>,
+};
+
 export type SanityWorkGroupConnection = {
-   __typename?: 'SanityWorkGroupConnection',
   totalCount: Scalars['Int'],
   edges: Array<SanityWorkEdge>,
   nodes: Array<SanityWork>,
@@ -3628,7 +4347,6 @@ export type SanityWorkSortInput = {
 };
 
 export type Site = Node & {
-   __typename?: 'Site',
   id: Scalars['ID'],
   parent?: Maybe<Node>,
   children: Array<Node>,
@@ -3650,7 +4368,6 @@ export type SiteBuildTimeArgs = {
 };
 
 export type SiteConnection = {
-   __typename?: 'SiteConnection',
   totalCount: Scalars['Int'],
   edges: Array<SiteEdge>,
   nodes: Array<Site>,
@@ -3672,108 +4389,106 @@ export type SiteConnectionGroupArgs = {
 };
 
 export type SiteEdge = {
-   __typename?: 'SiteEdge',
   next?: Maybe<Site>,
   node: Site,
   previous?: Maybe<Site>,
 };
 
-export enum SiteFieldsEnum {
-  Id = 'id',
-  ParentId = 'parent___id',
-  ParentParentId = 'parent___parent___id',
-  ParentParentParentId = 'parent___parent___parent___id',
-  ParentParentParentChildren = 'parent___parent___parent___children',
-  ParentParentChildren = 'parent___parent___children',
-  ParentParentChildrenId = 'parent___parent___children___id',
-  ParentParentChildrenChildren = 'parent___parent___children___children',
-  ParentParentInternalContent = 'parent___parent___internal___content',
-  ParentParentInternalContentDigest = 'parent___parent___internal___contentDigest',
-  ParentParentInternalDescription = 'parent___parent___internal___description',
-  ParentParentInternalFieldOwners = 'parent___parent___internal___fieldOwners',
-  ParentParentInternalIgnoreType = 'parent___parent___internal___ignoreType',
-  ParentParentInternalMediaType = 'parent___parent___internal___mediaType',
-  ParentParentInternalOwner = 'parent___parent___internal___owner',
-  ParentParentInternalType = 'parent___parent___internal___type',
-  ParentChildren = 'parent___children',
-  ParentChildrenId = 'parent___children___id',
-  ParentChildrenParentId = 'parent___children___parent___id',
-  ParentChildrenParentChildren = 'parent___children___parent___children',
-  ParentChildrenChildren = 'parent___children___children',
-  ParentChildrenChildrenId = 'parent___children___children___id',
-  ParentChildrenChildrenChildren = 'parent___children___children___children',
-  ParentChildrenInternalContent = 'parent___children___internal___content',
-  ParentChildrenInternalContentDigest = 'parent___children___internal___contentDigest',
-  ParentChildrenInternalDescription = 'parent___children___internal___description',
-  ParentChildrenInternalFieldOwners = 'parent___children___internal___fieldOwners',
-  ParentChildrenInternalIgnoreType = 'parent___children___internal___ignoreType',
-  ParentChildrenInternalMediaType = 'parent___children___internal___mediaType',
-  ParentChildrenInternalOwner = 'parent___children___internal___owner',
-  ParentChildrenInternalType = 'parent___children___internal___type',
-  ParentInternalContent = 'parent___internal___content',
-  ParentInternalContentDigest = 'parent___internal___contentDigest',
-  ParentInternalDescription = 'parent___internal___description',
-  ParentInternalFieldOwners = 'parent___internal___fieldOwners',
-  ParentInternalIgnoreType = 'parent___internal___ignoreType',
-  ParentInternalMediaType = 'parent___internal___mediaType',
-  ParentInternalOwner = 'parent___internal___owner',
-  ParentInternalType = 'parent___internal___type',
-  Children = 'children',
-  ChildrenId = 'children___id',
-  ChildrenParentId = 'children___parent___id',
-  ChildrenParentParentId = 'children___parent___parent___id',
-  ChildrenParentParentChildren = 'children___parent___parent___children',
-  ChildrenParentChildren = 'children___parent___children',
-  ChildrenParentChildrenId = 'children___parent___children___id',
-  ChildrenParentChildrenChildren = 'children___parent___children___children',
-  ChildrenParentInternalContent = 'children___parent___internal___content',
-  ChildrenParentInternalContentDigest = 'children___parent___internal___contentDigest',
-  ChildrenParentInternalDescription = 'children___parent___internal___description',
-  ChildrenParentInternalFieldOwners = 'children___parent___internal___fieldOwners',
-  ChildrenParentInternalIgnoreType = 'children___parent___internal___ignoreType',
-  ChildrenParentInternalMediaType = 'children___parent___internal___mediaType',
-  ChildrenParentInternalOwner = 'children___parent___internal___owner',
-  ChildrenParentInternalType = 'children___parent___internal___type',
-  ChildrenChildren = 'children___children',
-  ChildrenChildrenId = 'children___children___id',
-  ChildrenChildrenParentId = 'children___children___parent___id',
-  ChildrenChildrenParentChildren = 'children___children___parent___children',
-  ChildrenChildrenChildren = 'children___children___children',
-  ChildrenChildrenChildrenId = 'children___children___children___id',
-  ChildrenChildrenChildrenChildren = 'children___children___children___children',
-  ChildrenChildrenInternalContent = 'children___children___internal___content',
-  ChildrenChildrenInternalContentDigest = 'children___children___internal___contentDigest',
-  ChildrenChildrenInternalDescription = 'children___children___internal___description',
-  ChildrenChildrenInternalFieldOwners = 'children___children___internal___fieldOwners',
-  ChildrenChildrenInternalIgnoreType = 'children___children___internal___ignoreType',
-  ChildrenChildrenInternalMediaType = 'children___children___internal___mediaType',
-  ChildrenChildrenInternalOwner = 'children___children___internal___owner',
-  ChildrenChildrenInternalType = 'children___children___internal___type',
-  ChildrenInternalContent = 'children___internal___content',
-  ChildrenInternalContentDigest = 'children___internal___contentDigest',
-  ChildrenInternalDescription = 'children___internal___description',
-  ChildrenInternalFieldOwners = 'children___internal___fieldOwners',
-  ChildrenInternalIgnoreType = 'children___internal___ignoreType',
-  ChildrenInternalMediaType = 'children___internal___mediaType',
-  ChildrenInternalOwner = 'children___internal___owner',
-  ChildrenInternalType = 'children___internal___type',
-  InternalContent = 'internal___content',
-  InternalContentDigest = 'internal___contentDigest',
-  InternalDescription = 'internal___description',
-  InternalFieldOwners = 'internal___fieldOwners',
-  InternalIgnoreType = 'internal___ignoreType',
-  InternalMediaType = 'internal___mediaType',
-  InternalOwner = 'internal___owner',
-  InternalType = 'internal___type',
-  SiteMetadataTitle = 'siteMetadata___title',
-  SiteMetadataDescription = 'siteMetadata___description',
-  SiteMetadataAuthor = 'siteMetadata___author',
-  Port = 'port',
-  Host = 'host',
-  Polyfill = 'polyfill',
-  PathPrefix = 'pathPrefix',
-  BuildTime = 'buildTime'
-}
+export type SiteFieldsEnum = 
+  'id' |
+  'parent___id' |
+  'parent___parent___id' |
+  'parent___parent___parent___id' |
+  'parent___parent___parent___children' |
+  'parent___parent___children' |
+  'parent___parent___children___id' |
+  'parent___parent___children___children' |
+  'parent___parent___internal___content' |
+  'parent___parent___internal___contentDigest' |
+  'parent___parent___internal___description' |
+  'parent___parent___internal___fieldOwners' |
+  'parent___parent___internal___ignoreType' |
+  'parent___parent___internal___mediaType' |
+  'parent___parent___internal___owner' |
+  'parent___parent___internal___type' |
+  'parent___children' |
+  'parent___children___id' |
+  'parent___children___parent___id' |
+  'parent___children___parent___children' |
+  'parent___children___children' |
+  'parent___children___children___id' |
+  'parent___children___children___children' |
+  'parent___children___internal___content' |
+  'parent___children___internal___contentDigest' |
+  'parent___children___internal___description' |
+  'parent___children___internal___fieldOwners' |
+  'parent___children___internal___ignoreType' |
+  'parent___children___internal___mediaType' |
+  'parent___children___internal___owner' |
+  'parent___children___internal___type' |
+  'parent___internal___content' |
+  'parent___internal___contentDigest' |
+  'parent___internal___description' |
+  'parent___internal___fieldOwners' |
+  'parent___internal___ignoreType' |
+  'parent___internal___mediaType' |
+  'parent___internal___owner' |
+  'parent___internal___type' |
+  'children' |
+  'children___id' |
+  'children___parent___id' |
+  'children___parent___parent___id' |
+  'children___parent___parent___children' |
+  'children___parent___children' |
+  'children___parent___children___id' |
+  'children___parent___children___children' |
+  'children___parent___internal___content' |
+  'children___parent___internal___contentDigest' |
+  'children___parent___internal___description' |
+  'children___parent___internal___fieldOwners' |
+  'children___parent___internal___ignoreType' |
+  'children___parent___internal___mediaType' |
+  'children___parent___internal___owner' |
+  'children___parent___internal___type' |
+  'children___children' |
+  'children___children___id' |
+  'children___children___parent___id' |
+  'children___children___parent___children' |
+  'children___children___children' |
+  'children___children___children___id' |
+  'children___children___children___children' |
+  'children___children___internal___content' |
+  'children___children___internal___contentDigest' |
+  'children___children___internal___description' |
+  'children___children___internal___fieldOwners' |
+  'children___children___internal___ignoreType' |
+  'children___children___internal___mediaType' |
+  'children___children___internal___owner' |
+  'children___children___internal___type' |
+  'children___internal___content' |
+  'children___internal___contentDigest' |
+  'children___internal___description' |
+  'children___internal___fieldOwners' |
+  'children___internal___ignoreType' |
+  'children___internal___mediaType' |
+  'children___internal___owner' |
+  'children___internal___type' |
+  'internal___content' |
+  'internal___contentDigest' |
+  'internal___description' |
+  'internal___fieldOwners' |
+  'internal___ignoreType' |
+  'internal___mediaType' |
+  'internal___owner' |
+  'internal___type' |
+  'siteMetadata___title' |
+  'siteMetadata___description' |
+  'siteMetadata___author' |
+  'port' |
+  'host' |
+  'polyfill' |
+  'pathPrefix' |
+  'buildTime';
 
 export type SiteFilterInput = {
   id?: Maybe<StringQueryOperatorInput>,
@@ -3789,7 +4504,6 @@ export type SiteFilterInput = {
 };
 
 export type SiteGroupConnection = {
-   __typename?: 'SiteGroupConnection',
   totalCount: Scalars['Int'],
   edges: Array<SiteEdge>,
   nodes: Array<Site>,
@@ -3799,7 +4513,6 @@ export type SiteGroupConnection = {
 };
 
 export type SitePage = Node & {
-   __typename?: 'SitePage',
   path: Scalars['String'],
   component: Scalars['String'],
   internalComponentName: Scalars['String'],
@@ -3817,7 +4530,6 @@ export type SitePage = Node & {
 };
 
 export type SitePageConnection = {
-   __typename?: 'SitePageConnection',
   totalCount: Scalars['Int'],
   edges: Array<SitePageEdge>,
   nodes: Array<SitePage>,
@@ -3839,7 +4551,6 @@ export type SitePageConnectionGroupArgs = {
 };
 
 export type SitePageContext = {
-   __typename?: 'SitePageContext',
   slug?: Maybe<Scalars['String']>,
 };
 
@@ -3848,186 +4559,187 @@ export type SitePageContextFilterInput = {
 };
 
 export type SitePageEdge = {
-   __typename?: 'SitePageEdge',
   next?: Maybe<SitePage>,
   node: SitePage,
   previous?: Maybe<SitePage>,
 };
 
-export enum SitePageFieldsEnum {
-  Path = 'path',
-  Component = 'component',
-  InternalComponentName = 'internalComponentName',
-  ComponentChunkName = 'componentChunkName',
-  MatchPath = 'matchPath',
-  Id = 'id',
-  ParentId = 'parent___id',
-  ParentParentId = 'parent___parent___id',
-  ParentParentParentId = 'parent___parent___parent___id',
-  ParentParentParentChildren = 'parent___parent___parent___children',
-  ParentParentChildren = 'parent___parent___children',
-  ParentParentChildrenId = 'parent___parent___children___id',
-  ParentParentChildrenChildren = 'parent___parent___children___children',
-  ParentParentInternalContent = 'parent___parent___internal___content',
-  ParentParentInternalContentDigest = 'parent___parent___internal___contentDigest',
-  ParentParentInternalDescription = 'parent___parent___internal___description',
-  ParentParentInternalFieldOwners = 'parent___parent___internal___fieldOwners',
-  ParentParentInternalIgnoreType = 'parent___parent___internal___ignoreType',
-  ParentParentInternalMediaType = 'parent___parent___internal___mediaType',
-  ParentParentInternalOwner = 'parent___parent___internal___owner',
-  ParentParentInternalType = 'parent___parent___internal___type',
-  ParentChildren = 'parent___children',
-  ParentChildrenId = 'parent___children___id',
-  ParentChildrenParentId = 'parent___children___parent___id',
-  ParentChildrenParentChildren = 'parent___children___parent___children',
-  ParentChildrenChildren = 'parent___children___children',
-  ParentChildrenChildrenId = 'parent___children___children___id',
-  ParentChildrenChildrenChildren = 'parent___children___children___children',
-  ParentChildrenInternalContent = 'parent___children___internal___content',
-  ParentChildrenInternalContentDigest = 'parent___children___internal___contentDigest',
-  ParentChildrenInternalDescription = 'parent___children___internal___description',
-  ParentChildrenInternalFieldOwners = 'parent___children___internal___fieldOwners',
-  ParentChildrenInternalIgnoreType = 'parent___children___internal___ignoreType',
-  ParentChildrenInternalMediaType = 'parent___children___internal___mediaType',
-  ParentChildrenInternalOwner = 'parent___children___internal___owner',
-  ParentChildrenInternalType = 'parent___children___internal___type',
-  ParentInternalContent = 'parent___internal___content',
-  ParentInternalContentDigest = 'parent___internal___contentDigest',
-  ParentInternalDescription = 'parent___internal___description',
-  ParentInternalFieldOwners = 'parent___internal___fieldOwners',
-  ParentInternalIgnoreType = 'parent___internal___ignoreType',
-  ParentInternalMediaType = 'parent___internal___mediaType',
-  ParentInternalOwner = 'parent___internal___owner',
-  ParentInternalType = 'parent___internal___type',
-  Children = 'children',
-  ChildrenId = 'children___id',
-  ChildrenParentId = 'children___parent___id',
-  ChildrenParentParentId = 'children___parent___parent___id',
-  ChildrenParentParentChildren = 'children___parent___parent___children',
-  ChildrenParentChildren = 'children___parent___children',
-  ChildrenParentChildrenId = 'children___parent___children___id',
-  ChildrenParentChildrenChildren = 'children___parent___children___children',
-  ChildrenParentInternalContent = 'children___parent___internal___content',
-  ChildrenParentInternalContentDigest = 'children___parent___internal___contentDigest',
-  ChildrenParentInternalDescription = 'children___parent___internal___description',
-  ChildrenParentInternalFieldOwners = 'children___parent___internal___fieldOwners',
-  ChildrenParentInternalIgnoreType = 'children___parent___internal___ignoreType',
-  ChildrenParentInternalMediaType = 'children___parent___internal___mediaType',
-  ChildrenParentInternalOwner = 'children___parent___internal___owner',
-  ChildrenParentInternalType = 'children___parent___internal___type',
-  ChildrenChildren = 'children___children',
-  ChildrenChildrenId = 'children___children___id',
-  ChildrenChildrenParentId = 'children___children___parent___id',
-  ChildrenChildrenParentChildren = 'children___children___parent___children',
-  ChildrenChildrenChildren = 'children___children___children',
-  ChildrenChildrenChildrenId = 'children___children___children___id',
-  ChildrenChildrenChildrenChildren = 'children___children___children___children',
-  ChildrenChildrenInternalContent = 'children___children___internal___content',
-  ChildrenChildrenInternalContentDigest = 'children___children___internal___contentDigest',
-  ChildrenChildrenInternalDescription = 'children___children___internal___description',
-  ChildrenChildrenInternalFieldOwners = 'children___children___internal___fieldOwners',
-  ChildrenChildrenInternalIgnoreType = 'children___children___internal___ignoreType',
-  ChildrenChildrenInternalMediaType = 'children___children___internal___mediaType',
-  ChildrenChildrenInternalOwner = 'children___children___internal___owner',
-  ChildrenChildrenInternalType = 'children___children___internal___type',
-  ChildrenInternalContent = 'children___internal___content',
-  ChildrenInternalContentDigest = 'children___internal___contentDigest',
-  ChildrenInternalDescription = 'children___internal___description',
-  ChildrenInternalFieldOwners = 'children___internal___fieldOwners',
-  ChildrenInternalIgnoreType = 'children___internal___ignoreType',
-  ChildrenInternalMediaType = 'children___internal___mediaType',
-  ChildrenInternalOwner = 'children___internal___owner',
-  ChildrenInternalType = 'children___internal___type',
-  InternalContent = 'internal___content',
-  InternalContentDigest = 'internal___contentDigest',
-  InternalDescription = 'internal___description',
-  InternalFieldOwners = 'internal___fieldOwners',
-  InternalIgnoreType = 'internal___ignoreType',
-  InternalMediaType = 'internal___mediaType',
-  InternalOwner = 'internal___owner',
-  InternalType = 'internal___type',
-  IsCreatedByStatefulCreatePages = 'isCreatedByStatefulCreatePages',
-  ContextSlug = 'context___slug',
-  PluginCreatorId = 'pluginCreator___id',
-  PluginCreatorParentId = 'pluginCreator___parent___id',
-  PluginCreatorParentParentId = 'pluginCreator___parent___parent___id',
-  PluginCreatorParentParentChildren = 'pluginCreator___parent___parent___children',
-  PluginCreatorParentChildren = 'pluginCreator___parent___children',
-  PluginCreatorParentChildrenId = 'pluginCreator___parent___children___id',
-  PluginCreatorParentChildrenChildren = 'pluginCreator___parent___children___children',
-  PluginCreatorParentInternalContent = 'pluginCreator___parent___internal___content',
-  PluginCreatorParentInternalContentDigest = 'pluginCreator___parent___internal___contentDigest',
-  PluginCreatorParentInternalDescription = 'pluginCreator___parent___internal___description',
-  PluginCreatorParentInternalFieldOwners = 'pluginCreator___parent___internal___fieldOwners',
-  PluginCreatorParentInternalIgnoreType = 'pluginCreator___parent___internal___ignoreType',
-  PluginCreatorParentInternalMediaType = 'pluginCreator___parent___internal___mediaType',
-  PluginCreatorParentInternalOwner = 'pluginCreator___parent___internal___owner',
-  PluginCreatorParentInternalType = 'pluginCreator___parent___internal___type',
-  PluginCreatorChildren = 'pluginCreator___children',
-  PluginCreatorChildrenId = 'pluginCreator___children___id',
-  PluginCreatorChildrenParentId = 'pluginCreator___children___parent___id',
-  PluginCreatorChildrenParentChildren = 'pluginCreator___children___parent___children',
-  PluginCreatorChildrenChildren = 'pluginCreator___children___children',
-  PluginCreatorChildrenChildrenId = 'pluginCreator___children___children___id',
-  PluginCreatorChildrenChildrenChildren = 'pluginCreator___children___children___children',
-  PluginCreatorChildrenInternalContent = 'pluginCreator___children___internal___content',
-  PluginCreatorChildrenInternalContentDigest = 'pluginCreator___children___internal___contentDigest',
-  PluginCreatorChildrenInternalDescription = 'pluginCreator___children___internal___description',
-  PluginCreatorChildrenInternalFieldOwners = 'pluginCreator___children___internal___fieldOwners',
-  PluginCreatorChildrenInternalIgnoreType = 'pluginCreator___children___internal___ignoreType',
-  PluginCreatorChildrenInternalMediaType = 'pluginCreator___children___internal___mediaType',
-  PluginCreatorChildrenInternalOwner = 'pluginCreator___children___internal___owner',
-  PluginCreatorChildrenInternalType = 'pluginCreator___children___internal___type',
-  PluginCreatorInternalContent = 'pluginCreator___internal___content',
-  PluginCreatorInternalContentDigest = 'pluginCreator___internal___contentDigest',
-  PluginCreatorInternalDescription = 'pluginCreator___internal___description',
-  PluginCreatorInternalFieldOwners = 'pluginCreator___internal___fieldOwners',
-  PluginCreatorInternalIgnoreType = 'pluginCreator___internal___ignoreType',
-  PluginCreatorInternalMediaType = 'pluginCreator___internal___mediaType',
-  PluginCreatorInternalOwner = 'pluginCreator___internal___owner',
-  PluginCreatorInternalType = 'pluginCreator___internal___type',
-  PluginCreatorResolve = 'pluginCreator___resolve',
-  PluginCreatorName = 'pluginCreator___name',
-  PluginCreatorVersion = 'pluginCreator___version',
-  PluginCreatorPluginOptionsPathToConfigModule = 'pluginCreator___pluginOptions___pathToConfigModule',
-  PluginCreatorPluginOptionsOmitGoogleFont = 'pluginCreator___pluginOptions___omitGoogleFont',
-  PluginCreatorPluginOptionsComponent = 'pluginCreator___pluginOptions___component',
-  PluginCreatorPluginOptionsName = 'pluginCreator___pluginOptions___name',
-  PluginCreatorPluginOptionsPath = 'pluginCreator___pluginOptions___path',
-  PluginCreatorPluginOptionsShortName = 'pluginCreator___pluginOptions___short_name',
-  PluginCreatorPluginOptionsStartUrl = 'pluginCreator___pluginOptions___start_url',
-  PluginCreatorPluginOptionsBackgroundColor = 'pluginCreator___pluginOptions___background_color',
-  PluginCreatorPluginOptionsThemeColor = 'pluginCreator___pluginOptions___theme_color',
-  PluginCreatorPluginOptionsDisplay = 'pluginCreator___pluginOptions___display',
-  PluginCreatorPluginOptionsIcon = 'pluginCreator___pluginOptions___icon',
-  PluginCreatorPluginOptionsProjectId = 'pluginCreator___pluginOptions___projectId',
-  PluginCreatorPluginOptionsDataset = 'pluginCreator___pluginOptions___dataset',
-  PluginCreatorPluginOptionsToken = 'pluginCreator___pluginOptions___token',
-  PluginCreatorPluginOptionsWatchMode = 'pluginCreator___pluginOptions___watchMode',
-  PluginCreatorPluginOptionsPathCheck = 'pluginCreator___pluginOptions___pathCheck',
-  PluginCreatorNodeApIs = 'pluginCreator___nodeAPIs',
-  PluginCreatorBrowserApIs = 'pluginCreator___browserAPIs',
-  PluginCreatorSsrApIs = 'pluginCreator___ssrAPIs',
-  PluginCreatorPluginFilepath = 'pluginCreator___pluginFilepath',
-  PluginCreatorPackageJsonName = 'pluginCreator___packageJson___name',
-  PluginCreatorPackageJsonDescription = 'pluginCreator___packageJson___description',
-  PluginCreatorPackageJsonVersion = 'pluginCreator___packageJson___version',
-  PluginCreatorPackageJsonMain = 'pluginCreator___packageJson___main',
-  PluginCreatorPackageJsonAuthor = 'pluginCreator___packageJson___author',
-  PluginCreatorPackageJsonLicense = 'pluginCreator___packageJson___license',
-  PluginCreatorPackageJsonDependencies = 'pluginCreator___packageJson___dependencies',
-  PluginCreatorPackageJsonDependenciesName = 'pluginCreator___packageJson___dependencies___name',
-  PluginCreatorPackageJsonDependenciesVersion = 'pluginCreator___packageJson___dependencies___version',
-  PluginCreatorPackageJsonDevDependencies = 'pluginCreator___packageJson___devDependencies',
-  PluginCreatorPackageJsonDevDependenciesName = 'pluginCreator___packageJson___devDependencies___name',
-  PluginCreatorPackageJsonDevDependenciesVersion = 'pluginCreator___packageJson___devDependencies___version',
-  PluginCreatorPackageJsonPeerDependencies = 'pluginCreator___packageJson___peerDependencies',
-  PluginCreatorPackageJsonPeerDependenciesName = 'pluginCreator___packageJson___peerDependencies___name',
-  PluginCreatorPackageJsonPeerDependenciesVersion = 'pluginCreator___packageJson___peerDependencies___version',
-  PluginCreatorPackageJsonKeywords = 'pluginCreator___packageJson___keywords',
-  PluginCreatorId = 'pluginCreatorId',
-  ComponentPath = 'componentPath'
-}
+export type SitePageFieldsEnum = 
+  'path' |
+  'component' |
+  'internalComponentName' |
+  'componentChunkName' |
+  'matchPath' |
+  'id' |
+  'parent___id' |
+  'parent___parent___id' |
+  'parent___parent___parent___id' |
+  'parent___parent___parent___children' |
+  'parent___parent___children' |
+  'parent___parent___children___id' |
+  'parent___parent___children___children' |
+  'parent___parent___internal___content' |
+  'parent___parent___internal___contentDigest' |
+  'parent___parent___internal___description' |
+  'parent___parent___internal___fieldOwners' |
+  'parent___parent___internal___ignoreType' |
+  'parent___parent___internal___mediaType' |
+  'parent___parent___internal___owner' |
+  'parent___parent___internal___type' |
+  'parent___children' |
+  'parent___children___id' |
+  'parent___children___parent___id' |
+  'parent___children___parent___children' |
+  'parent___children___children' |
+  'parent___children___children___id' |
+  'parent___children___children___children' |
+  'parent___children___internal___content' |
+  'parent___children___internal___contentDigest' |
+  'parent___children___internal___description' |
+  'parent___children___internal___fieldOwners' |
+  'parent___children___internal___ignoreType' |
+  'parent___children___internal___mediaType' |
+  'parent___children___internal___owner' |
+  'parent___children___internal___type' |
+  'parent___internal___content' |
+  'parent___internal___contentDigest' |
+  'parent___internal___description' |
+  'parent___internal___fieldOwners' |
+  'parent___internal___ignoreType' |
+  'parent___internal___mediaType' |
+  'parent___internal___owner' |
+  'parent___internal___type' |
+  'children' |
+  'children___id' |
+  'children___parent___id' |
+  'children___parent___parent___id' |
+  'children___parent___parent___children' |
+  'children___parent___children' |
+  'children___parent___children___id' |
+  'children___parent___children___children' |
+  'children___parent___internal___content' |
+  'children___parent___internal___contentDigest' |
+  'children___parent___internal___description' |
+  'children___parent___internal___fieldOwners' |
+  'children___parent___internal___ignoreType' |
+  'children___parent___internal___mediaType' |
+  'children___parent___internal___owner' |
+  'children___parent___internal___type' |
+  'children___children' |
+  'children___children___id' |
+  'children___children___parent___id' |
+  'children___children___parent___children' |
+  'children___children___children' |
+  'children___children___children___id' |
+  'children___children___children___children' |
+  'children___children___internal___content' |
+  'children___children___internal___contentDigest' |
+  'children___children___internal___description' |
+  'children___children___internal___fieldOwners' |
+  'children___children___internal___ignoreType' |
+  'children___children___internal___mediaType' |
+  'children___children___internal___owner' |
+  'children___children___internal___type' |
+  'children___internal___content' |
+  'children___internal___contentDigest' |
+  'children___internal___description' |
+  'children___internal___fieldOwners' |
+  'children___internal___ignoreType' |
+  'children___internal___mediaType' |
+  'children___internal___owner' |
+  'children___internal___type' |
+  'internal___content' |
+  'internal___contentDigest' |
+  'internal___description' |
+  'internal___fieldOwners' |
+  'internal___ignoreType' |
+  'internal___mediaType' |
+  'internal___owner' |
+  'internal___type' |
+  'isCreatedByStatefulCreatePages' |
+  'context___slug' |
+  'pluginCreator___id' |
+  'pluginCreator___parent___id' |
+  'pluginCreator___parent___parent___id' |
+  'pluginCreator___parent___parent___children' |
+  'pluginCreator___parent___children' |
+  'pluginCreator___parent___children___id' |
+  'pluginCreator___parent___children___children' |
+  'pluginCreator___parent___internal___content' |
+  'pluginCreator___parent___internal___contentDigest' |
+  'pluginCreator___parent___internal___description' |
+  'pluginCreator___parent___internal___fieldOwners' |
+  'pluginCreator___parent___internal___ignoreType' |
+  'pluginCreator___parent___internal___mediaType' |
+  'pluginCreator___parent___internal___owner' |
+  'pluginCreator___parent___internal___type' |
+  'pluginCreator___children' |
+  'pluginCreator___children___id' |
+  'pluginCreator___children___parent___id' |
+  'pluginCreator___children___parent___children' |
+  'pluginCreator___children___children' |
+  'pluginCreator___children___children___id' |
+  'pluginCreator___children___children___children' |
+  'pluginCreator___children___internal___content' |
+  'pluginCreator___children___internal___contentDigest' |
+  'pluginCreator___children___internal___description' |
+  'pluginCreator___children___internal___fieldOwners' |
+  'pluginCreator___children___internal___ignoreType' |
+  'pluginCreator___children___internal___mediaType' |
+  'pluginCreator___children___internal___owner' |
+  'pluginCreator___children___internal___type' |
+  'pluginCreator___internal___content' |
+  'pluginCreator___internal___contentDigest' |
+  'pluginCreator___internal___description' |
+  'pluginCreator___internal___fieldOwners' |
+  'pluginCreator___internal___ignoreType' |
+  'pluginCreator___internal___mediaType' |
+  'pluginCreator___internal___owner' |
+  'pluginCreator___internal___type' |
+  'pluginCreator___resolve' |
+  'pluginCreator___name' |
+  'pluginCreator___version' |
+  'pluginCreator___pluginOptions___pathToConfigModule' |
+  'pluginCreator___pluginOptions___omitGoogleFont' |
+  'pluginCreator___pluginOptions___component' |
+  'pluginCreator___pluginOptions___name' |
+  'pluginCreator___pluginOptions___path' |
+  'pluginCreator___pluginOptions___short_name' |
+  'pluginCreator___pluginOptions___start_url' |
+  'pluginCreator___pluginOptions___background_color' |
+  'pluginCreator___pluginOptions___theme_color' |
+  'pluginCreator___pluginOptions___display' |
+  'pluginCreator___pluginOptions___icon' |
+  'pluginCreator___pluginOptions___projectId' |
+  'pluginCreator___pluginOptions___dataset' |
+  'pluginCreator___pluginOptions___token' |
+  'pluginCreator___pluginOptions___watchMode' |
+  'pluginCreator___pluginOptions___fileName' |
+  'pluginCreator___pluginOptions___documentPaths' |
+  'pluginCreator___pluginOptions___codegenDelay' |
+  'pluginCreator___pluginOptions___pathCheck' |
+  'pluginCreator___nodeAPIs' |
+  'pluginCreator___browserAPIs' |
+  'pluginCreator___ssrAPIs' |
+  'pluginCreator___pluginFilepath' |
+  'pluginCreator___packageJson___name' |
+  'pluginCreator___packageJson___description' |
+  'pluginCreator___packageJson___version' |
+  'pluginCreator___packageJson___main' |
+  'pluginCreator___packageJson___author' |
+  'pluginCreator___packageJson___license' |
+  'pluginCreator___packageJson___dependencies' |
+  'pluginCreator___packageJson___dependencies___name' |
+  'pluginCreator___packageJson___dependencies___version' |
+  'pluginCreator___packageJson___devDependencies' |
+  'pluginCreator___packageJson___devDependencies___name' |
+  'pluginCreator___packageJson___devDependencies___version' |
+  'pluginCreator___packageJson___peerDependencies' |
+  'pluginCreator___packageJson___peerDependencies___name' |
+  'pluginCreator___packageJson___peerDependencies___version' |
+  'pluginCreator___packageJson___keywords' |
+  'pluginCreatorId' |
+  'componentPath';
 
 export type SitePageFilterInput = {
   path?: Maybe<StringQueryOperatorInput>,
@@ -4047,7 +4759,6 @@ export type SitePageFilterInput = {
 };
 
 export type SitePageGroupConnection = {
-   __typename?: 'SitePageGroupConnection',
   totalCount: Scalars['Int'],
   edges: Array<SitePageEdge>,
   nodes: Array<SitePage>,
@@ -4062,7 +4773,6 @@ export type SitePageSortInput = {
 };
 
 export type SitePlugin = Node & {
-   __typename?: 'SitePlugin',
   id: Scalars['ID'],
   parent?: Maybe<Node>,
   children: Array<Node>,
@@ -4079,7 +4789,6 @@ export type SitePlugin = Node & {
 };
 
 export type SitePluginConnection = {
-   __typename?: 'SitePluginConnection',
   totalCount: Scalars['Int'],
   edges: Array<SitePluginEdge>,
   nodes: Array<SitePlugin>,
@@ -4101,139 +4810,140 @@ export type SitePluginConnectionGroupArgs = {
 };
 
 export type SitePluginEdge = {
-   __typename?: 'SitePluginEdge',
   next?: Maybe<SitePlugin>,
   node: SitePlugin,
   previous?: Maybe<SitePlugin>,
 };
 
-export enum SitePluginFieldsEnum {
-  Id = 'id',
-  ParentId = 'parent___id',
-  ParentParentId = 'parent___parent___id',
-  ParentParentParentId = 'parent___parent___parent___id',
-  ParentParentParentChildren = 'parent___parent___parent___children',
-  ParentParentChildren = 'parent___parent___children',
-  ParentParentChildrenId = 'parent___parent___children___id',
-  ParentParentChildrenChildren = 'parent___parent___children___children',
-  ParentParentInternalContent = 'parent___parent___internal___content',
-  ParentParentInternalContentDigest = 'parent___parent___internal___contentDigest',
-  ParentParentInternalDescription = 'parent___parent___internal___description',
-  ParentParentInternalFieldOwners = 'parent___parent___internal___fieldOwners',
-  ParentParentInternalIgnoreType = 'parent___parent___internal___ignoreType',
-  ParentParentInternalMediaType = 'parent___parent___internal___mediaType',
-  ParentParentInternalOwner = 'parent___parent___internal___owner',
-  ParentParentInternalType = 'parent___parent___internal___type',
-  ParentChildren = 'parent___children',
-  ParentChildrenId = 'parent___children___id',
-  ParentChildrenParentId = 'parent___children___parent___id',
-  ParentChildrenParentChildren = 'parent___children___parent___children',
-  ParentChildrenChildren = 'parent___children___children',
-  ParentChildrenChildrenId = 'parent___children___children___id',
-  ParentChildrenChildrenChildren = 'parent___children___children___children',
-  ParentChildrenInternalContent = 'parent___children___internal___content',
-  ParentChildrenInternalContentDigest = 'parent___children___internal___contentDigest',
-  ParentChildrenInternalDescription = 'parent___children___internal___description',
-  ParentChildrenInternalFieldOwners = 'parent___children___internal___fieldOwners',
-  ParentChildrenInternalIgnoreType = 'parent___children___internal___ignoreType',
-  ParentChildrenInternalMediaType = 'parent___children___internal___mediaType',
-  ParentChildrenInternalOwner = 'parent___children___internal___owner',
-  ParentChildrenInternalType = 'parent___children___internal___type',
-  ParentInternalContent = 'parent___internal___content',
-  ParentInternalContentDigest = 'parent___internal___contentDigest',
-  ParentInternalDescription = 'parent___internal___description',
-  ParentInternalFieldOwners = 'parent___internal___fieldOwners',
-  ParentInternalIgnoreType = 'parent___internal___ignoreType',
-  ParentInternalMediaType = 'parent___internal___mediaType',
-  ParentInternalOwner = 'parent___internal___owner',
-  ParentInternalType = 'parent___internal___type',
-  Children = 'children',
-  ChildrenId = 'children___id',
-  ChildrenParentId = 'children___parent___id',
-  ChildrenParentParentId = 'children___parent___parent___id',
-  ChildrenParentParentChildren = 'children___parent___parent___children',
-  ChildrenParentChildren = 'children___parent___children',
-  ChildrenParentChildrenId = 'children___parent___children___id',
-  ChildrenParentChildrenChildren = 'children___parent___children___children',
-  ChildrenParentInternalContent = 'children___parent___internal___content',
-  ChildrenParentInternalContentDigest = 'children___parent___internal___contentDigest',
-  ChildrenParentInternalDescription = 'children___parent___internal___description',
-  ChildrenParentInternalFieldOwners = 'children___parent___internal___fieldOwners',
-  ChildrenParentInternalIgnoreType = 'children___parent___internal___ignoreType',
-  ChildrenParentInternalMediaType = 'children___parent___internal___mediaType',
-  ChildrenParentInternalOwner = 'children___parent___internal___owner',
-  ChildrenParentInternalType = 'children___parent___internal___type',
-  ChildrenChildren = 'children___children',
-  ChildrenChildrenId = 'children___children___id',
-  ChildrenChildrenParentId = 'children___children___parent___id',
-  ChildrenChildrenParentChildren = 'children___children___parent___children',
-  ChildrenChildrenChildren = 'children___children___children',
-  ChildrenChildrenChildrenId = 'children___children___children___id',
-  ChildrenChildrenChildrenChildren = 'children___children___children___children',
-  ChildrenChildrenInternalContent = 'children___children___internal___content',
-  ChildrenChildrenInternalContentDigest = 'children___children___internal___contentDigest',
-  ChildrenChildrenInternalDescription = 'children___children___internal___description',
-  ChildrenChildrenInternalFieldOwners = 'children___children___internal___fieldOwners',
-  ChildrenChildrenInternalIgnoreType = 'children___children___internal___ignoreType',
-  ChildrenChildrenInternalMediaType = 'children___children___internal___mediaType',
-  ChildrenChildrenInternalOwner = 'children___children___internal___owner',
-  ChildrenChildrenInternalType = 'children___children___internal___type',
-  ChildrenInternalContent = 'children___internal___content',
-  ChildrenInternalContentDigest = 'children___internal___contentDigest',
-  ChildrenInternalDescription = 'children___internal___description',
-  ChildrenInternalFieldOwners = 'children___internal___fieldOwners',
-  ChildrenInternalIgnoreType = 'children___internal___ignoreType',
-  ChildrenInternalMediaType = 'children___internal___mediaType',
-  ChildrenInternalOwner = 'children___internal___owner',
-  ChildrenInternalType = 'children___internal___type',
-  InternalContent = 'internal___content',
-  InternalContentDigest = 'internal___contentDigest',
-  InternalDescription = 'internal___description',
-  InternalFieldOwners = 'internal___fieldOwners',
-  InternalIgnoreType = 'internal___ignoreType',
-  InternalMediaType = 'internal___mediaType',
-  InternalOwner = 'internal___owner',
-  InternalType = 'internal___type',
-  Resolve = 'resolve',
-  Name = 'name',
-  Version = 'version',
-  PluginOptionsPathToConfigModule = 'pluginOptions___pathToConfigModule',
-  PluginOptionsOmitGoogleFont = 'pluginOptions___omitGoogleFont',
-  PluginOptionsComponent = 'pluginOptions___component',
-  PluginOptionsName = 'pluginOptions___name',
-  PluginOptionsPath = 'pluginOptions___path',
-  PluginOptionsShortName = 'pluginOptions___short_name',
-  PluginOptionsStartUrl = 'pluginOptions___start_url',
-  PluginOptionsBackgroundColor = 'pluginOptions___background_color',
-  PluginOptionsThemeColor = 'pluginOptions___theme_color',
-  PluginOptionsDisplay = 'pluginOptions___display',
-  PluginOptionsIcon = 'pluginOptions___icon',
-  PluginOptionsProjectId = 'pluginOptions___projectId',
-  PluginOptionsDataset = 'pluginOptions___dataset',
-  PluginOptionsToken = 'pluginOptions___token',
-  PluginOptionsWatchMode = 'pluginOptions___watchMode',
-  PluginOptionsPathCheck = 'pluginOptions___pathCheck',
-  NodeApIs = 'nodeAPIs',
-  BrowserApIs = 'browserAPIs',
-  SsrApIs = 'ssrAPIs',
-  PluginFilepath = 'pluginFilepath',
-  PackageJsonName = 'packageJson___name',
-  PackageJsonDescription = 'packageJson___description',
-  PackageJsonVersion = 'packageJson___version',
-  PackageJsonMain = 'packageJson___main',
-  PackageJsonAuthor = 'packageJson___author',
-  PackageJsonLicense = 'packageJson___license',
-  PackageJsonDependencies = 'packageJson___dependencies',
-  PackageJsonDependenciesName = 'packageJson___dependencies___name',
-  PackageJsonDependenciesVersion = 'packageJson___dependencies___version',
-  PackageJsonDevDependencies = 'packageJson___devDependencies',
-  PackageJsonDevDependenciesName = 'packageJson___devDependencies___name',
-  PackageJsonDevDependenciesVersion = 'packageJson___devDependencies___version',
-  PackageJsonPeerDependencies = 'packageJson___peerDependencies',
-  PackageJsonPeerDependenciesName = 'packageJson___peerDependencies___name',
-  PackageJsonPeerDependenciesVersion = 'packageJson___peerDependencies___version',
-  PackageJsonKeywords = 'packageJson___keywords'
-}
+export type SitePluginFieldsEnum = 
+  'id' |
+  'parent___id' |
+  'parent___parent___id' |
+  'parent___parent___parent___id' |
+  'parent___parent___parent___children' |
+  'parent___parent___children' |
+  'parent___parent___children___id' |
+  'parent___parent___children___children' |
+  'parent___parent___internal___content' |
+  'parent___parent___internal___contentDigest' |
+  'parent___parent___internal___description' |
+  'parent___parent___internal___fieldOwners' |
+  'parent___parent___internal___ignoreType' |
+  'parent___parent___internal___mediaType' |
+  'parent___parent___internal___owner' |
+  'parent___parent___internal___type' |
+  'parent___children' |
+  'parent___children___id' |
+  'parent___children___parent___id' |
+  'parent___children___parent___children' |
+  'parent___children___children' |
+  'parent___children___children___id' |
+  'parent___children___children___children' |
+  'parent___children___internal___content' |
+  'parent___children___internal___contentDigest' |
+  'parent___children___internal___description' |
+  'parent___children___internal___fieldOwners' |
+  'parent___children___internal___ignoreType' |
+  'parent___children___internal___mediaType' |
+  'parent___children___internal___owner' |
+  'parent___children___internal___type' |
+  'parent___internal___content' |
+  'parent___internal___contentDigest' |
+  'parent___internal___description' |
+  'parent___internal___fieldOwners' |
+  'parent___internal___ignoreType' |
+  'parent___internal___mediaType' |
+  'parent___internal___owner' |
+  'parent___internal___type' |
+  'children' |
+  'children___id' |
+  'children___parent___id' |
+  'children___parent___parent___id' |
+  'children___parent___parent___children' |
+  'children___parent___children' |
+  'children___parent___children___id' |
+  'children___parent___children___children' |
+  'children___parent___internal___content' |
+  'children___parent___internal___contentDigest' |
+  'children___parent___internal___description' |
+  'children___parent___internal___fieldOwners' |
+  'children___parent___internal___ignoreType' |
+  'children___parent___internal___mediaType' |
+  'children___parent___internal___owner' |
+  'children___parent___internal___type' |
+  'children___children' |
+  'children___children___id' |
+  'children___children___parent___id' |
+  'children___children___parent___children' |
+  'children___children___children' |
+  'children___children___children___id' |
+  'children___children___children___children' |
+  'children___children___internal___content' |
+  'children___children___internal___contentDigest' |
+  'children___children___internal___description' |
+  'children___children___internal___fieldOwners' |
+  'children___children___internal___ignoreType' |
+  'children___children___internal___mediaType' |
+  'children___children___internal___owner' |
+  'children___children___internal___type' |
+  'children___internal___content' |
+  'children___internal___contentDigest' |
+  'children___internal___description' |
+  'children___internal___fieldOwners' |
+  'children___internal___ignoreType' |
+  'children___internal___mediaType' |
+  'children___internal___owner' |
+  'children___internal___type' |
+  'internal___content' |
+  'internal___contentDigest' |
+  'internal___description' |
+  'internal___fieldOwners' |
+  'internal___ignoreType' |
+  'internal___mediaType' |
+  'internal___owner' |
+  'internal___type' |
+  'resolve' |
+  'name' |
+  'version' |
+  'pluginOptions___pathToConfigModule' |
+  'pluginOptions___omitGoogleFont' |
+  'pluginOptions___component' |
+  'pluginOptions___name' |
+  'pluginOptions___path' |
+  'pluginOptions___short_name' |
+  'pluginOptions___start_url' |
+  'pluginOptions___background_color' |
+  'pluginOptions___theme_color' |
+  'pluginOptions___display' |
+  'pluginOptions___icon' |
+  'pluginOptions___projectId' |
+  'pluginOptions___dataset' |
+  'pluginOptions___token' |
+  'pluginOptions___watchMode' |
+  'pluginOptions___fileName' |
+  'pluginOptions___documentPaths' |
+  'pluginOptions___codegenDelay' |
+  'pluginOptions___pathCheck' |
+  'nodeAPIs' |
+  'browserAPIs' |
+  'ssrAPIs' |
+  'pluginFilepath' |
+  'packageJson___name' |
+  'packageJson___description' |
+  'packageJson___version' |
+  'packageJson___main' |
+  'packageJson___author' |
+  'packageJson___license' |
+  'packageJson___dependencies' |
+  'packageJson___dependencies___name' |
+  'packageJson___dependencies___version' |
+  'packageJson___devDependencies' |
+  'packageJson___devDependencies___name' |
+  'packageJson___devDependencies___version' |
+  'packageJson___peerDependencies' |
+  'packageJson___peerDependencies___name' |
+  'packageJson___peerDependencies___version' |
+  'packageJson___keywords';
 
 export type SitePluginFilterInput = {
   id?: Maybe<StringQueryOperatorInput>,
@@ -4252,7 +4962,6 @@ export type SitePluginFilterInput = {
 };
 
 export type SitePluginGroupConnection = {
-   __typename?: 'SitePluginGroupConnection',
   totalCount: Scalars['Int'],
   edges: Array<SitePluginEdge>,
   nodes: Array<SitePlugin>,
@@ -4262,7 +4971,6 @@ export type SitePluginGroupConnection = {
 };
 
 export type SitePluginPackageJson = {
-   __typename?: 'SitePluginPackageJson',
   name?: Maybe<Scalars['String']>,
   description?: Maybe<Scalars['String']>,
   version?: Maybe<Scalars['String']>,
@@ -4276,7 +4984,6 @@ export type SitePluginPackageJson = {
 };
 
 export type SitePluginPackageJsonDependencies = {
-   __typename?: 'SitePluginPackageJsonDependencies',
   name?: Maybe<Scalars['String']>,
   version?: Maybe<Scalars['String']>,
 };
@@ -4291,7 +4998,6 @@ export type SitePluginPackageJsonDependenciesFilterListInput = {
 };
 
 export type SitePluginPackageJsonDevDependencies = {
-   __typename?: 'SitePluginPackageJsonDevDependencies',
   name?: Maybe<Scalars['String']>,
   version?: Maybe<Scalars['String']>,
 };
@@ -4319,7 +5025,6 @@ export type SitePluginPackageJsonFilterInput = {
 };
 
 export type SitePluginPackageJsonPeerDependencies = {
-   __typename?: 'SitePluginPackageJsonPeerDependencies',
   name?: Maybe<Scalars['String']>,
   version?: Maybe<Scalars['String']>,
 };
@@ -4334,7 +5039,6 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 };
 
 export type SitePluginPluginOptions = {
-   __typename?: 'SitePluginPluginOptions',
   pathToConfigModule?: Maybe<Scalars['String']>,
   omitGoogleFont?: Maybe<Scalars['Boolean']>,
   component?: Maybe<Scalars['String']>,
@@ -4350,6 +5054,9 @@ export type SitePluginPluginOptions = {
   dataset?: Maybe<Scalars['String']>,
   token?: Maybe<Scalars['String']>,
   watchMode?: Maybe<Scalars['Boolean']>,
+  fileName?: Maybe<Scalars['String']>,
+  documentPaths?: Maybe<Array<Maybe<Scalars['String']>>>,
+  codegenDelay?: Maybe<Scalars['Int']>,
   pathCheck?: Maybe<Scalars['Boolean']>,
 };
 
@@ -4369,6 +5076,9 @@ export type SitePluginPluginOptionsFilterInput = {
   dataset?: Maybe<StringQueryOperatorInput>,
   token?: Maybe<StringQueryOperatorInput>,
   watchMode?: Maybe<BooleanQueryOperatorInput>,
+  fileName?: Maybe<StringQueryOperatorInput>,
+  documentPaths?: Maybe<StringQueryOperatorInput>,
+  codegenDelay?: Maybe<IntQueryOperatorInput>,
   pathCheck?: Maybe<BooleanQueryOperatorInput>,
 };
 
@@ -4378,7 +5088,6 @@ export type SitePluginSortInput = {
 };
 
 export type SiteSiteMetadata = {
-   __typename?: 'SiteSiteMetadata',
   title?: Maybe<Scalars['String']>,
   description?: Maybe<Scalars['String']>,
   author?: Maybe<Scalars['String']>,
@@ -4395,10 +5104,9 @@ export type SiteSortInput = {
   order?: Maybe<Array<Maybe<SortOrderEnum>>>,
 };
 
-export enum SortOrderEnum {
-  Asc = 'ASC',
-  Desc = 'DESC'
-}
+export type SortOrderEnum = 
+  'ASC' |
+  'DESC';
 
 export type StringQueryOperatorInput = {
   eq?: Maybe<Scalars['String']>,
@@ -4409,281 +5117,115 @@ export type StringQueryOperatorInput = {
   glob?: Maybe<Scalars['String']>,
 };
 
-export type GatsbySanityImageFixedFragment = (
-  { __typename?: 'SanityImageFixed' }
-  & Pick<SanityImageFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>
-);
-
-export type GatsbySanityImageFixed_NoBase64Fragment = (
-  { __typename?: 'SanityImageFixed' }
-  & Pick<SanityImageFixed, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>
-);
-
-export type GatsbySanityImageFixed_WithWebpFragment = (
-  { __typename?: 'SanityImageFixed' }
-  & Pick<SanityImageFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>
-);
-
-export type GatsbySanityImageFixed_WithWebp_NoBase64Fragment = (
-  { __typename?: 'SanityImageFixed' }
-  & Pick<SanityImageFixed, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>
-);
-
-export type GatsbySanityImageFluidFragment = (
-  { __typename?: 'SanityImageFluid' }
-  & Pick<SanityImageFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>
-);
-
-export type GatsbySanityImageFluid_NoBase64Fragment = (
-  { __typename?: 'SanityImageFluid' }
-  & Pick<SanityImageFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>
-);
-
-export type GatsbySanityImageFluid_WithWebpFragment = (
-  { __typename?: 'SanityImageFluid' }
-  & Pick<SanityImageFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>
-);
-
-export type GatsbySanityImageFluid_WithWebp_NoBase64Fragment = (
-  { __typename?: 'SanityImageFluid' }
-  & Pick<SanityImageFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>
-);
-
-export type GatsbyImageSharpFixedFragment = (
-  { __typename?: 'ImageSharpFixed' }
-  & Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>
-);
-
-export type GatsbyImageSharpFixed_TracedSvgFragment = (
-  { __typename?: 'ImageSharpFixed' }
-  & Pick<ImageSharpFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>
-);
-
-export type GatsbyImageSharpFixed_WithWebpFragment = (
-  { __typename?: 'ImageSharpFixed' }
-  & Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>
-);
-
-export type GatsbyImageSharpFixed_WithWebp_TracedSvgFragment = (
-  { __typename?: 'ImageSharpFixed' }
-  & Pick<ImageSharpFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>
-);
-
-export type GatsbyImageSharpFixed_NoBase64Fragment = (
-  { __typename?: 'ImageSharpFixed' }
-  & Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet'>
-);
-
-export type GatsbyImageSharpFixed_WithWebp_NoBase64Fragment = (
-  { __typename?: 'ImageSharpFixed' }
-  & Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>
-);
-
-export type GatsbyImageSharpFluidFragment = (
-  { __typename?: 'ImageSharpFluid' }
-  & Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>
-);
-
-export type GatsbyImageSharpFluid_TracedSvgFragment = (
-  { __typename?: 'ImageSharpFluid' }
-  & Pick<ImageSharpFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>
-);
-
-export type GatsbyImageSharpFluid_WithWebpFragment = (
-  { __typename?: 'ImageSharpFluid' }
-  & Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>
-);
-
-export type GatsbyImageSharpFluid_WithWebp_TracedSvgFragment = (
-  { __typename?: 'ImageSharpFluid' }
-  & Pick<ImageSharpFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>
-);
-
-export type GatsbyImageSharpFluid_NoBase64Fragment = (
-  { __typename?: 'ImageSharpFluid' }
-  & Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>
-);
-
-export type GatsbyImageSharpFluid_WithWebp_NoBase64Fragment = (
-  { __typename?: 'ImageSharpFluid' }
-  & Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>
-);
-
-export type GatsbyImageSharpResolutionsFragment = (
-  { __typename?: 'ImageSharpResolutions' }
-  & Pick<ImageSharpResolutions, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>
-);
-
-export type GatsbyImageSharpResolutions_TracedSvgFragment = (
-  { __typename?: 'ImageSharpResolutions' }
-  & Pick<ImageSharpResolutions, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>
-);
-
-export type GatsbyImageSharpResolutions_WithWebpFragment = (
-  { __typename?: 'ImageSharpResolutions' }
-  & Pick<ImageSharpResolutions, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>
-);
-
-export type GatsbyImageSharpResolutions_WithWebp_TracedSvgFragment = (
-  { __typename?: 'ImageSharpResolutions' }
-  & Pick<ImageSharpResolutions, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>
-);
-
-export type GatsbyImageSharpResolutions_NoBase64Fragment = (
-  { __typename?: 'ImageSharpResolutions' }
-  & Pick<ImageSharpResolutions, 'width' | 'height' | 'src' | 'srcSet'>
-);
-
-export type GatsbyImageSharpResolutions_WithWebp_NoBase64Fragment = (
-  { __typename?: 'ImageSharpResolutions' }
-  & Pick<ImageSharpResolutions, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>
-);
-
-export type GatsbyImageSharpSizesFragment = (
-  { __typename?: 'ImageSharpSizes' }
-  & Pick<ImageSharpSizes, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>
-);
-
-export type GatsbyImageSharpSizes_TracedSvgFragment = (
-  { __typename?: 'ImageSharpSizes' }
-  & Pick<ImageSharpSizes, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>
-);
-
-export type GatsbyImageSharpSizes_WithWebpFragment = (
-  { __typename?: 'ImageSharpSizes' }
-  & Pick<ImageSharpSizes, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>
-);
-
-export type GatsbyImageSharpSizes_WithWebp_TracedSvgFragment = (
-  { __typename?: 'ImageSharpSizes' }
-  & Pick<ImageSharpSizes, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>
-);
-
-export type GatsbyImageSharpSizes_NoBase64Fragment = (
-  { __typename?: 'ImageSharpSizes' }
-  & Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>
-);
-
-export type GatsbyImageSharpSizes_WithWebp_NoBase64Fragment = (
-  { __typename?: 'ImageSharpSizes' }
-  & Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>
-);
-
-export type PagesQueryQueryVariables = {};
-
-
-export type PagesQueryQuery = (
-  { __typename?: 'Query' }
-  & { allSitePage: (
-    { __typename?: 'SitePageConnection' }
-    & { nodes: Array<(
-      { __typename?: 'SitePage' }
-      & Pick<SitePage, 'path'>
-    )> }
-  ) }
-);
-
 export type Unnamed_1_QueryVariables = {};
 
 
-export type Unnamed_1_Query = (
-  { __typename?: 'Query' }
-  & { placeholderImage: Maybe<(
-    { __typename?: 'File' }
-    & { childImageSharp: Maybe<(
-      { __typename?: 'ImageSharp' }
-      & { fluid: Maybe<(
-        { __typename?: 'ImageSharpFluid' }
-        & GatsbyImageSharpFluidFragment
-      )> }
-    )> }
-  )> }
-);
+export type Unnamed_1_Query = { placeholderImage: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> };
 
 export type Unnamed_2_QueryVariables = {};
 
 
-export type Unnamed_2_Query = (
-  { __typename?: 'Query' }
-  & { placeholderImage: Maybe<(
-    { __typename?: 'File' }
-    & { childImageSharp: Maybe<(
-      { __typename?: 'ImageSharp' }
-      & { fluid: Maybe<(
-        { __typename?: 'ImageSharpFluid' }
-        & GatsbyImageSharpFluidFragment
-      )> }
-    )> }
-  )> }
-);
+export type Unnamed_2_Query = { placeholderImage: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> };
 
 export type Unnamed_3_QueryVariables = {};
 
 
-export type Unnamed_3_Query = (
-  { __typename?: 'Query' }
-  & { site: Maybe<(
-    { __typename?: 'Site' }
-    & { siteMetadata: Maybe<(
-      { __typename?: 'SiteSiteMetadata' }
-      & Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>
-    )> }
-  )> }
-);
+export type Unnamed_3_Query = { site: Maybe<{ siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
 
-export type WorksDataQueryVariables = {};
+export type PortfolioPageDataQueryVariables = {};
 
 
-export type WorksDataQuery = (
-  { __typename?: 'Query' }
-  & { allSanityWork: (
-    { __typename?: 'SanityWorkConnection' }
-    & { nodes: Array<(
-      { __typename?: 'SanityWork' }
-      & Pick<SanityWork, 'title'>
-      & { mainImage: Maybe<(
-        { __typename?: 'SanityImage' }
-        & { asset: Maybe<(
-          { __typename?: 'SanityImageAsset' }
-          & { fluid: Maybe<(
-            { __typename?: 'SanityImageFluid' }
-            & Pick<SanityImageFluid, 'src'>
-          )> }
-        )> }
-      )>, slug: Maybe<(
-        { __typename?: 'SanitySlug' }
-        & Pick<SanitySlug, 'current'>
-      )> }
-    )> }
-  ) }
-);
+export type PortfolioPageDataQuery = { allSanityPortfolio: { edges: Array<{ node: (
+        Pick<SanityPortfolio, 'id' | '_rawAbout' | '_rawWork' | '_rawTestimonials' | '_rawMyPreferences' | 'accessGrant'>
+        & { profilePhoto: Maybe<{ asset: Maybe<{ fluid: Maybe<Pick<SanityImageFluid, 'src' | 'srcSet'>> }> }>, experience: Maybe<Array<Maybe<(
+          Pick<SanityExperience, 'company' | 'designation' | 'currentlyWorking'>
+          & { companyLogo: Maybe<{ asset: Maybe<{ fluid: Maybe<Pick<SanityImageFluid, 'src'>> }> }> }
+        )>>>, testimonials: Maybe<Array<Maybe<{ authorPhoto: Maybe<{ asset: Maybe<{ fluid: Maybe<Pick<SanityImageFluid, 'src'>> }> }> }>>>, work: Maybe<Array<Maybe<(
+          Pick<SanityWorkDetails, 'companyName'>
+          & { work: Maybe<Array<Maybe<(
+            Pick<SanityWork, 'title' | '_rawProblemStatement' | '_rawSolution'>
+            & { themeColor: Maybe<Pick<SanityColor, 'hex'>>, mainImage: Maybe<{ asset: Maybe<{ fluid: Maybe<Pick<SanityImageFluid, 'srcSet' | 'src'>> }> }> }
+          )>>> }
+        )>>> }
+      ) }> } };
 
 export type SanityBlogsQueryQueryVariables = {
   slug?: Maybe<Scalars['String']>
 };
 
 
-export type SanityBlogsQueryQuery = (
-  { __typename?: 'Query' }
-  & { sanityBlog: Maybe<(
-    { __typename?: 'SanityBlog' }
-    & Pick<SanityBlog, 'title'>
-    & { slug: Maybe<(
-      { __typename?: 'SanitySlug' }
-      & Pick<SanitySlug, 'current'>
-    )> }
-  )> }
-);
+export type SanityBlogsQueryQuery = { sanityBlog: Maybe<(
+    Pick<SanityBlog, 'title'>
+    & { slug: Maybe<Pick<SanitySlug, 'current'>> }
+  )> };
 
 export type SanityWorksQueryQueryVariables = {
   slug?: Maybe<Scalars['String']>
 };
 
 
-export type SanityWorksQueryQuery = (
-  { __typename?: 'Query' }
-  & { sanityWork: Maybe<(
-    { __typename?: 'SanityWork' }
-    & Pick<SanityWork, 'title'>
-  )> }
-);
+export type SanityWorksQueryQuery = { sanityWork: Maybe<Pick<SanityWork, 'title'>> };
+
+export type GatsbySanityImageFixedFragment = Pick<SanityImageFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+export type GatsbySanityImageFixed_NoBase64Fragment = Pick<SanityImageFixed, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+export type GatsbySanityImageFixed_WithWebpFragment = Pick<SanityImageFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+export type GatsbySanityImageFixed_WithWebp_NoBase64Fragment = Pick<SanityImageFixed, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+export type GatsbySanityImageFluidFragment = Pick<SanityImageFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+export type GatsbySanityImageFluid_NoBase64Fragment = Pick<SanityImageFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+export type GatsbySanityImageFluid_WithWebpFragment = Pick<SanityImageFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+export type GatsbySanityImageFluid_WithWebp_NoBase64Fragment = Pick<SanityImageFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+export type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
+
+export type GatsbyImageSharpFixed_TracedSvgFragment = Pick<ImageSharpFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
+
+export type GatsbyImageSharpFixed_WithWebpFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+export type GatsbyImageSharpFixed_WithWebp_TracedSvgFragment = Pick<ImageSharpFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+export type GatsbyImageSharpFixed_NoBase64Fragment = Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet'>;
+
+export type GatsbyImageSharpFixed_WithWebp_NoBase64Fragment = Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+export type GatsbyImageSharpFluidFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+export type GatsbyImageSharpFluid_TracedSvgFragment = Pick<ImageSharpFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+export type GatsbyImageSharpFluid_WithWebpFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+export type GatsbyImageSharpFluid_WithWebp_TracedSvgFragment = Pick<ImageSharpFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+export type GatsbyImageSharpFluid_NoBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+export type GatsbyImageSharpFluid_WithWebp_NoBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+export type GatsbyImageSharpResolutionsFragment = Pick<ImageSharpResolutions, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
+
+export type GatsbyImageSharpResolutions_TracedSvgFragment = Pick<ImageSharpResolutions, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
+
+export type GatsbyImageSharpResolutions_WithWebpFragment = Pick<ImageSharpResolutions, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+export type GatsbyImageSharpResolutions_WithWebp_TracedSvgFragment = Pick<ImageSharpResolutions, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+export type GatsbyImageSharpResolutions_NoBase64Fragment = Pick<ImageSharpResolutions, 'width' | 'height' | 'src' | 'srcSet'>;
+
+export type GatsbyImageSharpResolutions_WithWebp_NoBase64Fragment = Pick<ImageSharpResolutions, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+export type GatsbyImageSharpSizesFragment = Pick<ImageSharpSizes, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+export type GatsbyImageSharpSizes_TracedSvgFragment = Pick<ImageSharpSizes, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+export type GatsbyImageSharpSizes_WithWebpFragment = Pick<ImageSharpSizes, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+export type GatsbyImageSharpSizes_WithWebp_TracedSvgFragment = Pick<ImageSharpSizes, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+export type GatsbyImageSharpSizes_NoBase64Fragment = Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+export type GatsbyImageSharpSizes_WithWebp_NoBase64Fragment = Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;

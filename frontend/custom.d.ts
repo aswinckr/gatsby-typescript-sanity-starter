@@ -8,3 +8,5 @@ declare module '*.svg' {
 declare module 'utils' {
   export const device: string;
 }
+
+declare module '@sanity/block-content-to-react';

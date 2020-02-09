@@ -8,6 +8,7 @@ export default {
       title: "Title",
       type: "string"
     },
+
     {
       name: "slug",
       title: "Slug",
@@ -18,9 +19,20 @@ export default {
       }
     },
     {
+      name: "problemStatement",
+      title: "Problem Statement",
+      type: "blockContent"
+    },
+    {
+      name: "solution",
+      title: "Solution / Expected Outcome",
+      type: "blockContent"
+    },
+    {
       name: "mainImage",
       title: "Main image",
       type: "image",
+      validation: Rule => Rule.required(),
       options: {
         hotspot: true
       }
@@ -39,6 +51,11 @@ export default {
       name: "body",
       title: "Body",
       type: "blockContent"
+    },
+    {
+      name: "themeColor",
+      title: "Theme color",
+      type: "color"
     }
   ]
 

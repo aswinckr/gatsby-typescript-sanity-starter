@@ -62,6 +62,18 @@ module.exports = {
         watchMode: true,
       },
     },
+    {
+      resolve: `gatsby-plugin-graphql-codegen`,
+      options: {
+        fileName: `graphqlTypes.ts`,
+        documentPaths: [
+          './src/**/*.{ts,tsx}',
+          './node_modules/gatsby-*/**/*.js',
+        ],
+        codegenDelay: 200,
+      },
+    },
+
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

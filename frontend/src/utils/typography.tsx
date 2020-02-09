@@ -1,15 +1,33 @@
 // tslint:disable: object-literal-sort-keys
 import Typography from 'typography';
+import { linkColor } from '../components/colors';
 
 const typography = new Typography({
   baseFontSize: '16px',
-  baseLineHeight: 1.666,
-  bodyFontFamily: ['Barlow', 'Helvetica', 'sans-serif'],
-  headerFontFamily: ['Barlow', 'Helvetica', 'sans-serif'],
-  googleFonts: [{ name: 'Barlow', styles: ['400', '700'] }],
-  headerWeight: 700,
+  baseLineHeight: 1.7,
+  bodyFontFamily: ['Inter', 'Helvetica', 'sans-serif'],
+  headerFontFamily: ['Inter', 'Helvetica', 'sans-serif'],
+  // googleFonts: [{ name: 'Barlow', styles: ['400', '700'] }],
+  headerWeight: 600,
   bodyWeight: 400,
-  scaleRatio: 2.35,
+  scaleRatio: 2.25,
+  overrideStyles: () => ({
+    h1: {
+      fontSize: '3em',
+      letterSpacing: '-.04em',
+    },
+    h2: {
+      letterSpacing: '-.01em',
+      fontWeight: 600,
+      color: linkColor,
+    },
+    a: {
+      fontWeight: 600,
+    },
+    li: {
+      listStyle: 'circle',
+    },
+  }),
 });
 
 export default typography;
