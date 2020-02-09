@@ -5149,7 +5149,7 @@ export type PortfolioPageDataQuery = { allSanityPortfolio: { edges: Array<{ node
           Pick<SanityWorkDetails, 'companyName'>
           & { work: Maybe<Array<Maybe<(
             Pick<SanityWork, 'title' | '_rawProblemStatement' | '_rawSolution'>
-            & { themeColor: Maybe<Pick<SanityColor, 'hex'>>, mainImage: Maybe<{ asset: Maybe<{ fluid: Maybe<Pick<SanityImageFluid, 'srcSet' | 'src'>> }> }> }
+            & { themeColor: Maybe<Pick<SanityColor, 'hex'>>, mainImage: Maybe<{ asset: Maybe<{ fluid: Maybe<GatsbySanityImageFluidFragment> }> }> }
           )>>> }
         )>>> }
       ) }> } };

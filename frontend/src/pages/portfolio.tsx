@@ -127,14 +127,10 @@ const IndexPageStyles = styled.div`
   .portfolio-preview-image {
     width: 100%;
     overflow: hidden;
-    min-height: 250px;
+    min-height: 300px;
     display: flex;
-    img {
-      margin-bottom: 0;
-    }
   }
   .portfolio-showcase-wrapper {
-    padding: 24px 24px 0 24px;
     margin: 60px 0 40px 0;
     border-radius: 4px;
     display: flex;
@@ -145,11 +141,13 @@ const IndexPageStyles = styled.div`
 
     h2 {
       color: #fff;
+      padding: 24px 24px 0 24px;
       width: 100%;
       margin: 24px 0 44px 0;
     }
     .portfolio-preview-problem,
     .portfolio-preview-solution {
+      padding: 0 24px;
       width: 50%;
       font-size: 0.9em;
       h2 {
@@ -198,6 +196,11 @@ const IndexPageStyles = styled.div`
   .so-are-we-moving-forward {
     margin-bottom: 72vh;
   }
+`;
+
+const WorkDisplayImg = styled.div<{ src: string }>`
+  background: url(${props => props.src}) no-repeat center center;
+  background-size: cover;
 `;
 
 const sidebarNavElements = [
@@ -410,25 +413,16 @@ const Index = ({
                                 />
                               </div>
 
-                              <div className="portfolio-preview-image ">
-                                {workThumbnail?.mainImage && (
-                                  <img
-                                    src={
-                                      portfolio.work &&
-                                      portfolio.work[index]?.work &&
-                                      portfolio.work[index]?.work[
-                                        indexThumbnail
-                                      ]?.mainImage?.asset?.fluid?.src !== null
-                                        ? portfolio.work[index]?.work[
-                                            indexThumbnail
-                                          ]?.mainImage?.asset?.fluid?.src
-                                        : 'https://placehold.it/800x500'
-                                    }
-                                    alt="Placeholder Image"
-                                    className="soft-shadow"
-                                  />
-                                )}
-                              </div>
+                              {workThumbnail?.mainImage && (
+                                <WorkDisplayImg
+                                  className="portfolio-preview-image"
+                                  src={
+                                    portfolio.work![index]?.work![
+                                      indexThumbnail
+                                    ]?.mainImage?.asset?.fluid?.src!
+                                  }
+                                />
+                              )}
                             </div>
                           </Link>
                         </Fade>
@@ -563,8 +557,7 @@ export const query = graphql`
               mainImage {
                 asset {
                   fluid {
-                    srcSet
-                    src
+                    ...GatsbySanityImageFluid
                   }
                 }
               }
