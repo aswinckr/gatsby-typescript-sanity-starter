@@ -441,29 +441,31 @@ const Index = ({
               <section className="what-people-say">
                 <h2>Nice Things People Say</h2>
                 {allTestimonials.map((testimonial, index) => (
-                  <Fade key={index}>
-                    <div className="what-people-say-testimonial soft-shadow grow">
-                      <div className="author-photo">
-                        <img
-                          src={
-                            portfolio.testimonials !== null
-                              ? portfolio.testimonials[index]?.authorPhoto
-                                  ?.asset?.fluid?.src!
-                              : 'https://placehold.it/50x50'
-                          }
-                          alt={testimonial.author!}
-                          width="100"
-                          height="100"
-                        />
+                  <div className="grow" key={index}>
+                    <Fade>
+                      <div className="what-people-say-testimonial soft-shadow">
+                        <div className="author-photo">
+                          <img
+                            src={
+                              portfolio.testimonials !== null
+                                ? portfolio.testimonials[index]?.authorPhoto
+                                    ?.asset?.fluid?.src!
+                                : 'https://placehold.it/50x50'
+                            }
+                            alt={testimonial.author!}
+                            width="100"
+                            height="100"
+                          />
+                        </div>
+                        <span key={index}>
+                          <BlockContent blocks={testimonial.statement} />
+                          <p className="what-people-say-author">
+                            {testimonial.author}
+                          </p>
+                        </span>
                       </div>
-                      <span key={index}>
-                        <BlockContent blocks={testimonial.statement} />
-                        <p className="what-people-say-author">
-                          {testimonial.author}
-                        </p>
-                      </span>
-                    </div>
-                  </Fade>
+                    </Fade>
+                  </div>
                 ))}
               </section>
             </Element>
