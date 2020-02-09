@@ -3,7 +3,7 @@ import { LightenDarkenColor } from '../utils';
 
 // Basic Colors
 
-export const primaryColor: string = '#26B9A0';
+export const primaryColor: string = '#e44232';
 export const primaryHoverColor: string = LightenDarkenColor(primaryColor, -30);
 export const darkBackgroundColor: string = '#1c1d25';
 export const lightBackgroundColor: string = '#FFF';

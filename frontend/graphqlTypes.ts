@@ -5132,6 +5132,11 @@ export type Unnamed_3_QueryVariables = {};
 
 export type Unnamed_3_Query = { site: Maybe<{ siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
 
+export type HomePageDataQueryVariables = {};
+
+
+export type HomePageDataQuery = { allSanityPortfolio: { edges: Array<{ node: Pick<SanityPortfolio, 'id' | '_rawAbout'> }> } };
+
 export type PortfolioPageDataQueryVariables = {};
 
 
@@ -5164,7 +5169,7 @@ export type SanityWorksQueryQueryVariables = {
 };
 
 
-export type SanityWorksQueryQuery = { sanityWork: Maybe<Pick<SanityWork, 'title'>> };
+export type SanityWorksQueryQuery = { sanityWork: Maybe<Pick<SanityWork, 'title' | '_rawBody'>> };
 
 export type GatsbySanityImageFixedFragment = Pick<SanityImageFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
 

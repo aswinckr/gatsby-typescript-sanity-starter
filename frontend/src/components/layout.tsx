@@ -16,6 +16,8 @@ import Header from './header';
 
 interface LayoutProps {
   children: ReactNode;
+  shouldShowPortfolio?: boolean;
+  params?: string;
 }
 
 interface LayoutState {
@@ -45,6 +47,7 @@ export default class Layout extends React.Component<LayoutProps, LayoutState> {
               <Header
                 toggleMode={(context as any).toggleMode}
                 darkMode={(context as any).state.darkMode}
+                {...this.props}
               />
               <div
                 style={{
@@ -55,11 +58,7 @@ export default class Layout extends React.Component<LayoutProps, LayoutState> {
                 }}
               >
                 <main>{this.props.children}</main>
-                <footer>
-                  © {new Date().getFullYear()}, Built with
-                  {` `}
-                  <a href="https://www.gatsbyjs.org">Gatsby</a>
-                </footer>
+                <footer></footer>
               </div>
             </>
           </ThemeProvider>

@@ -4,6 +4,7 @@ import { graphql } from 'gatsby';
 import { useScrollPosition } from '@n8tb1t/use-scroll-position';
 import BlockContent from '@sanity/block-content-to-react';
 import { Link as ScrollLink, Element } from 'react-scroll';
+import Fade from 'react-reveal/Fade';
 import { device } from '../utils';
 import {
   linkColor,
@@ -11,7 +12,6 @@ import {
   backgroundColor,
   contrastBackgroundColor,
   borderLineColor,
-  primaryColor,
 } from '../components/colors';
 // import CompanyLogo from '../components/companyLogos';
 
@@ -57,6 +57,7 @@ const IndexPageStyles = styled.div`
         list-style: none;
         padding-left: 32px;
         margin-bottom: 32px;
+        font-weight: 600;
       }
     }
   }
@@ -168,7 +169,7 @@ const IndexPageStyles = styled.div`
     .what-people-say-testimonial {
       /* width: 50%; */
       padding-right: 16px;
-      font-style: italic;
+      font-size: 0.9em;
       background: #333446;
       padding: 92px 32px 32px 32px;
       border-radius: 8px;
@@ -205,7 +206,7 @@ const sidebarNavElements = [
     scrollKey: 'aboutMe',
   },
   {
-    title: 'My Overall Work Experience',
+    title: 'Overall Work Experience',
     scrollKey: 'overallWorkExperience',
   },
   {
@@ -213,15 +214,15 @@ const sidebarNavElements = [
     scrollKey: null,
   },
   {
-    title: 'Nice things people say',
+    title: 'Nice Things People Say',
     scrollKey: 'whatPeopleSay',
   },
   {
-    title: 'What I am like to work with',
+    title: 'What Am I Like To Work With',
     scrollKey: 'cultureFit',
   },
   {
-    title: 'So, Are we moving forward?',
+    title: 'So, Are We Moving Forward?',
     scrollKey: 'nextSteps',
   },
 ];
@@ -264,7 +265,7 @@ const Index = ({
 
   if (accessGrantKeywords?.includes(referrer)) {
     return (
-      <Layout>
+      <Layout shouldShowPortfolio={true} params={location.search}>
         <IndexPageStyles>
           <h1 className="portfoilo-header">Aswin Ranganathan's Portfolio</h1>
           <div className="portfolio-summary">
@@ -314,40 +315,46 @@ const Index = ({
             </ul>
           </div>
           <div className="portfolio-preview">
-            <Element name="aboutMe">
-              <section className="about">
-                <h2>Aloha, {referrer}!</h2>
-                <BlockContent blocks={portfolio._rawAbout} />
-              </section>
-            </Element>
-            <Element name="overallWorkExperience">
-              <section className="overall-experience">
-                <h2>My Overeall Experience</h2>
-                <ul>
-                  <>
-                    <span className="circle circle-first-child">?</span>
-                    <li
-                      style={{ opacity: 0.5 }}
-                    >{`Lead Product Designer, ${referrer}?`}</li>
-                  </>
-                  {allPortfolios[0].node.experience?.map((experience, key) => {
-                    return (
-                      <span key={key}>
-                        <span className="circle">
-                          <img
-                            src={experience?.companyLogo?.asset?.fluid?.src!}
-                            alt={experience?.company!}
-                          />
-                        </span>
-                        <li key={key}>
-                          {experience?.designation}, {experience?.company}
-                        </li>
-                      </span>
-                    );
-                  })}
-                </ul>
-              </section>
-            </Element>
+            <Fade cascade>
+              <Element name="aboutMe">
+                <section className="about">
+                  <h2>Aloha, {referrer}!</h2>
+                  <BlockContent blocks={portfolio._rawAbout} />
+                </section>
+              </Element>
+              <Element name="overallWorkExperience">
+                <section className="overall-experience">
+                  <h2>Overall Work Experience</h2>
+                  <ul>
+                    <>
+                      <span className="circle circle-first-child">?</span>
+                      <li
+                        style={{ opacity: 0.5 }}
+                      >{`Lead Product Designer, ${referrer}?`}</li>
+                    </>
+                    {allPortfolios[0].node.experience?.map(
+                      (experience, key) => {
+                        return (
+                          <span key={key}>
+                            <span className="circle">
+                              <img
+                                src={
+                                  experience?.companyLogo?.asset?.fluid?.src!
+                                }
+                                alt={experience?.company!}
+                              />
+                            </span>
+                            <li key={key}>
+                              {experience?.designation}, {experience?.company}
+                            </li>
+                          </span>
+                        );
+                      }
+                    )}
+                  </ul>
+                </section>
+              </Element>
+            </Fade>
 
             {allWork.map((work, index) => (
               <Element
@@ -361,62 +368,70 @@ const Index = ({
                 <section
                   className={`work-section work-section-${work?.companyName}`}
                 >
-                  <h2>My Work at Grab</h2>
-                  <div className="key-achievements">
-                    <h4>Key Achievements</h4>
-                    <BlockContent blocks={allWork[index].keyAchievements} />
-                  </div>
+                  <Fade>
+                    <h2>My Work at Grab</h2>
+                    <div className="key-achievements">
+                      <h4>Key Achievements</h4>
+                      <BlockContent blocks={allWork[index].keyAchievements} />
+                    </div>
+                  </Fade>
 
                   {work.work?.map((workThumbnail, indexThumbnail) => {
                     if (workThumbnail && workThumbnail === null) return;
                     else
                       return (
-                        <Link
-                          to={workThumbnail?.slug?.current!}
-                          key={indexThumbnail}
-                        >
-                          <div
-                            className="portfolio-showcase-wrapper soft-shadow grow"
-                            style={{
-                              background: `${
-                                workThumbnail?.themeColor
-                                  ? workThumbnail?.themeColor?.hex
-                                  : '#f5f5f5'
-                              }`,
-                            }}
+                        <Fade key={indexThumbnail}>
+                          <Link
+                            to={`${workThumbnail?.slug?.current!}/${
+                              location.search
+                            }`}
                           >
-                            <h2>{workThumbnail?.title}</h2>
-                            <div className="portfolio-preview-problem">
-                              <h4>Problem</h4>
-                              <BlockContent
-                                blocks={workThumbnail?.problemStatement}
-                              />
-                            </div>
-                            <div className="portfolio-preview-solution">
-                              <h4>Solution & Impact</h4>
-                              <BlockContent blocks={workThumbnail?.solution} />
-                            </div>
-
-                            <div className="portfolio-preview-image ">
-                              {workThumbnail?.mainImage && (
-                                <img
-                                  src={
-                                    portfolio.work &&
-                                    portfolio.work[index]?.work &&
-                                    portfolio.work[index]?.work[indexThumbnail]
-                                      ?.mainImage?.asset?.fluid?.src !== null
-                                      ? portfolio.work[index]?.work[
-                                          indexThumbnail
-                                        ]?.mainImage?.asset?.fluid?.src
-                                      : 'https://placehold.it/800x500'
-                                  }
-                                  alt="Placeholder Image"
-                                  className="soft-shadow"
+                            <div
+                              className="portfolio-showcase-wrapper soft-shadow grow"
+                              style={{
+                                background: `${
+                                  workThumbnail?.themeColor
+                                    ? workThumbnail?.themeColor?.hex
+                                    : '#f5f5f5'
+                                }`,
+                              }}
+                            >
+                              <h2>{workThumbnail?.title}</h2>
+                              <div className="portfolio-preview-problem">
+                                <h4>Problem</h4>
+                                <BlockContent
+                                  blocks={workThumbnail?.problemStatement}
                                 />
-                              )}
+                              </div>
+                              <div className="portfolio-preview-solution">
+                                <h4>Solution & Impact</h4>
+                                <BlockContent
+                                  blocks={workThumbnail?.solution}
+                                />
+                              </div>
+
+                              <div className="portfolio-preview-image ">
+                                {workThumbnail?.mainImage && (
+                                  <img
+                                    src={
+                                      portfolio.work &&
+                                      portfolio.work[index]?.work &&
+                                      portfolio.work[index]?.work[
+                                        indexThumbnail
+                                      ]?.mainImage?.asset?.fluid?.src !== null
+                                        ? portfolio.work[index]?.work[
+                                            indexThumbnail
+                                          ]?.mainImage?.asset?.fluid?.src
+                                        : 'https://placehold.it/800x500'
+                                    }
+                                    alt="Placeholder Image"
+                                    className="soft-shadow"
+                                  />
+                                )}
+                              </div>
                             </div>
-                          </div>
-                        </Link>
+                          </Link>
+                        </Fade>
                       );
                   })}
                 </section>
@@ -426,53 +441,68 @@ const Index = ({
               <section className="what-people-say">
                 <h2>Nice Things People Say</h2>
                 {allTestimonials.map((testimonial, index) => (
-                  <div
-                    className="what-people-say-testimonial soft-shadow grow"
-                    key={index}
-                  >
-                    <div className="author-photo">
-                      <img
-                        src={
-                          portfolio.testimonials !== null
-                            ? portfolio.testimonials[index]?.authorPhoto?.asset
-                                ?.fluid?.src!
-                            : 'https://placehold.it/50x50'
-                        }
-                        alt={testimonial.author!}
-                        width="100"
-                        height="100"
-                      />
+                  <Fade key={index}>
+                    <div className="what-people-say-testimonial soft-shadow grow">
+                      <div className="author-photo">
+                        <img
+                          src={
+                            portfolio.testimonials !== null
+                              ? portfolio.testimonials[index]?.authorPhoto
+                                  ?.asset?.fluid?.src!
+                              : 'https://placehold.it/50x50'
+                          }
+                          alt={testimonial.author!}
+                          width="100"
+                          height="100"
+                        />
+                      </div>
+                      <span key={index}>
+                        <BlockContent blocks={testimonial.statement} />
+                        <p className="what-people-say-author">
+                          {testimonial.author}
+                        </p>
+                      </span>
                     </div>
-                    <span key={index}>
-                      <BlockContent blocks={testimonial.statement} />
-                      <p className="what-people-say-author">
-                        {testimonial.author}
-                      </p>
-                    </span>
-                  </div>
+                  </Fade>
                 ))}
               </section>
             </Element>
             <Element name="cultureFit">
-              <section className="what-am-i-like-to-work-with">
-                <h2>What Am I Like to Work With</h2>
-                <BlockContent blocks={portfolio._rawMyPreferences} />
-              </section>
+              <Fade>
+                <section className="what-am-i-like-to-work-with">
+                  <h2>What Am I Like to Work With</h2>
+                  <BlockContent blocks={portfolio._rawMyPreferences} />
+                </section>
+              </Fade>
             </Element>
             <Element name="nextSteps">
-              <section className="so-are-we-moving-forward">
-                <h2>So are we moving forward?</h2>
-                <p>
-                  If you liked what you saw, write to me at me@aswin.design and
-                  you are on my priority list
-                </p>
-              </section>
+              <Fade>
+                <section className="so-are-we-moving-forward">
+                  <h2>So, Are We Moving Forward?</h2>
+                  <p>
+                    If you liked what you saw, write to me at me@aswin.design
+                    and you are on my priority list
+                  </p>
+                </section>
+              </Fade>
             </Element>
           </div>
         </IndexPageStyles>
       </Layout>
     );
-  } else return <p>Sorry you are not authorized</p>;
+  } else
+    return (
+      <>
+        <Layout>
+          <h1>⚠️</h1>
+          <p>
+            Sorry, you need an invitation to view this page. If you have been
+            invited already, please visit the URL sent to your official email
+            communication.
+          </p>
+        </Layout>
+      </>
+    );
 };
 
 export const query = graphql`

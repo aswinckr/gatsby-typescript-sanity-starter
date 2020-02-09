@@ -223,6 +223,8 @@ const HeaderStyles = styled.header`
 interface HeaderProps {
   darkMode: boolean;
   toggleMode: () => void;
+  shouldShowPortfolio?: boolean;
+  params?: string;
 }
 
 interface HeaderState {
@@ -268,6 +270,14 @@ class Header extends Component<HeaderProps, HeaderState> {
             <Link to="/about/" activeStyle={{ opacity: 1 }}>
               About
             </Link>
+            {this.props.shouldShowPortfolio && (
+              <Link
+                to={`/portfolio/${this.props.params}`}
+                activeStyle={{ opacity: 1 }}
+              >
+                Portfolio
+              </Link>
+            )}
 
             {/* <form onSubmit={this.handleSubmit}>
               <input

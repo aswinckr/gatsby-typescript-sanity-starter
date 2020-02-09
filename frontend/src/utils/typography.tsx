@@ -10,7 +10,7 @@ const typography = new Typography({
   // googleFonts: [{ name: 'Barlow', styles: ['400', '700'] }],
   headerWeight: 600,
   bodyWeight: 400,
-  scaleRatio: 2.25,
+  scaleRatio: 3.25,
   overrideStyles: () => ({
     h1: {
       fontSize: '3em',
@@ -19,7 +19,6 @@ const typography = new Typography({
     h2: {
       letterSpacing: '-.01em',
       fontWeight: 600,
-      color: linkColor,
     },
     a: {
       fontWeight: 600,
